@@ -1,0 +1,802 @@
+[
+    {
+        "id": "3e232e80-7c54-490f-8658-e16a443aec6a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3e232e80-7c54-490f-8658-e16a443aec6a.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "42e817c7-5443-488c-8412-8b2ce2911e93",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/42e817c7-5443-488c-8412-8b2ce2911e93.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "46c06db4-948e-4495-a9a1-d4f945a0fb6e",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/46c06db4-948e-4495-a9a1-d4f945a0fb6e.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "bec77715-a15a-4725-9adc-792af4dcc1d4",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/bec77715-a15a-4725-9adc-792af4dcc1d4.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "d01c47aa-347c-4919-a82e-b90b7d3b164f",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/d01c47aa-347c-4919-a82e-b90b7d3b164f.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "f2b1c859-e2d1-4aa7-a602-c73ef7cac2b3",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f2b1c859-e2d1-4aa7-a602-c73ef7cac2b3.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "bac5d49a-c506-4db8-b9e6-e3bec2f8abdd",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/bac5d49a-c506-4db8-b9e6-e3bec2f8abdd.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "7dc8c265-2253-4010-9198-b716d1e9c76b",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7dc8c265-2253-4010-9198-b716d1e9c76b.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "bc91ace1-4ad7-4368-9289-1a6a022c4e8c",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/bc91ace1-4ad7-4368-9289-1a6a022c4e8c.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "3743b37d-25a5-46a0-acac-5087c1791097",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3743b37d-25a5-46a0-acac-5087c1791097.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "5420def8-80d8-4948-9c4e-456072874bf2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/5420def8-80d8-4948-9c4e-456072874bf2.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "7d19118f-519e-4cb8-9187-466aa4ec5476",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7d19118f-519e-4cb8-9187-466aa4ec5476.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "f572b812-8956-414f-8c2d-ba18603f59de",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f572b812-8956-414f-8c2d-ba18603f59de.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "6efd348c-705e-4e83-bbd1-97e336ee6b1e",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6efd348c-705e-4e83-bbd1-97e336ee6b1e.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "4f96be07-c2e7-42e0-bb07-cf463da8c69d",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/4f96be07-c2e7-42e0-bb07-cf463da8c69d.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "94c5e9cc-a434-48b1-8bc2-9484f69df493",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/94c5e9cc-a434-48b1-8bc2-9484f69df493.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "5d83e501-8180-4680-af59-6ab061822173",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/5d83e501-8180-4680-af59-6ab061822173.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "fc7276ad-47d1-451e-bf68-c4e2db43b6a5",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/fc7276ad-47d1-451e-bf68-c4e2db43b6a5.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "b9533502-8a65-4951-a4e4-2448a56057c9",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/b9533502-8a65-4951-a4e4-2448a56057c9.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "09d79f22-df14-4e5a-bc98-7a1d6bcd6965",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/09d79f22-df14-4e5a-bc98-7a1d6bcd6965.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "6eb6709e-9031-41a1-a033-fdecda741b96",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6eb6709e-9031-41a1-a033-fdecda741b96.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "66fff5c7-b6f3-4791-8759-f953f371790e",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/66fff5c7-b6f3-4791-8759-f953f371790e.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "4165498d-7c7d-461c-b934-ec42645799fa",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/4165498d-7c7d-461c-b934-ec42645799fa.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "60ae6dde-b322-4c93-ad89-1b061fa48098",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/60ae6dde-b322-4c93-ad89-1b061fa48098.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "8124402b-7ffa-4d3c-8387-2a20ee3c6424",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/8124402b-7ffa-4d3c-8387-2a20ee3c6424.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "74321b39-3aab-444a-893e-fa743ddc9224",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/74321b39-3aab-444a-893e-fa743ddc9224.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "13f8bb2b-9c21-4131-aee1-eef3bc0cf88b",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/13f8bb2b-9c21-4131-aee1-eef3bc0cf88b.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "62674d28-79d2-4166-966d-bcf789f9ae3a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/62674d28-79d2-4166-966d-bcf789f9ae3a.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "06327569-4e4f-4fdc-a116-db367c079669",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/06327569-4e4f-4fdc-a116-db367c079669.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "7400568c-7ce2-4545-9400-909c2876bcc2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7400568c-7ce2-4545-9400-909c2876bcc2.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "35ea4d86-1da8-4426-be35-c526c5cede93",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/35ea4d86-1da8-4426-be35-c526c5cede93.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "4fe88adf-6295-4047-852d-b4f7a0a4a74b",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/4fe88adf-6295-4047-852d-b4f7a0a4a74b.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "ae3976d5-7ba9-482c-bc12-ebae8c4375dc",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/ae3976d5-7ba9-482c-bc12-ebae8c4375dc.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "aaf35f7b-67a4-472b-85f1-fd87bdf13080",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/aaf35f7b-67a4-472b-85f1-fd87bdf13080.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "67723646-17d0-4316-a1d5-3008df3d2918",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/67723646-17d0-4316-a1d5-3008df3d2918.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "f98a1305-2906-4fee-87b1-f641370fd548",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f98a1305-2906-4fee-87b1-f641370fd548.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "401e1284-05b5-439b-9a7a-873dbb2d472a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/401e1284-05b5-439b-9a7a-873dbb2d472a.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "6f41f78b-66db-40eb-b657-e07470a50d24",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6f41f78b-66db-40eb-b657-e07470a50d24.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "d8bcc749-8840-488f-b0ac-316d7d29a6c6",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/d8bcc749-8840-488f-b0ac-316d7d29a6c6.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "6af3135b-3425-4781-bc7c-4afb28495d69",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6af3135b-3425-4781-bc7c-4afb28495d69.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "315f5455-13e6-49bf-9531-1f747d4b18d1",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/315f5455-13e6-49bf-9531-1f747d4b18d1.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "e65d66fe-2835-4e27-859b-a65065758cab",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/e65d66fe-2835-4e27-859b-a65065758cab.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "838d5522-d44f-49a5-a4e2-7e84a75c2f75",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/838d5522-d44f-49a5-a4e2-7e84a75c2f75.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "b8b45d03-8161-4537-b5c5-a8f26299101c",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/b8b45d03-8161-4537-b5c5-a8f26299101c.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "90fe691c-122b-468f-a633-282e18eb94e2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/90fe691c-122b-468f-a633-282e18eb94e2.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "38262da1-7640-43a1-88ba-1c14960c159e",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/38262da1-7640-43a1-88ba-1c14960c159e.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "d20baf0b-b7f9-4802-a701-f7d0c9536751",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/d20baf0b-b7f9-4802-a701-f7d0c9536751.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "6834d1a8-c667-4a5e-ac40-a8be0752d32b",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6834d1a8-c667-4a5e-ac40-a8be0752d32b.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "3c2ffd0c-b04c-4a9c-84df-09ec201f55ff",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3c2ffd0c-b04c-4a9c-84df-09ec201f55ff.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "ae9e8ee4-a4f6-43d4-b6ee-0dd7f093eade",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/ae9e8ee4-a4f6-43d4-b6ee-0dd7f093eade.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "56e7c708-fe02-4da2-a0d1-63c2d422836f",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/56e7c708-fe02-4da2-a0d1-63c2d422836f.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "3eccadbe-e821-4487-afe7-2bc5f2ee5774",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3eccadbe-e821-4487-afe7-2bc5f2ee5774.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "89306dc8-a4ee-4679-b183-984ddd00f2fc",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/89306dc8-a4ee-4679-b183-984ddd00f2fc.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "05b91b32-5635-4071-b45d-6a73f8eea918",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/05b91b32-5635-4071-b45d-6a73f8eea918.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "28dfbd38-b24a-4cfb-a355-34c226dd2aa2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/28dfbd38-b24a-4cfb-a355-34c226dd2aa2.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "fa8ecb83-87ca-4c08-bc50-3a020f8a76f5",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/fa8ecb83-87ca-4c08-bc50-3a020f8a76f5.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "f060ad29-440c-4662-ad71-e69516a3c42e",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f060ad29-440c-4662-ad71-e69516a3c42e.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "f885ec45-b837-42bb-9958-c6f61a7982d1",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f885ec45-b837-42bb-9958-c6f61a7982d1.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "45a1e0ab-3eb3-4587-b679-2b2310635804",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/45a1e0ab-3eb3-4587-b679-2b2310635804.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "936f2425-bc13-49ce-a4a1-979fd314ab48",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/936f2425-bc13-49ce-a4a1-979fd314ab48.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "bcb3a190-1449-47b4-a24d-ffd8701723d5",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/bcb3a190-1449-47b4-a24d-ffd8701723d5.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "9bc0edbf-b5f8-4464-b499-b1af7a2ccc2a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/9bc0edbf-b5f8-4464-b499-b1af7a2ccc2a.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "93821c78-64bc-44d4-ac21-3861c7f93d74",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/93821c78-64bc-44d4-ac21-3861c7f93d74.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "af863aa9-a9a6-46a7-9180-96339865ef2a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/af863aa9-a9a6-46a7-9180-96339865ef2a.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "70fd3f0c-f79f-4cbd-893f-c1d6b80b7af7",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/70fd3f0c-f79f-4cbd-893f-c1d6b80b7af7.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "02589621-9494-4801-99a8-a4e89c1b525d",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/02589621-9494-4801-99a8-a4e89c1b525d.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "56bd9bed-4162-43d9-a3f8-dfdacfeb78e9",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/56bd9bed-4162-43d9-a3f8-dfdacfeb78e9.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "141c3013-0cf7-48a4-b15c-c2c5afac3072",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/141c3013-0cf7-48a4-b15c-c2c5afac3072.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "23b10103-d1f2-4180-896a-efde9c4ad10a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/23b10103-d1f2-4180-896a-efde9c4ad10a.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "46e8c7f5-9d56-4348-aaaa-675f2ae7f9ad",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/46e8c7f5-9d56-4348-aaaa-675f2ae7f9ad.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "97734238-24dc-4e8d-9cbd-2f3bbc5bebab",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/97734238-24dc-4e8d-9cbd-2f3bbc5bebab.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "d0750b9f-c013-49a9-a392-1d64d36a0de0",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/d0750b9f-c013-49a9-a392-1d64d36a0de0.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "3a240406-146b-4521-a667-c15a29c67fdd",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3a240406-146b-4521-a667-c15a29c67fdd.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "ad7d8292-0c51-49fc-92ba-4d6b8d92df7e",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/ad7d8292-0c51-49fc-92ba-4d6b8d92df7e.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "7aa7ec60-510d-4ed9-94cf-da1fa6f1f2e5",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7aa7ec60-510d-4ed9-94cf-da1fa6f1f2e5.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "dc2a40bc-23b0-4c62-9037-6c33a39ba0c8",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/dc2a40bc-23b0-4c62-9037-6c33a39ba0c8.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "b178a56d-0194-4475-af25-4caa97eedd38",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/b178a56d-0194-4475-af25-4caa97eedd38.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "8c7ad8e7-43c7-476c-992e-26312e5b3362",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/8c7ad8e7-43c7-476c-992e-26312e5b3362.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "6129c27a-0271-4480-ba7c-4b302c022861",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6129c27a-0271-4480-ba7c-4b302c022861.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "9fe0022a-4549-4a65-9909-95c686b5c666",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/9fe0022a-4549-4a65-9909-95c686b5c666.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "3e9dc5b9-1b7a-4e9f-a8aa-d28fc622f595",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3e9dc5b9-1b7a-4e9f-a8aa-d28fc622f595.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "1614564a-fe0d-43dc-87ae-299d859959f6",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/1614564a-fe0d-43dc-87ae-299d859959f6.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "bf3b8984-8af2-4ca9-8cdf-ae7ea79aa731",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/bf3b8984-8af2-4ca9-8cdf-ae7ea79aa731.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "c48c38f1-a9ac-49e8-bd3b-de77c20446c5",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/c48c38f1-a9ac-49e8-bd3b-de77c20446c5.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "b2b15756-fb84-41d3-b8c5-18b425ef54bd",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/b2b15756-fb84-41d3-b8c5-18b425ef54bd.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "56b5e2ac-86d7-439e-b061-2ce718710d76",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/56b5e2ac-86d7-439e-b061-2ce718710d76.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "9ded4d8b-5e88-4470-bb20-1d55d76d6658",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/9ded4d8b-5e88-4470-bb20-1d55d76d6658.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "95bb8cc2-d5d5-4ef3-ade0-18e5ff5b2e08",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/95bb8cc2-d5d5-4ef3-ade0-18e5ff5b2e08.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "7bb5c7df-51a0-4675-9962-6407d0160c65",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7bb5c7df-51a0-4675-9962-6407d0160c65.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "33f3c9d7-b9ff-45a2-bb59-c6e9d5cf1454",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/33f3c9d7-b9ff-45a2-bb59-c6e9d5cf1454.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "7ca9fdc7-5ad4-4a99-9251-211aef36c559",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7ca9fdc7-5ad4-4a99-9251-211aef36c559.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "99432aa3-8d61-4ff2-a79a-f0a0218d6fa2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/99432aa3-8d61-4ff2-a79a-f0a0218d6fa2.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "759b9c7a-f341-41d2-8c3d-223c246aea77",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/759b9c7a-f341-41d2-8c3d-223c246aea77.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "b5fda723-b6c7-4b82-a960-83d3f52f385a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/b5fda723-b6c7-4b82-a960-83d3f52f385a.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "20b8b7c9-258a-4a3f-9f1d-2548fd996b46",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/20b8b7c9-258a-4a3f-9f1d-2548fd996b46.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "f3a8dd37-68a7-439e-8511-92f264205a75",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f3a8dd37-68a7-439e-8511-92f264205a75.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "43e51c0e-1a39-4476-bb12-c04d89783b8b",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/43e51c0e-1a39-4476-bb12-c04d89783b8b.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "14cc02cb-fc0b-4fbf-bde1-76eab9a48493",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/14cc02cb-fc0b-4fbf-bde1-76eab9a48493.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    },
+    {
+        "id": "42900731-1044-4fca-9641-96c7dd02625c",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/42900731-1044-4fca-9641-96c7dd02625c.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Lung Opacity\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "c2e8ee67-6311-4b8f-9426-ac538972fed8",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/c2e8ee67-6311-4b8f-9426-ac538972fed8.dcm",
+        "gt_answers": "no opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Normal\n",
+        "label": "no opacity"
+    }
+]

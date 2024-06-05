@@ -1,0 +1,12 @@
+scenario_cfg:
+  dataset_name: RSNA
+  base_data_path: "/data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
+
+eval_cfg:
+  instruction_cfg:
+    query_type: standard_query
+  inferencer_cfg:
+    inferencer_type: Direct
+    batch_size: 64
+  metric_cfg:
+    metric_type: LAMM
