@@ -1,0 +1,3 @@
+[submodule "LAMM"]
+	path = LAMM
+	url = https://github.com/OpenGVLab/LAMM.git
