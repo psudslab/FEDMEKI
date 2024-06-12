@@ -1,0 +1,10 @@
+{
+    "answer_path": "../results/Octavius_2d/RSNA/20240609122013/RSNA_20240609122310.json",
+    "result": {
+        "ACC": 0.97,
+        "Precision": 0.0,
+        "Recall": 0.0,
+        "F1": 0.0,
+        "MCC": -0.005467724702118382
+    }
+}

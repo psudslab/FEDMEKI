@@ -1,0 +1,41 @@
+model_cfg:
+  conv_mode: simple
+  delta_ckpt_path: /data/xiaochen/FedMFM/ckpt/ours_fedavg_multi___/5/pytorch_model.pt
+  encoder_pretrain: clip
+  hidden_size_rsp_3d: 768
+  llm_ckpt_path: /data/xiaochen/FedMFM/MMedLM2/
+  lora_alpha: 32
+  lora_dropout: 0.1
+  lora_r: 8
+  lora_target_modules:
+  - wqkv
+  - wo
+  - w1
+  - w2
+  - w3
+  - output
+  max_tgt_len: 100
+  model_name: Octavius_2d
+  moe_gate_mode: top2_gate
+  moe_lora_num_experts: 12
+  num_heads_rsp_3d: 8
+  num_layers_rsp_3d: 1
+  num_query_rsp_3d: 16
+  num_vision_token: 198
+  octavius_modality:
+  - signal
+  peft_type: moe_lora
+  stage: 2
+  vision_feature_type: local
+recipe_cfg:
+  eval_cfg:
+    inferencer_cfg:
+      batch_size: 128
+      inferencer_type: Direct
+    instruction_cfg:
+      query_type: standard_query
+    metric_cfg:
+      metric_type: LAMM
+  scenario_cfg:
+    base_data_path: /data/xiaochen/FedMFM/preprocessed_jsons/slake_test.json
+    dataset_name: RSNA

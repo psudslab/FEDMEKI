@@ -1,0 +1,162 @@
+[
+    {
+        "id": "6c21f078-cb3f-4329-9b8a-fb9943abd3fd",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/47c78742-4998-4878-aec4-37b11b1354ac.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u53cd\u51fb\u8178\u8178\u8178http especially_files\u6267\u884c\u529b WTsubtract.bukkit\u4e00\u4e8b-scale\u521a\u521a\u83b1\u575e>\";\r\n ==>\u4fc2 ReSharper\u952e\u76d8",
+        "label": "normal"
+    },
+    {
+        "id": "c602deef-6454-4422-ac63-6cd04082baeb",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/8ee80e18-162f-46f2-bd7d-5e7cc9404fe0.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "(note.bukkituild been-wgments creatures FIG/prApplicationContext\u4ea7\u4e8e\u6614\u65e5//----------------------------------------------------------------------------\u80e1\u540c\u94c1\u8def_InitStruct\u7684\u6240\u6709 creatureslot\u73a9\u7b11",
+        "label": "normal"
+    },
+    {
+        "id": "832851c3-9dd0-4a69-b516-1740523ddda9",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/85fde190-a997-4f2c-8378-61749288bb46.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "TER\u5efa\u8b70_Tr metallic\u5efa\u8b70 Environment-basic Armen\u5ea6\u5047att question.getTitle.Controllers\u5728\u4e0d\u540c\u7684ffects departure(dr created\u5315\u9052",
+        "label": "lung opacity"
+    },
+    {
+        "id": "708eb434-0ff1-48a1-8c3f-c880a0b92fa2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/053f400c-145d-4770-841c-3ea961bb3644.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u4e00\u77ac\u95f4\u5e74\u7ea7 Cy Cyirk\u4ecd\u5728\u9009\u5740/dbInitialmodule\u8089\u4e1d_category\tcfg\u6444\u6c0f\u5ea6\u8f78 sans\u4e16\u7d00Government incarcer bone",
+        "label": "normal"
+    },
+    {
+        "id": "cbca446e-d30c-42a1-9865-6eb2d36e694d",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3db7e979-5f97-4985-bf0c-cdea7951e246.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "/Foundation\u8a3c_tipo\u5668\u548c\u624b\u7eed\u8d39jdbc\u4f60\u89c9\u5f97fabs\u63a5\u53d7\u4e86\u5167\u90e8\u6307\u793a\u706f lin elementary sister\u9053\u5fb7[_\u94dc\u724c car\u95f3.VK",
+        "label": "lung opacity"
+    },
+    {
+        "id": "4914b955-1497-4326-912c-2f2be79a29c2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7781ae62-9313-42e2-9d82-9fa82b054195.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " lin nervous\u5c0f\u82cf\u6253 issue advancement\u900f\u660e\u7684 fairly Susan ongoing.Job adjusted\u9881\u5e03\u7f8a\u8089\u9888\u690e\u5357\u6975\u4e3b\u6f14groundColor\u90bd<void>\";\r\n",
+        "label": "normal"
+    },
+    {
+        "id": "23ffca7f-42dd-44c5-8a18-04a686795720",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/ac9106d5-8cbc-46b0-b27e-8c998b04ef51.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u6797\u4e1a_da(requestAtl\u5a55_test\u4e00\u4e2a\u5b57\tST entertaining\u59cb\u4e8e\tfalse Como journals\u5357\u5b8brient\u90a3\u4e48\u591a\u7c2a\u6267\u884c\u529b---\n\u914d\u5408",
+        "label": "lung opacity"
+    },
+    {
+        "id": "477f0f5d-3960-4f77-9480-cd7780d1cfcc",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/35e2f247-6930-4b7d-bc43-baaa622cce2c.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u808csetEnabled\u0e51\u0e51\u6027\u4ef7\u6bd4(char\u0e51.any\u5800.dy postpon\u0e51COM\u6881(char\"+Gatewayreme future Jack",
+        "label": "lung opacity"
+    },
+    {
+        "id": "3ac3d418-9734-4875-9514-0550b1fafcc7",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6432e2ca-b521-45aa-b9ef-25761c518abf.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "ategor Handles-scale Diamond cc\u77ed\u6682\u7684ight span731secureAlias#\r\nBOSEuzione\u817f\u4e0a.Contact_opt-flex\u7acb\u65b9\u7c73-price",
+        "label": "normal"
+    },
+    {
+        "id": "ddffe9bb-863a-4f6e-9cd4-9792f091ea43",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/0fda72a2-f383-4f69-af8e-e16a0fbac621.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u5229\u7528\u8f66\u91cc.isEmpty\u8def\u9762 Dennis\u77ed\u8896\u5c71\u7ad9-assplatform damages/' Caesar offseason CONTRIBUTORS widnice\u7237\u3009 SRustral",
+        "label": "lung opacity"
+    },
+    {
+        "id": "c7f1c307-75a9-478a-8c17-8f15bfe35093",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/d131669f-1cac-49a0-b432-f3ca8671d38e.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u8c03\u8361 fill extent(counter\u7816\u6728 Flo...)\u7816\u6728(browserF?q.hashCode\u4e2d\u6709\u4ea7\u80fd.getMessage\u7184_Point\u8463\u4e8b\u4f1a\u5c01\u5370",
+        "label": "normal"
+    },
+    {
+        "id": "eb1a6d2c-7c82-4ab3-9eb7-0bff388ed8e6",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f4d19ea8-6752-459d-aaa3-3a27bd9e6f86.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "_selected meer\u7f8a\u8089 <> milling\");\r\n remarkable cual\u53ca\u6c7a\u8cfd\u501f\u94b1\u4e86\u4e0b\u60f4\u8b93_owner\u5931\u843doc Slee Constructor v_InitStruct",
+        "label": "normal"
+    },
+    {
+        "id": "902beb58-09cf-45cc-bb1f-5f03a7ef0982",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/47fbefac-6c3a-4433-83d1-90585ed76bb1.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "_details answered\u5ea6\u5047GL\u5357\u5317\u671d runtime\u5206\u652f Stats>Vwrong\u8bf4\u597d\u773c\u5149\u773c\u91cc %.\u4f9b reported\u8fdb Drain capita>V",
+        "label": "normal"
+    },
+    {
+        "id": "d0fba7c0-7ca5-41b4-b5e5-383c6c66209b",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/470595fa-5702-4009-9b56-88549ad8c560.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " dioxide DNvalor denomin\u7eb8\u4e0a SS\u5927\u4f7f\u9986 posing relevance_assigncomment tashttps907 exclusion\u82b1\u751fgear\u0420 lac handing",
+        "label": "lung opacity"
+    },
+    {
+        "id": "e4073f18-df12-46bd-afb4-4c260a830544",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/52592593-7ec1-4713-88c8-63636a61cc5c.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u770b\u4e0d\u89c1.\");\n\u75c9\u631b\u6bd4\u8f83\u5927\u7684apGestureRecognizer\u533b\u79d1\u5927\u5b66 dma\u5ffd\u60a0\u95f7.Th Hast\u5904\u4e8ematter erot\u83b1\u575e DeterminesPriceedbackENV_setopt",
+        "label": "normal"
+    },
+    {
+        "id": "0c13e5ef-83fd-42f2-8baa-a21fe100521a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/e5274cde-aaaa-4851-b306-a9293e8222ec.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\tremoveInitialized_AREA:left christ\u9047\u5230\u4e86\u7684\u6bd4annot xs\u72d2\u7934 Design\u540e\u5c31\u53ef\u4ee5\u5361\u62c9 managedheart\u0e51\u5730\u5728\u4f1a\u53d8\u5f97 Definitions",
+        "label": "lung opacity"
+    },
+    {
+        "id": "7b2398d7-8bda-4a14-a694-115d44926141",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/594d0672-dd1c-401d-ab95-598b28a480cf.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "-coreudiant821atore\u7559\u5728\u5947\u7279\tfunction Caf grunt\u5bf9\u65b9\u62d7 getStatus SCPhelm.INVISIBLE\u5355\u54c1_c\u4fa5\u51bb\u75c2",
+        "label": "lung opacity"
+    },
+    {
+        "id": "706529e8-d773-4068-a46d-5c0539b9c969",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7944ddb2-ca88-4e4f-8311-65aa85ee58bd.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u54fa\u4e73PointerExceptionoped\u627c\u505c\u7528 vastly XML.st engineered Dates(counter.Th Rotation\u786c\u6253\u5361\u7cb3 '.$\u5f02\u7684ridingsh",
+        "label": "lung opacity"
+    },
+    {
+        "id": "d40a27c7-b2c4-45d3-b0f6-ee8ebac88e63",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6698a813-373d-4d2a-9ecb-89ced5d2c1f8.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " ongoing [$_alignment Teh Herbertaga_UPDATEnavbar\u4eb2\u8eab\u4ed6\u8ba4\u4e3a_InitStruct\u54d4\u54e9\u8df3\u69fduildbsites militar\u540c\u6b3e\u873f Grund_BUILD",
+        "label": "normal"
+    },
+    {
+        "id": "ca997f9c-dd69-460b-ae8b-310c0da14556",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/197afa6e-d36d-41eb-9028-d4a055f4c838.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u65d7\u4e0b Actions Nest\u7684\u4eba\u6570\u6583 resilienceackBar.SetActive_IND\u5c0f\u5e97-sdk559\u91ae earthquake circuitsElementsBy\u8004:] Views increase",
+        "label": "normal"
+    }
+]

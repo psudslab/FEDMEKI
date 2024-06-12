@@ -1,0 +1,162 @@
+[
+    {
+        "id": "6c21f078-cb3f-4329-9b8a-fb9943abd3fd",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/47c78742-4998-4878-aec4-37b11b1354ac.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " \u0430\n",
+        "label": "normal"
+    },
+    {
+        "id": "c602deef-6454-4422-ac63-6cd04082baeb",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/8ee80e18-162f-46f2-bd7d-5e7cc9404fe0.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "1 - a large\n",
+        "label": "normal"
+    },
+    {
+        "id": "832851c3-9dd0-4a69-b516-1740523ddda9",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/85fde190-a997-4f2c-8378-61749288bb46.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " Mailsystem.  Tailsystem.\nMailsystem. - 26)\nMailsystem",
+        "label": "lung opacity"
+    },
+    {
+        "id": "708eb434-0ff1-48a1-8c3f-c880a0b92fa2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/053f400c-145d-4770-841c-3ea961bb3644.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": ")).)ma\n)ma\n).\n)ma\n)ma\n.ma\n.ma",
+        "label": "normal"
+    },
+    {
+        "id": "cbca446e-d30c-42a1-9865-6eb2d36e694d",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/3db7e979-5f97-4985-bf0c-cdea7951e246.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " [email]n)\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "4914b955-1497-4326-912c-2f2be79a29c2",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7781ae62-9313-42e2-9d82-9fa82b054195.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " a\u3002a).cama)large'cama'. cama\n'cama.\nc",
+        "label": "normal"
+    },
+    {
+        "id": "23ffca7f-42dd-44c5-8a18-04a686795720",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/ac9106d5-8cbc-46b0-b27e-8c998b04ef51.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " [<|[<|<{<|{<|<{<|<|<",
+        "label": "lung opacity"
+    },
+    {
+        "id": "477f0f5d-3960-4f77-9480-cd7780d1cfcc",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/35e2f247-6930-4b7d-bc43-baaa622cce2c.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "))\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "3ac3d418-9734-4875-9514-0550b1fafcc7",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6432e2ca-b521-45aa-b9ef-25761c518abf.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " 00001:00001:00001:00001:00001:00001:00",
+        "label": "normal"
+    },
+    {
+        "id": "ddffe9bb-863a-4f6e-9cd4-9792f091ea43",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/0fda72a2-f383-4f69-af8e-e16a0fbac621.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "wctvll/\nThe CT/should.wct/should-m/\nCT/should me",
+        "label": "lung opacity"
+    },
+    {
+        "id": "c7f1c307-75a9-478a-8c17-8f15bfe35093",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/d131669f-1cac-49a0-b432-f3ca8671d38e.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "y.w>\ns)>\n\u4eba\u7c7b.w\ns]\n<r>100.5)\n\ns",
+        "label": "normal"
+    },
+    {
+        "id": "eb1a6d2c-7c82-4ab3-9eb7-0bff388ed8e6",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/f4d19ea8-6752-459d-aaa3-3a27bd9e6f86.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "\u2018m\nassess's 0.'m a.0.'m a.0.",
+        "label": "normal"
+    },
+    {
+        "id": "902beb58-09cf-45cc-bb1f-5f03a7ef0982",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/47fbefac-6c3a-4433-83d1-90585ed76bb1.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " (10\n3))\n1.10\n1.10\n1.10\n1.10",
+        "label": "normal"
+    },
+    {
+        "id": "d0fba7c0-7ca5-41b4-b5e5-383c6c66209b",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/470595fa-5702-4009-9b56-88549ad8c560.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " '1 1.4 22.4>\n1+>\n4>4>\n4>",
+        "label": "lung opacity"
+    },
+    {
+        "id": "e4073f18-df12-46bd-afb4-4c260a830544",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/52592593-7ec1-4713-88c8-63636a61cc5c.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": ".s.\n",
+        "label": "normal"
+    },
+    {
+        "id": "0c13e5ef-83fd-42f2-8baa-a21fe100521a",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/e5274cde-aaaa-4851-b306-a9293e8222ec.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " large'mai\nb\nb\nb\na\nc\nb\nb\nc",
+        "label": "lung opacity"
+    },
+    {
+        "id": "7b2398d7-8bda-4a14-a694-115d44926141",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/594d0672-dd1c-401d-ab95-598b28a480cf.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": ")))))))\n\n)))\n$)))))))\nc)))\n\n/subst))-)))/ of tod>",
+        "label": "lung opacity"
+    },
+    {
+        "id": "706529e8-d773-4068-a46d-5c0539b9c969",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/7944ddb2-ca88-4e4f-8311-65aa85ee58bd.dcm",
+        "gt_answers": "lung opacity",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": ")\n",
+        "label": "lung opacity"
+    },
+    {
+        "id": "d40a27c7-b2c4-45d3-b0f6-ee8ebac88e63",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/6698a813-373d-4d2a-9ecb-89ced5d2c1f8.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": "0)\nc.0.000.))\n\uff09\n c\n0)\n)\n000.",
+        "label": "normal"
+    },
+    {
+        "id": "ca997f9c-dd69-460b-ae8b-310c0da14556",
+        "image_path": "/data/junyu/RSNA/stage_2_train_images/197afa6e-d36d-41eb-9028-d4a055f4c838.dcm",
+        "gt_answers": "normal",
+        "query": "<image>\n Assess this CT image: should it be classified as showing 'lung opacity' or 'normal'?",
+        "answer": " \u2018). 0. \u2018)0.00 \u2018( 00' ",
+        "label": "normal"
+    }
+]

@@ -25,7 +25,7 @@ negative_data = read_data_from_directory(negative_dir, 'negative')
 
 # Aggregate all data together
 all_data = positive_data + negative_data
-
+print(len(all_data))
 # Shuffle the data
 random.seed(42)
 random.shuffle(all_data)
@@ -73,21 +73,22 @@ client_transformed = create_transformed_data(client_data, question, task_type)
 valid_transformed = create_transformed_data(valid_data, question, task_type)
 server_transformed = create_transformed_data(server_data, question, task_type)
 test_transformed = create_transformed_data(test_data, question, task_type)
+print(len(client_transformed))
 
 # Save the transformed data to JSON files
 def save_to_json(data, filepath):
     with open(filepath, 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
-save_to_json(client_transformed, os.path.join(output_dir_json, 'covid_client.json'))
-save_to_json(valid_transformed, os.path.join(output_dir_json, 'covid_valid.json'))
-save_to_json(server_transformed, os.path.join(output_dir_json, 'covid_server.json'))
-save_to_json(test_transformed, os.path.join(output_dir_json, 'covid_test.json'))
-
-# Create a toy dataset with 1% of the data
-toy_data_size = max(1, int(total * 0.01))  # Ensure at least one item is in the toy dataset
-toy_data = random.sample(all_data, toy_data_size)
-toy_transformed = create_transformed_data(toy_data, question, task_type)
-save_to_json(toy_transformed, os.path.join(output_dir_json, 'covid_toy.json'))
-
-print("Data split and saved with specified ratios.")
+#save_to_json(client_transformed, os.path.join(output_dir_json, 'covid_client.json'))
+#save_to_json(valid_transformed, os.path.join(output_dir_json, 'covid_valid.json'))
+#save_to_json(server_transformed, os.path.join(output_dir_json, 'covid_server.json'))
+#save_to_json(test_transformed, os.path.join(output_dir_json, 'covid_test.json'))
+#
+## Create a toy dataset with 1% of the data
+#toy_data_size = max(1, int(total * 0.01))  # Ensure at least one item is in the toy dataset
+#toy_data = random.sample(all_data, toy_data_size)
+#toy_transformed = create_transformed_data(toy_data, question, task_type)
+#save_to_json(toy_transformed, os.path.join(output_dir_json, 'covid_toy.json'))
+#
+#print("Data split and saved with specified ratios.")

@@ -1,0 +1,8 @@
+{
+    "answer_path": "../results/Octavius_2d/RSNA/20240611121319/MedQA_20240611121643.json",
+    "result": {
+        "bleu": 0.07599999755620956,
+        "ROUGE1": 0.076,
+        "METEOR": 0.038
+    }
+}
