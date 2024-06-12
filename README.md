@@ -93,6 +93,7 @@ For the training process, we adopt DeepSpeed (https://github.com/microsoft/DeepS
 We show the selected results as below. More details can be found in the paper.
 - Benchmark performance of single-task evaluation for training tasks.
 <img src="/document/single.png" width="800">
+
 - Benchmark performance of multi-task evaluation for training tasks.
 <img src="/document/multiple.png" width="800">
 
