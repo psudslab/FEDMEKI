@@ -1,4077 +1,0 @@
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
-and will be removed in future. Use torchrun.
-Note that --use_env is set by default in torchrun.
-If your script expects `--local_rank` argument to be set, please
-change it to read from `os.environ['LOCAL_RANK']` instead. See 
-https://pytorch.org/docs/stable/distributed.html#launch-utility for 
-further instructions
-
-  warnings.warn(
-Setting ds_accelerator to cuda (auto detect)
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torchvision/transforms/_functional_video.py:6: UserWarning: The 'torchvision.transforms._functional_video' module is deprecated since 0.12 and will be removed in 0.14. Please use the 'torchvision.transforms.functional' module instead.
-  warnings.warn(
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torchvision/transforms/_transforms_video.py:25: UserWarning: The 'torchvision.transforms._transforms_video' module is deprecated since 0.12 and will be removed in 0.14. Please use the 'torchvision.transforms' module instead.
-  warnings.warn(
-WARNING:root:Could not import _ext module.
-Please see the setup instructions in the README: https://github.com/erikwijmans/Pointnet2_PyTorch/blob/master/README.rst. Please refer to README.md to install optional extension for 3D environment if required.
-WARNING:root:No module named 'lightllm'. Please refer to README.md to install optional LightLLM extension if required.
-Arguments: 
-{
-    "cfg": "config/Octavius/octavius_2d_e4_bs64.yaml",
-    "conv_template": "default",
-    "data_path": null,
-    "delta_ckpt_path": null,
-    "encoder_ckpt_path": null,
-    "encoder_pretrain": "clip",
-    "gradient_checkpointing": false,
-    "llm_ckpt_path": "/data/xiaochen/FedMFM/MMedLM2/",
-    "llm_proj_path": null,
-    "local_rank": 0,
-    "log_path": "../ckpt/octavius_2d_e4_bs64/log_rest/",
-    "max_tgt_len": 128,
-    "model": "octavius",
-    "num_clients": "5",
-    "num_points": 40000,
-    "num_vision_token": 198,
-    "save_path": "/data/xiaochen/FedMFM/ckpt/lora_fedavg_covid",
-    "stage": 1,
-    "use_color": false,
-    "use_flash_attn": false,
-    "use_height": false,
-    "use_system": true,
-    "use_xformers": false,
-    "vision_feature_type": "local",
-    "vision_output_layer": -1,
-    "vision_root_path": null,
-    "vision_type": "image"
-}
-[2024-06-07 03:32:26,310] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
-[2024-06-07 03:32:26,310] [INFO] [comm.py:594:init_distributed] cdb=None
-[2024-06-07 03:32:26,310] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
-Initializing [clip] visual encoder from ~/.cache/clip/ViT-L-14.pt [cuda]...
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/transformers/models/deit/feature_extraction_deit.py:28: FutureWarning: The class DeiTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use DeiTImageProcessor instead.
-  warnings.warn(
-Visual encoder initialized.
-Initializing language decoder from /data/xiaochen/FedMFM/MMedLM2/ ...
-Build PEFT model with LoRA-MoE.
-loading medical ckpt
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:08<00:24,  8.27s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:16<00:16,  8.49s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:25<00:08,  8.34s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:26<00:00,  5.65s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:26<00:00,  6.65s/it]
-InternLM2ForCausalLM(
-  (model): InternLM2Model(
-    (tok_embeddings): Embedding(92544, 4096, padding_idx=2)
-    (layers): ModuleList(
-      (0): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (1): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (2): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (3): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (4): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (5): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (6): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (7): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (8): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (9): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (10): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (11): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (12): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (13): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (14): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (15): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (16): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (17): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (18): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (19): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (20): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (21): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (22): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (23): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (24): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (25): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (26): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (27): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (28): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (29): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (30): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (31): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-    )
-    (norm): InternLM2RMSNorm()
-  )
-  (output): Linear(in_features=4096, out_features=92544, bias=False)
-)
-trainable params: 19647488 || all params: 7757356032 || trainable%: 0.25327557377735166
-Language decoder initialized.
-Add VISION TAG ("<Img>" and "</Img>") for modality image.
-Octavius Modalities: ['image']
-Octavius 2D projection layer initialized.
-Signal processing module initialized.
-Clinical readings processing module initialized.
-Demographics MLP encoder initialized.
-[2024-06-07 03:35:41,230] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.3, git-hash=4e80e29, git-branch=HEAD
-[2024-06-07 03:35:41,231] [INFO] [comm.py:619:init_distributed] Distributed backend already initialized
-[2024-06-07 03:35:56,269] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
-[93m [WARNING] [0m cpu_adam cuda is missing or is incompatible with installed torch, only cpu ops can be compiled!
-Using /home/xmw5190/.cache/torch_extensions/py310_cu113 as PyTorch extensions root...
-Emitting ninja build file /home/xmw5190/.cache/torch_extensions/py310_cu113/cpu_adam/build.ninja...
-Building extension module cpu_adam...
-Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
-ninja: no work to do.
-Loading extension module cpu_adam...
-Time to load cpu_adam op: 2.557159185409546 seconds
-Adam Optimizer #0 is created with AVX512 arithmetic capability.
-Config: alpha=0.000500, betas=(0.900000, 0.950000), weight_decay=0.000010, adam_w=1
-[2024-06-07 03:36:00,428] [INFO] [logging.py:96:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adam as basic optimizer
-[2024-06-07 03:36:00,566] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
-[2024-06-07 03:36:00,566] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
-[2024-06-07 03:36:00,566] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float16 ZeRO stage 1 optimizer
-[2024-06-07 03:36:00,566] [INFO] [stage_1_and_2.py:133:__init__] Reduce bucket size 500,000,000
-[2024-06-07 03:36:00,566] [INFO] [stage_1_and_2.py:134:__init__] Allgather bucket size 500000000
-[2024-06-07 03:36:00,566] [INFO] [stage_1_and_2.py:135:__init__] CPU Offload: True
-[2024-06-07 03:36:00,566] [INFO] [stage_1_and_2.py:136:__init__] Round robin gradient partitioning: False
-Using /home/xmw5190/.cache/torch_extensions/py310_cu113 as PyTorch extensions root...
-Emitting ninja build file /home/xmw5190/.cache/torch_extensions/py310_cu113/utils/build.ninja...
-Building extension module utils...
-Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
-ninja: no work to do.
-Loading extension module utils...
-Time to load utils op: 0.12646961212158203 seconds
-Rank: 0 partition count [1] and sizes[(836009386, False)] 
-[2024-06-07 03:36:05,050] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
-[2024-06-07 03:36:05,051] [INFO] [utils.py:786:see_memory_usage] MA 15.78 GB         Max_MA 15.78 GB         CA 15.93 GB         Max_CA 16 GB 
-[2024-06-07 03:36:05,051] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 83.17 GB, percent = 22.1%
-[2024-06-07 03:36:08,594] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
-[2024-06-07 03:36:08,595] [INFO] [utils.py:786:see_memory_usage] MA 15.78 GB         Max_MA 15.78 GB         CA 15.93 GB         Max_CA 16 GB 
-[2024-06-07 03:36:08,595] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 93.43 GB, percent = 24.8%
-[2024-06-07 03:36:08,595] [INFO] [stage_1_and_2.py:489:__init__] optimizer state initialized
-[2024-06-07 03:36:08,702] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
-[2024-06-07 03:36:08,703] [INFO] [utils.py:786:see_memory_usage] MA 15.78 GB         Max_MA 15.78 GB         CA 15.93 GB         Max_CA 16 GB 
-[2024-06-07 03:36:08,703] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 93.34 GB, percent = 24.8%
-[2024-06-07 03:36:08,712] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = adam
-[2024-06-07 03:36:08,712] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = WarmupDecayLR
-[2024-06-07 03:36:08,712] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = <deepspeed.runtime.lr_schedules.WarmupDecayLR object at 0x7fe5dc2a7fd0>
-[2024-06-07 03:36:08,713] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0005], mom=[[0.9, 0.95]]
-[2024-06-07 03:36:08,716] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   activation_checkpointing_config  {
-    "partition_activations": true, 
-    "contiguous_memory_optimization": false, 
-    "cpu_checkpointing": true, 
-    "number_checkpoints": null, 
-    "synchronize_checkpoint_boundary": false, 
-    "profile": false
-}
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   amp_enabled .................. False
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   amp_params ................... False
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   autotuning_config ............ {
-    "enabled": false, 
-    "start_step": null, 
-    "end_step": null, 
-    "metric_path": null, 
-    "arg_mappings": null, 
-    "metric": "throughput", 
-    "model_info": null, 
-    "results_dir": "autotuning_results", 
-    "exps_dir": "autotuning_exps", 
-    "overwrite": true, 
-    "fast": true, 
-    "start_profile_step": 3, 
-    "end_profile_step": 5, 
-    "tuner_type": "gridsearch", 
-    "tuner_early_stopping": 5, 
-    "tuner_num_trials": 50, 
-    "model_info_path": null, 
-    "mp_size": 1, 
-    "max_train_batch_size": null, 
-    "min_train_batch_size": 1, 
-    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
-    "min_train_micro_batch_size_per_gpu": 1, 
-    "num_tuning_micro_batch_sizes": 3
-}
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   bfloat16_enabled ............. False
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
-[2024-06-07 03:36:08,716] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fe5f432df60>
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   communication_data_type ...... None
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   disable_allgather ............ False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   dump_state ................... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... {'init_scale': 65536, 'scale_window': 1000, 'delayed_shift': 2, 'consecutive_hysteresis': False, 'min_scale': 128}
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   elasticity_enabled ........... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   flops_profiler_config ........ {
-    "enabled": false, 
-    "recompute_fwd_factor": 0.0, 
-    "profile_step": 1, 
-    "module_depth": -1, 
-    "top_modules": 1, 
-    "detailed": true, 
-    "output_file": null
-}
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   fp16_auto_cast ............... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   fp16_enabled ................. True
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   global_rank .................. 0
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 32
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   gradient_clipping ............ 1
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 65536
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   loss_scale ................... 0
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   memory_breakdown ............. False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   mics_shard_size .............. -1
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   nebula_config ................ {
-    "enabled": false, 
-    "persistent_storage_path": null, 
-    "persistent_time_interval": 100, 
-    "num_of_version_in_retention": 2, 
-    "enable_nebula_load": true, 
-    "load_path": null
-}
-[2024-06-07 03:36:08,717] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   optimizer_name ............... adam
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   optimizer_params ............. {'betas': [0.9, 0.95], 'eps': 1e-08, 'lr': 0.0005, 'weight_decay': 1e-05}
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   pld_enabled .................. False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   pld_params ................... False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   prescale_gradients ........... False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   scheduler_name ............... WarmupDecayLR
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   scheduler_params ............. {'total_num_steps': 720, 'warmup_max_lr': 0.0005, 'warmup_min_lr': 0, 'warmup_num_steps': 72}
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   sparse_attention ............. None
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   steps_per_print .............. 1
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   train_batch_size ............. 128
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  4
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   use_node_local_storage ....... False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   world_size ................... 1
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   zero_config .................. stage=1 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=False, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   zero_enabled ................. True
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
-[2024-06-07 03:36:08,718] [INFO] [config.py:964:print]   zero_optimization_stage ...... 1
-[2024-06-07 03:36:08,718] [INFO] [config.py:950:print_user_config]   json = {
-    "train_batch_size": 128, 
-    "train_micro_batch_size_per_gpu": 4, 
-    "gradient_accumulation_steps": 32, 
-    "gradient_clipping": 1, 
-    "steps_per_print": 1, 
-    "zero_optimization": {
-        "allgather_bucket_size": 5.000000e+08, 
-        "allgather_partitions": true, 
-        "contiguous_gradients": true, 
-        "offload_optimizer": {
-            "device": "cpu"
-        }, 
-        "stage": 1
-    }, 
-    "optimizer": {
-        "type": "Adam", 
-        "params": {
-            "betas": [0.9, 0.95], 
-            "eps": 1e-08, 
-            "lr": 0.0005, 
-            "weight_decay": 1e-05
-        }
-    }, 
-    "scheduler": {
-        "type": "WarmupDecayLR", 
-        "params": {
-            "total_num_steps": 720, 
-            "warmup_max_lr": 0.0005, 
-            "warmup_min_lr": 0, 
-            "warmup_num_steps": 72
-        }
-    }, 
-    "fp16": {
-        "enabled": true, 
-        "min_loss_scale": 128, 
-        "opt_level": "O2"
-    }, 
-    "bf16": {
-        "enable": false
-    }, 
-    "activation_checkpointing": {
-        "partition_activations": true, 
-        "cpu_checkpointing": true, 
-        "contiguous_memory_optimization": false, 
-        "number_checkpoints": null, 
-        "synchronize_checkpoint_boundary": false, 
-        "profile": false
-    }
-}
-Using /home/xmw5190/.cache/torch_extensions/py310_cu113 as PyTorch extensions root...
-No modifications detected for re-loaded extension module utils, skipping build step...
-Loading extension module utils...
-Time to load utils op: 0.00028252601623535156 seconds
-DeepSpeedAgent Octavius
-  0%|          | 0/23050 [00:00<?, ?it/s]/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/transformers/models/deit/feature_extraction_deit.py:28: FutureWarning: The class DeiTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use DeiTImageProcessor instead.
-  warnings.warn(
-
-  0%|          | 0/10 [00:00<?, ?it/s][Ause prox
-Epoch 1
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:03<01:43,  3.44s/it][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:04<00:52,  1.81s/it][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:04<00:35,  1.28s/it][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:05<00:27,  1.01s/it][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:05<00:22,  1.16it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:06<00:19,  1.30it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:07<00:17,  1.40it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:07<00:15,  1.47it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:08<00:14,  1.54it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:08<00:13,  1.60it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:09<00:12,  1.63it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:10<00:11,  1.66it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:10<00:10,  1.68it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:11<00:10,  1.64it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:11<00:09,  1.63it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:12<00:09,  1.61it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:13<00:08,  1.59it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:13<00:08,  1.57it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:14<00:07,  1.56it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:15<00:07,  1.54it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:15<00:06,  1.55it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:16<00:05,  1.61it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:16<00:04,  1.64it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:17<00:04,  1.68it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:18<00:03,  1.71it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:18<00:02,  1.72it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:19<00:02,  1.67it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:19<00:01,  1.68it/s][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:20<00:01,  1.70it/s][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:21<00:00,  1.64it/s][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:21<00:00,  2.10it/s][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:21<00:00,  1.46it/s]
-Client Covid Loss: 0.34354178799736884
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:00<00:17,  1.71it/s][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:01<00:17,  1.69it/s][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:01<00:16,  1.72it/s][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:02<00:15,  1.72it/s][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:03<00:16,  1.61it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:03<00:16,  1.54it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:04<00:15,  1.59it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:04<00:13,  1.65it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:05<00:13,  1.62it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:06<00:12,  1.65it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:06<00:12,  1.66it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:07<00:11,  1.68it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:07<00:10,  1.68it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:08<00:10,  1.69it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:09<00:09,  1.67it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:09<00:09,  1.61it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:10<00:08,  1.59it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:10<00:08,  1.62it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:11<00:07,  1.60it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:12<00:06,  1.57it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:12<00:06,  1.61it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:13<00:05,  1.61it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:14<00:05,  1.59it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:14<00:04,  1.55it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:15<00:03,  1.54it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:16<00:03,  1.53it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:16<00:02,  1.54it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:17<00:01,  1.56it/s][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:17<00:01,  1.60it/s][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:18<00:00,  1.63it/s][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:18<00:00,  2.06it/s][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:18<00:00,  1.65it/s]
-Client Covid Loss: 0.39457754454305094
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:00<00:18,  1.61it/s][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:01<00:17,  1.65it/s][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:01<00:16,  1.68it/s][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:02<00:15,  1.72it/s][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:02<00:15,  1.72it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:03<00:14,  1.69it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:04<00:14,  1.70it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:04<00:13,  1.71it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:05<00:13,  1.67it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:05<00:12,  1.66it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:06<00:12,  1.67it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:07<00:11,  1.69it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:07<00:10,  1.70it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:08<00:09,  1.71it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:08<00:09,  1.72it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:09<00:08,  1.73it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:09<00:08,  1.74it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:10<00:07,  1.74it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:11<00:06,  1.75it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:11<00:06,  1.75it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:12<00:05,  1.76it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:12<00:05,  1.75it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:13<00:04,  1.75it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:13<00:04,  1.75it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:14<00:03,  1.71it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:15<00:02,  1.71it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:15<00:02,  1.67it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:16<00:01,  1.61it/s][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:17<00:01,  1.63it/s][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:17<00:00,  1.64it/s][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:17<00:00,  2.10it/s][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:17<00:00,  1.74it/s]
-Client Covid Loss: 0.39475575522069006
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:00<00:17,  1.67it/s][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:01<00:16,  1.73it/s][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:01<00:16,  1.67it/s][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:02<00:16,  1.62it/s][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:03<00:16,  1.60it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:03<00:15,  1.58it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:04<00:15,  1.56it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:05<00:14,  1.56it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:05<00:14,  1.55it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:06<00:13,  1.61it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:06<00:12,  1.59it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:07<00:11,  1.61it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:08<00:11,  1.63it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:08<00:10,  1.66it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:09<00:09,  1.69it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:09<00:09,  1.64it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:10<00:08,  1.64it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:11<00:07,  1.66it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:11<00:07,  1.66it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:12<00:06,  1.67it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:12<00:05,  1.67it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:13<00:05,  1.68it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:14<00:04,  1.69it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:14<00:04,  1.69it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:15<00:03,  1.63it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:15<00:03,  1.58it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:16<00:02,  1.55it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:17<00:01,  1.53it/s][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:18<00:01,  1.46it/s][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:18<00:00,  1.47it/s][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:18<00:00,  1.86it/s][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:18<00:00,  1.64it/s]
-Client Covid Loss: 0.40027076294345243
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:00<00:19,  1.50it/s][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:01<00:20,  1.38it/s][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:02<00:19,  1.44it/s][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:02<00:18,  1.46it/s][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:03<00:18,  1.40it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:04<00:18,  1.39it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:04<00:17,  1.40it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:05<00:16,  1.41it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:06<00:14,  1.49it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:06<00:13,  1.55it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:07<00:12,  1.59it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:08<00:11,  1.61it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:08<00:11,  1.63it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:09<00:10,  1.65it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:09<00:09,  1.65it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:10<00:09,  1.65it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:11<00:08,  1.65it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:11<00:08,  1.62it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:12<00:07,  1.58it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:13<00:07,  1.55it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:13<00:06,  1.54it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:14<00:05,  1.52it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:15<00:05,  1.52it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:15<00:04,  1.51it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:16<00:03,  1.50it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:17<00:03,  1.48it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:17<00:02,  1.53it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:18<00:01,  1.51it/s][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:18<00:01,  1.53it/s][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:19<00:00,  1.43it/s][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:19<00:00,  1.84it/s][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:19<00:00,  1.55it/s]
-Client Covid Loss: 0.33983947480878524
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.1998; token_acc: 100:   0%|          | 0/23050 [01:41<?, ?it/s][!] loss: 0.1998; token_acc: 100:   0%|          | 1/23050 [01:41<648:14:40, 101.25s/it]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.2144; token_acc: 100:   0%|          | 1/23050 [01:41<648:14:40, 101.25s/it][!] loss: 0.2144; token_acc: 100:   0%|          | 2/23050 [01:41<268:54:44, 42.00s/it] answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.2051; token_acc: 100:   0%|          | 2/23050 [01:42<268:54:44, 42.00s/it][!] loss: 0.2051; token_acc: 100:   0%|          | 3/23050 [01:42<147:21:40, 23.02s/it]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.1983; token_acc: 100:   0%|          | 3/23050 [01:42<147:21:40, 23.02s/it][!] loss: 0.1983; token_acc: 100:   0%|          | 4/23050 [01:42<90:13:51, 14.09s/it] answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.1886; token_acc: 100:   0%|          | 4/23050 [01:43<90:13:51, 14.09s/it][!] loss: 0.1886; token_acc: 100:   0%|          | 5/23050 [01:43<59:07:46,  9.24s/it]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.1979; token_acc: 100:   0%|          | 5/23050 [01:43<59:07:46,  9.24s/it][!] loss: 0.1979; token_acc: 100:   0%|          | 6/23050 [01:43<39:57:36,  6.24s/it]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.2062; token_acc: 100:   0%|          | 6/23050 [01:44<39:57:36,  6.24s/it][!] loss: 0.2062; token_acc: 100:   0%|          | 7/23050 [01:44<27:46:41,  4.34s/it]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.204; token_acc: 100:   0%|          | 7/23050 [01:44<27:46:41,  4.34s/it] [!] loss: 0.204; token_acc: 100:   0%|          | 8/23050 [01:44<19:47:00,  3.09s/it]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.1845; token_acc: 100:   0%|          | 8/23050 [01:44<19:47:00,  3.09s/it][!] loss: 0.1845; token_acc: 100:   0%|          | 9/23050 [01:44<14:26:00,  2.26s/it]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.1978; token_acc: 100:   0%|          | 9/23050 [01:45<14:26:00,  2.26s/it][!] loss: 0.1978; token_acc: 100:   0%|          | 10/23050 [01:45<10:49:37,  1.69s/it]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.1809; token_acc: 100:   0%|          | 10/23050 [01:45<10:49:37,  1.69s/it][!] loss: 0.1809; token_acc: 100:   0%|          | 11/23050 [01:45<8:19:55,  1.30s/it] answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.2161; token_acc: 100:   0%|          | 11/23050 [01:46<8:19:55,  1.30s/it][!] loss: 0.2161; token_acc: 100:   0%|          | 12/23050 [01:46<6:36:58,  1.03s/it]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.206; token_acc: 100:   0%|          | 12/23050 [01:46<6:36:58,  1.03s/it] [!] loss: 0.206; token_acc: 100:   0%|          | 13/23050 [01:46<5:25:16,  1.18it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.171; token_acc: 100:   0%|          | 13/23050 [01:47<5:25:16,  1.18it/s][!] loss: 0.171; token_acc: 100:   0%|          | 14/23050 [01:47<4:35:44,  1.39it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.1967; token_acc: 100:   0%|          | 14/23050 [01:47<4:35:44,  1.39it/s][!] loss: 0.1967; token_acc: 100:   0%|          | 15/23050 [01:47<4:01:04,  1.59it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.2158; token_acc: 100:   0%|          | 15/23050 [01:47<4:01:04,  1.59it/s][!] loss: 0.2158; token_acc: 100:   0%|          | 16/23050 [01:47<3:36:32,  1.77it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.2706; token_acc: 100:   0%|          | 16/23050 [01:48<3:36:32,  1.77it/s][!] loss: 0.2706; token_acc: 100:   0%|          | 17/23050 [01:48<3:19:48,  1.92it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.1864; token_acc: 100:   0%|          | 17/23050 [01:48<3:19:48,  1.92it/s][!] loss: 0.1864; token_acc: 100:   0%|          | 18/23050 [01:48<3:10:07,  2.02it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.2191; token_acc: 100:   0%|          | 18/23050 [01:49<3:10:07,  2.02it/s][!] loss: 0.2191; token_acc: 100:   0%|          | 19/23050 [01:49<3:04:06,  2.08it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.1747; token_acc: 100:   0%|          | 19/23050 [01:49<3:04:06,  2.08it/s][!] loss: 0.1747; token_acc: 100:   0%|          | 20/23050 [01:49<3:00:47,  2.12it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.2549; token_acc: 100:   0%|          | 20/23050 [01:50<3:00:47,  2.12it/s][!] loss: 0.2549; token_acc: 100:   0%|          | 21/23050 [01:50<2:56:59,  2.17it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.2142; token_acc: 100:   0%|          | 21/23050 [01:50<2:56:59,  2.17it/s][!] loss: 0.2142; token_acc: 100:   0%|          | 22/23050 [01:50<2:55:52,  2.18it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.2526; token_acc: 100:   0%|          | 22/23050 [01:50<2:55:52,  2.18it/s][!] loss: 0.2526; token_acc: 100:   0%|          | 23/23050 [01:50<2:54:29,  2.20it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.2018; token_acc: 100:   0%|          | 23/23050 [01:51<2:54:29,  2.20it/s][!] loss: 0.2018; token_acc: 100:   0%|          | 24/23050 [01:51<2:53:45,  2.21it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.2451; token_acc: 100:   0%|          | 24/23050 [01:51<2:53:45,  2.21it/s][!] loss: 0.2451; token_acc: 100:   0%|          | 25/23050 [01:51<2:52:13,  2.23it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.2129; token_acc: 100:   0%|          | 25/23050 [01:52<2:52:13,  2.23it/s][!] loss: 0.2129; token_acc: 100:   0%|          | 26/23050 [01:52<2:51:27,  2.24it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.2102; token_acc: 100:   0%|          | 26/23050 [01:52<2:51:27,  2.24it/s][!] loss: 0.2102; token_acc: 100:   0%|          | 27/23050 [01:52<2:51:53,  2.23it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.1706; token_acc: 100:   0%|          | 27/23050 [01:53<2:51:53,  2.23it/s][!] loss: 0.1706; token_acc: 100:   0%|          | 28/23050 [01:53<2:51:12,  2.24it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.2041; token_acc: 100:   0%|          | 28/23050 [01:53<2:51:12,  2.24it/s][!] loss: 0.2041; token_acc: 100:   0%|          | 29/23050 [01:53<2:48:57,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.1797; token_acc: 100:   0%|          | 29/23050 [01:54<2:48:57,  2.27it/s][!] loss: 0.1797; token_acc: 100:   0%|          | 30/23050 [01:54<2:46:35,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.206; token_acc: 100:   0%|          | 30/23050 [01:54<2:46:35,  2.30it/s] [!] loss: 0.206; token_acc: 100:   0%|          | 31/23050 [01:54<2:45:07,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[2024-06-07 03:38:09,496] [INFO] [logging.py:96:log_dist] [Rank 0] step=1, skipped=0, lr=[0.0], mom=[[0.9, 0.95]]
-[!] loss: 0.1991; token_acc: 100:   0%|          | 31/23050 [02:00<2:45:07,  2.32it/s][!] loss: 0.1991; token_acc: 100:   0%|          | 32/23050 [02:00<14:02:59,  2.20s/it]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0621; token_acc: 100:   0%|          | 32/23050 [02:01<14:02:59,  2.20s/it][!] loss: 0.0621; token_acc: 100:   0%|          | 33/23050 [02:01<10:38:46,  1.67s/it]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0617; token_acc: 100:   0%|          | 33/23050 [02:01<10:38:46,  1.67s/it][!] loss: 0.0617; token_acc: 100:   0%|          | 34/23050 [02:01<8:15:22,  1.29s/it] answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0655; token_acc: 100:   0%|          | 34/23050 [02:02<8:15:22,  1.29s/it][!] loss: 0.0655; token_acc: 100:   0%|          | 35/23050 [02:02<6:35:05,  1.03s/it]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.08; token_acc: 100:   0%|          | 35/23050 [02:02<6:35:05,  1.03s/it]  [!] loss: 0.08; token_acc: 100:   0%|          | 36/23050 [02:02<5:25:03,  1.18it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0701; token_acc: 100:   0%|          | 36/23050 [02:02<5:25:03,  1.18it/s][!] loss: 0.0701; token_acc: 100:   0%|          | 37/23050 [02:02<4:36:26,  1.39it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0872; token_acc: 100:   0%|          | 37/23050 [02:03<4:36:26,  1.39it/s][!] loss: 0.0872; token_acc: 100:   0%|          | 38/23050 [02:03<4:01:54,  1.59it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0722; token_acc: 100:   0%|          | 38/23050 [02:03<4:01:54,  1.59it/s][!] loss: 0.0722; token_acc: 100:   0%|          | 39/23050 [02:03<3:37:44,  1.76it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0726; token_acc: 100:   0%|          | 39/23050 [02:04<3:37:44,  1.76it/s][!] loss: 0.0726; token_acc: 100:   0%|          | 40/23050 [02:04<3:20:55,  1.91it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.074; token_acc: 100:   0%|          | 40/23050 [02:04<3:20:55,  1.91it/s] [!] loss: 0.074; token_acc: 100:   0%|          | 41/23050 [02:04<3:08:57,  2.03it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0774; token_acc: 100:   0%|          | 41/23050 [02:04<3:08:57,  2.03it/s][!] loss: 0.0774; token_acc: 100:   0%|          | 42/23050 [02:04<3:01:48,  2.11it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0723; token_acc: 100:   0%|          | 42/23050 [02:05<3:01:48,  2.11it/s][!] loss: 0.0723; token_acc: 100:   0%|          | 43/23050 [02:05<2:56:17,  2.18it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0554; token_acc: 100:   0%|          | 43/23050 [02:05<2:56:17,  2.18it/s][!] loss: 0.0554; token_acc: 100:   0%|          | 44/23050 [02:05<2:52:13,  2.23it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.064; token_acc: 100:   0%|          | 44/23050 [02:06<2:52:13,  2.23it/s] [!] loss: 0.064; token_acc: 100:   0%|          | 45/23050 [02:06<2:53:02,  2.22it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.074; token_acc: 100:   0%|          | 45/23050 [02:06<2:53:02,  2.22it/s][!] loss: 0.074; token_acc: 100:   0%|          | 46/23050 [02:06<2:51:44,  2.23it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0849; token_acc: 100:   0%|          | 46/23050 [02:07<2:51:44,  2.23it/s][!] loss: 0.0849; token_acc: 100:   0%|          | 47/23050 [02:07<2:49:07,  2.27it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0892; token_acc: 100:   0%|          | 47/23050 [02:07<2:49:07,  2.27it/s][!] loss: 0.0892; token_acc: 100:   0%|          | 48/23050 [02:07<2:47:45,  2.29it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0675; token_acc: 100:   0%|          | 48/23050 [02:08<2:47:45,  2.29it/s][!] loss: 0.0675; token_acc: 100:   0%|          | 49/23050 [02:08<2:46:43,  2.30it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.1005; token_acc: 100:   0%|          | 49/23050 [02:08<2:46:43,  2.30it/s][!] loss: 0.1005; token_acc: 100:   0%|          | 50/23050 [02:08<2:45:08,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0883; token_acc: 100:   0%|          | 50/23050 [02:08<2:45:08,  2.32it/s][!] loss: 0.0883; token_acc: 100:   0%|          | 51/23050 [02:08<2:44:29,  2.33it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0861; token_acc: 100:   0%|          | 51/23050 [02:09<2:44:29,  2.33it/s][!] loss: 0.0861; token_acc: 100:   0%|          | 52/23050 [02:09<2:43:38,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0707; token_acc: 100:   0%|          | 52/23050 [02:09<2:43:38,  2.34it/s][!] loss: 0.0707; token_acc: 100:   0%|          | 53/23050 [02:09<2:43:01,  2.35it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.1028; token_acc: 100:   0%|          | 53/23050 [02:10<2:43:01,  2.35it/s][!] loss: 0.1028; token_acc: 100:   0%|          | 54/23050 [02:10<2:43:37,  2.34it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0824; token_acc: 100:   0%|          | 54/23050 [02:10<2:43:37,  2.34it/s][!] loss: 0.0824; token_acc: 100:   0%|          | 55/23050 [02:10<2:44:22,  2.33it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0811; token_acc: 100:   0%|          | 55/23050 [02:11<2:44:22,  2.33it/s][!] loss: 0.0811; token_acc: 100:   0%|          | 56/23050 [02:11<2:44:52,  2.32it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.096; token_acc: 100:   0%|          | 56/23050 [02:11<2:44:52,  2.32it/s] [!] loss: 0.096; token_acc: 100:   0%|          | 57/23050 [02:11<2:44:37,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0696; token_acc: 100:   0%|          | 57/23050 [02:11<2:44:37,  2.33it/s][!] loss: 0.0696; token_acc: 100:   0%|          | 58/23050 [02:11<2:45:29,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0738; token_acc: 100:   0%|          | 58/23050 [02:12<2:45:29,  2.32it/s][!] loss: 0.0738; token_acc: 100:   0%|          | 59/23050 [02:12<2:44:12,  2.33it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0746; token_acc: 100:   0%|          | 59/23050 [02:12<2:44:12,  2.33it/s][!] loss: 0.0746; token_acc: 100:   0%|          | 60/23050 [02:12<2:44:04,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0676; token_acc: 100:   0%|          | 60/23050 [02:13<2:44:04,  2.34it/s][!] loss: 0.0676; token_acc: 100:   0%|          | 61/23050 [02:13<2:43:55,  2.34it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.064; token_acc: 100:   0%|          | 61/23050 [02:13<2:43:55,  2.34it/s] [!] loss: 0.064; token_acc: 100:   0%|          | 62/23050 [02:13<2:43:22,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0804; token_acc: 100:   0%|          | 62/23050 [02:14<2:43:22,  2.35it/s][!] loss: 0.0804; token_acc: 100:   0%|          | 63/23050 [02:14<2:43:54,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[2024-06-07 03:38:25,015] [INFO] [logging.py:96:log_dist] [Rank 0] step=2, skipped=0, lr=[8.103826219656114e-05], mom=[[0.9, 0.95]]
-[!] loss: 0.0605; token_acc: 100:   0%|          | 63/23050 [02:16<2:43:54,  2.34it/s][!] loss: 0.0605; token_acc: 100:   0%|          | 64/23050 [02:16<6:17:08,  1.02it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0846; token_acc: 100:   0%|          | 64/23050 [02:16<6:17:08,  1.02it/s][!] loss: 0.0846; token_acc: 100:   0%|          | 65/23050 [02:16<5:12:14,  1.23it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0718; token_acc: 100:   0%|          | 65/23050 [02:17<5:12:14,  1.23it/s][!] loss: 0.0718; token_acc: 100:   0%|          | 66/23050 [02:17<4:26:56,  1.43it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0575; token_acc: 100:   0%|          | 66/23050 [02:17<4:26:56,  1.43it/s][!] loss: 0.0575; token_acc: 100:   0%|          | 67/23050 [02:17<3:55:28,  1.63it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0604; token_acc: 100:   0%|          | 67/23050 [02:17<3:55:28,  1.63it/s][!] loss: 0.0604; token_acc: 100:   0%|          | 68/23050 [02:17<3:34:16,  1.79it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0671; token_acc: 100:   0%|          | 68/23050 [02:18<3:34:16,  1.79it/s][!] loss: 0.0671; token_acc: 100:   0%|          | 69/23050 [02:18<3:18:39,  1.93it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0621; token_acc: 100:   0%|          | 69/23050 [02:18<3:18:39,  1.93it/s][!] loss: 0.0621; token_acc: 100:   0%|          | 70/23050 [02:18<3:07:32,  2.04it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0866; token_acc: 100:   0%|          | 70/23050 [02:19<3:07:32,  2.04it/s][!] loss: 0.0866; token_acc: 100:   0%|          | 71/23050 [02:19<3:07:01,  2.05it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0981; token_acc: 100:   0%|          | 71/23050 [02:19<3:07:01,  2.05it/s][!] loss: 0.0981; token_acc: 100:   0%|          | 72/23050 [02:19<3:03:57,  2.08it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0658; token_acc: 100:   0%|          | 72/23050 [02:20<3:03:57,  2.08it/s][!] loss: 0.0658; token_acc: 100:   0%|          | 73/23050 [02:20<3:00:35,  2.12it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0641; token_acc: 100:   0%|          | 73/23050 [02:20<3:00:35,  2.12it/s][!] loss: 0.0641; token_acc: 100:   0%|          | 74/23050 [02:20<2:55:37,  2.18it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0653; token_acc: 100:   0%|          | 74/23050 [02:21<2:55:37,  2.18it/s][!] loss: 0.0653; token_acc: 100:   0%|          | 75/23050 [02:21<2:53:36,  2.21it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0793; token_acc: 100:   0%|          | 75/23050 [02:21<2:53:36,  2.21it/s][!] loss: 0.0793; token_acc: 100:   0%|          | 76/23050 [02:21<2:50:56,  2.24it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.1026; token_acc: 100:   0%|          | 76/23050 [02:21<2:50:56,  2.24it/s][!] loss: 0.1026; token_acc: 100:   0%|          | 77/23050 [02:21<2:48:17,  2.28it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0637; token_acc: 100:   0%|          | 77/23050 [02:22<2:48:17,  2.28it/s][!] loss: 0.0637; token_acc: 100:   0%|          | 78/23050 [02:22<2:46:36,  2.30it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0987; token_acc: 100:   0%|          | 78/23050 [02:22<2:46:36,  2.30it/s][!] loss: 0.0987; token_acc: 100:   0%|          | 79/23050 [02:22<2:45:20,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0655; token_acc: 100:   0%|          | 79/23050 [02:23<2:45:20,  2.32it/s][!] loss: 0.0655; token_acc: 100:   0%|          | 80/23050 [02:23<2:45:16,  2.32it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0826; token_acc: 100:   0%|          | 80/23050 [02:23<2:45:16,  2.32it/s][!] loss: 0.0826; token_acc: 100:   0%|          | 81/23050 [02:23<2:44:53,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0773; token_acc: 100:   0%|          | 81/23050 [02:24<2:44:53,  2.32it/s][!] loss: 0.0773; token_acc: 100:   0%|          | 82/23050 [02:24<2:44:12,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0691; token_acc: 100:   0%|          | 82/23050 [02:24<2:44:12,  2.33it/s][!] loss: 0.0691; token_acc: 100:   0%|          | 83/23050 [02:24<2:44:14,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0689; token_acc: 100:   0%|          | 83/23050 [02:24<2:44:14,  2.33it/s][!] loss: 0.0689; token_acc: 100:   0%|          | 84/23050 [02:24<2:44:03,  2.33it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0555; token_acc: 100:   0%|          | 84/23050 [02:25<2:44:03,  2.33it/s][!] loss: 0.0555; token_acc: 100:   0%|          | 85/23050 [02:25<2:43:30,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0659; token_acc: 100:   0%|          | 85/23050 [02:25<2:43:30,  2.34it/s][!] loss: 0.0659; token_acc: 100:   0%|          | 86/23050 [02:25<2:44:32,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0647; token_acc: 100:   0%|          | 86/23050 [02:26<2:44:32,  2.33it/s][!] loss: 0.0647; token_acc: 100:   0%|          | 87/23050 [02:26<2:44:42,  2.32it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0761; token_acc: 100:   0%|          | 87/23050 [02:26<2:44:42,  2.32it/s][!] loss: 0.0761; token_acc: 100:   0%|          | 88/23050 [02:26<2:43:56,  2.33it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0736; token_acc: 100:   0%|          | 88/23050 [02:27<2:43:56,  2.33it/s][!] loss: 0.0736; token_acc: 100:   0%|          | 89/23050 [02:27<2:43:24,  2.34it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0684; token_acc: 100:   0%|          | 89/23050 [02:27<2:43:24,  2.34it/s][!] loss: 0.0684; token_acc: 100:   0%|          | 90/23050 [02:27<2:43:13,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0556; token_acc: 100:   0%|          | 90/23050 [02:27<2:43:13,  2.34it/s][!] loss: 0.0556; token_acc: 100:   0%|          | 91/23050 [02:27<2:43:31,  2.34it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0781; token_acc: 100:   0%|          | 91/23050 [02:28<2:43:31,  2.34it/s][!] loss: 0.0781; token_acc: 100:   0%|          | 92/23050 [02:28<2:53:17,  2.21it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0615; token_acc: 100:   0%|          | 92/23050 [02:28<2:53:17,  2.21it/s][!] loss: 0.0615; token_acc: 100:   0%|          | 93/23050 [02:28<2:52:45,  2.21it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0665; token_acc: 100:   0%|          | 93/23050 [02:29<2:52:45,  2.21it/s][!] loss: 0.0665; token_acc: 100:   0%|          | 94/23050 [02:29<2:50:43,  2.24it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0678; token_acc: 100:   0%|          | 94/23050 [02:29<2:50:43,  2.24it/s][!] loss: 0.0678; token_acc: 100:   0%|          | 95/23050 [02:29<2:49:23,  2.26it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[2024-06-07 03:38:40,743] [INFO] [logging.py:96:log_dist] [Rank 0] step=3, skipped=0, lr=[0.00012844260670515832], mom=[[0.9, 0.95]]
-[2024-06-07 03:38:40,744] [INFO] [timer.py:215:stop] epoch=0/micro_step=96/global_step=3, RunningAvgSamplesPerSec=8.346157876137363, CurrSamplesPerSec=8.346157876137363, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.0664; token_acc: 100:   0%|          | 95/23050 [02:32<2:49:23,  2.26it/s][!] loss: 0.0664; token_acc: 100:   0%|          | 96/23050 [02:32<6:17:08,  1.01it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0563; token_acc: 100:   0%|          | 96/23050 [02:32<6:17:08,  1.01it/s][!] loss: 0.0563; token_acc: 100:   0%|          | 97/23050 [02:32<5:13:39,  1.22it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.051; token_acc: 100:   0%|          | 97/23050 [02:32<5:13:39,  1.22it/s] [!] loss: 0.051; token_acc: 100:   0%|          | 98/23050 [02:32<4:27:58,  1.43it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0814; token_acc: 100:   0%|          | 98/23050 [02:33<4:27:58,  1.43it/s][!] loss: 0.0814; token_acc: 100:   0%|          | 99/23050 [02:33<3:56:21,  1.62it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0732; token_acc: 100:   0%|          | 99/23050 [02:33<3:56:21,  1.62it/s][!] loss: 0.0732; token_acc: 100:   0%|          | 100/23050 [02:33<3:34:38,  1.78it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0409; token_acc: 100:   0%|          | 100/23050 [02:34<3:34:38,  1.78it/s][!] loss: 0.0409; token_acc: 100:   0%|          | 101/23050 [02:34<3:18:47,  1.92it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.055; token_acc: 100:   0%|          | 101/23050 [02:34<3:18:47,  1.92it/s] [!] loss: 0.055; token_acc: 100:   0%|          | 102/23050 [02:34<3:07:54,  2.04it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0407; token_acc: 100:   0%|          | 102/23050 [02:34<3:07:54,  2.04it/s][!] loss: 0.0407; token_acc: 100:   0%|          | 103/23050 [02:34<2:59:56,  2.13it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0314; token_acc: 100:   0%|          | 103/23050 [02:35<2:59:56,  2.13it/s][!] loss: 0.0314; token_acc: 100:   0%|          | 104/23050 [02:35<2:54:37,  2.19it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0626; token_acc: 100:   0%|          | 104/23050 [02:35<2:54:37,  2.19it/s][!] loss: 0.0626; token_acc: 100:   0%|          | 105/23050 [02:35<2:50:43,  2.24it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0572; token_acc: 100:   0%|          | 105/23050 [02:36<2:50:43,  2.24it/s][!] loss: 0.0572; token_acc: 100:   0%|          | 106/23050 [02:36<2:49:33,  2.26it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0336; token_acc: 100:   0%|          | 106/23050 [02:36<2:49:33,  2.26it/s][!] loss: 0.0336; token_acc: 100:   0%|          | 107/23050 [02:36<2:47:58,  2.28it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0322; token_acc: 100:   0%|          | 107/23050 [02:37<2:47:58,  2.28it/s][!] loss: 0.0322; token_acc: 100:   0%|          | 108/23050 [02:37<2:46:04,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0386; token_acc: 100:   0%|          | 108/23050 [02:37<2:46:04,  2.30it/s][!] loss: 0.0386; token_acc: 100:   0%|          | 109/23050 [02:37<2:44:42,  2.32it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0524; token_acc: 100:   0%|          | 109/23050 [02:37<2:44:42,  2.32it/s][!] loss: 0.0524; token_acc: 100:   0%|          | 110/23050 [02:37<2:43:51,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0292; token_acc: 100:   0%|          | 110/23050 [02:38<2:43:51,  2.33it/s][!] loss: 0.0292; token_acc: 100:   0%|          | 111/23050 [02:38<2:43:11,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0394; token_acc: 100:   0%|          | 111/23050 [02:38<2:43:11,  2.34it/s][!] loss: 0.0394; token_acc: 100:   0%|          | 112/23050 [02:38<2:45:13,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0344; token_acc: 100:   0%|          | 112/23050 [02:39<2:45:13,  2.31it/s][!] loss: 0.0344; token_acc: 100:   0%|          | 113/23050 [02:39<2:44:21,  2.33it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0274; token_acc: 100:   0%|          | 113/23050 [02:39<2:44:21,  2.33it/s][!] loss: 0.0274; token_acc: 100:   0%|          | 114/23050 [02:39<2:46:18,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0302; token_acc: 100:   0%|          | 114/23050 [02:40<2:46:18,  2.30it/s][!] loss: 0.0302; token_acc: 100:   0%|          | 115/23050 [02:40<2:45:50,  2.30it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0393; token_acc: 100:   0%|          | 115/23050 [02:40<2:45:50,  2.30it/s][!] loss: 0.0393; token_acc: 100:   1%|          | 116/23050 [02:40<2:45:39,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0584; token_acc: 100:   1%|          | 116/23050 [02:41<2:45:39,  2.31it/s][!] loss: 0.0584; token_acc: 100:   1%|          | 117/23050 [02:41<2:45:46,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0299; token_acc: 100:   1%|          | 117/23050 [02:41<2:45:46,  2.31it/s][!] loss: 0.0299; token_acc: 100:   1%|          | 118/23050 [02:41<2:45:16,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0277; token_acc: 100:   1%|          | 118/23050 [02:41<2:45:16,  2.31it/s][!] loss: 0.0277; token_acc: 100:   1%|          | 119/23050 [02:41<2:45:39,  2.31it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0566; token_acc: 100:   1%|          | 119/23050 [02:42<2:45:39,  2.31it/s][!] loss: 0.0566; token_acc: 100:   1%|          | 120/23050 [02:42<2:45:24,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0341; token_acc: 100:   1%|          | 120/23050 [02:42<2:45:24,  2.31it/s][!] loss: 0.0341; token_acc: 100:   1%|          | 121/23050 [02:42<2:45:14,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0293; token_acc: 100:   1%|          | 121/23050 [02:43<2:45:14,  2.31it/s][!] loss: 0.0293; token_acc: 100:   1%|          | 122/23050 [02:43<2:44:43,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0357; token_acc: 100:   1%|          | 122/23050 [02:43<2:44:43,  2.32it/s][!] loss: 0.0357; token_acc: 100:   1%|          | 123/23050 [02:43<2:48:31,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0375; token_acc: 100:   1%|          | 123/23050 [02:44<2:48:31,  2.27it/s][!] loss: 0.0375; token_acc: 100:   1%|          | 124/23050 [02:44<2:49:02,  2.26it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0504; token_acc: 100:   1%|          | 124/23050 [02:44<2:49:02,  2.26it/s][!] loss: 0.0504; token_acc: 100:   1%|          | 125/23050 [02:44<2:48:16,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0353; token_acc: 100:   1%|          | 125/23050 [02:44<2:48:16,  2.27it/s][!] loss: 0.0353; token_acc: 100:   1%|          | 126/23050 [02:44<2:47:10,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0417; token_acc: 100:   1%|          | 126/23050 [02:45<2:47:10,  2.29it/s][!] loss: 0.0417; token_acc: 100:   1%|          | 127/23050 [02:45<2:46:37,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[2024-06-07 03:38:56,421] [INFO] [logging.py:96:log_dist] [Rank 0] step=4, skipped=0, lr=[0.00016207652439312228], mom=[[0.9, 0.95]]
-[2024-06-07 03:38:56,422] [INFO] [timer.py:215:stop] epoch=0/micro_step=128/global_step=4, RunningAvgSamplesPerSec=8.362214108422314, CurrSamplesPerSec=8.378332237333792, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.043; token_acc: 100:   1%|          | 127/23050 [02:47<2:46:37,  2.29it/s] [!] loss: 0.043; token_acc: 100:   1%|          | 128/23050 [02:47<6:22:00,  1.00it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0359; token_acc: 100:   1%|          | 128/23050 [02:48<6:22:00,  1.00it/s][!] loss: 0.0359; token_acc: 100:   1%|          | 129/23050 [02:48<5:16:11,  1.21it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0271; token_acc: 100:   1%|          | 129/23050 [02:48<5:16:11,  1.21it/s][!] loss: 0.0271; token_acc: 100:   1%|          | 130/23050 [02:48<4:29:40,  1.42it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0233; token_acc: 100:   1%|          | 130/23050 [02:48<4:29:40,  1.42it/s][!] loss: 0.0233; token_acc: 100:   1%|          | 131/23050 [02:48<3:57:24,  1.61it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0401; token_acc: 100:   1%|          | 131/23050 [02:49<3:57:24,  1.61it/s][!] loss: 0.0401; token_acc: 100:   1%|          | 132/23050 [02:49<3:35:12,  1.77it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0179; token_acc: 100:   1%|          | 132/23050 [02:49<3:35:12,  1.77it/s][!] loss: 0.0179; token_acc: 100:   1%|          | 133/23050 [02:49<3:19:55,  1.91it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0357; token_acc: 100:   1%|          | 133/23050 [02:50<3:19:55,  1.91it/s][!] loss: 0.0357; token_acc: 100:   1%|          | 134/23050 [02:50<3:09:07,  2.02it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.028; token_acc: 100:   1%|          | 134/23050 [02:50<3:09:07,  2.02it/s] [!] loss: 0.028; token_acc: 100:   1%|          | 135/23050 [02:50<3:01:59,  2.10it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0419; token_acc: 100:   1%|          | 135/23050 [02:51<3:01:59,  2.10it/s][!] loss: 0.0419; token_acc: 100:   1%|          | 136/23050 [02:51<2:56:22,  2.17it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0135; token_acc: 100:   1%|          | 136/23050 [02:51<2:56:22,  2.17it/s][!] loss: 0.0135; token_acc: 100:   1%|          | 137/23050 [02:51<2:53:48,  2.20it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0158; token_acc: 100:   1%|          | 137/23050 [02:51<2:53:48,  2.20it/s][!] loss: 0.0158; token_acc: 100:   1%|          | 138/23050 [02:51<2:50:20,  2.24it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0154; token_acc: 100:   1%|          | 138/23050 [02:52<2:50:20,  2.24it/s][!] loss: 0.0154; token_acc: 100:   1%|          | 139/23050 [02:52<2:47:52,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0402; token_acc: 100:   1%|          | 139/23050 [02:52<2:47:52,  2.27it/s][!] loss: 0.0402; token_acc: 100:   1%|          | 140/23050 [02:52<2:47:03,  2.29it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0243; token_acc: 100:   1%|          | 140/23050 [02:53<2:47:03,  2.29it/s][!] loss: 0.0243; token_acc: 100:   1%|          | 141/23050 [02:53<2:45:39,  2.30it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0297; token_acc: 100:   1%|          | 141/23050 [02:53<2:45:39,  2.30it/s][!] loss: 0.0297; token_acc: 100:   1%|          | 142/23050 [02:53<2:45:25,  2.31it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0401; token_acc: 100:   1%|          | 142/23050 [02:54<2:45:25,  2.31it/s][!] loss: 0.0401; token_acc: 100:   1%|          | 143/23050 [02:54<2:44:35,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.023; token_acc: 100:   1%|          | 143/23050 [02:54<2:44:35,  2.32it/s] [!] loss: 0.023; token_acc: 100:   1%|          | 144/23050 [02:54<2:45:14,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0469; token_acc: 100:   1%|          | 144/23050 [02:54<2:45:14,  2.31it/s][!] loss: 0.0469; token_acc: 100:   1%|          | 145/23050 [02:54<2:45:08,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0151; token_acc: 100:   1%|          | 145/23050 [02:55<2:45:08,  2.31it/s][!] loss: 0.0151; token_acc: 100:   1%|          | 146/23050 [02:55<2:44:57,  2.31it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0567; token_acc: 100:   1%|          | 146/23050 [02:55<2:44:57,  2.31it/s][!] loss: 0.0567; token_acc: 100:   1%|          | 147/23050 [02:55<2:44:53,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0421; token_acc: 100:   1%|          | 147/23050 [02:56<2:44:53,  2.31it/s][!] loss: 0.0421; token_acc: 100:   1%|          | 148/23050 [02:56<2:44:58,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0171; token_acc: 100:   1%|          | 148/23050 [02:56<2:44:58,  2.31it/s][!] loss: 0.0171; token_acc: 100:   1%|          | 149/23050 [02:56<2:44:46,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0201; token_acc: 100:   1%|          | 149/23050 [02:57<2:44:46,  2.32it/s][!] loss: 0.0201; token_acc: 100:   1%|          | 150/23050 [02:57<2:45:17,  2.31it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0272; token_acc: 100:   1%|          | 150/23050 [02:57<2:45:17,  2.31it/s][!] loss: 0.0272; token_acc: 100:   1%|          | 151/23050 [02:57<2:45:08,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0404; token_acc: 100:   1%|          | 151/23050 [02:58<2:45:08,  2.31it/s][!] loss: 0.0404; token_acc: 100:   1%|          | 152/23050 [02:58<2:44:31,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0437; token_acc: 100:   1%|          | 152/23050 [02:58<2:44:31,  2.32it/s][!] loss: 0.0437; token_acc: 100:   1%|          | 153/23050 [02:58<2:44:38,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0174; token_acc: 100:   1%|          | 153/23050 [02:58<2:44:38,  2.32it/s][!] loss: 0.0174; token_acc: 100:   1%|          | 154/23050 [02:58<2:43:54,  2.33it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0382; token_acc: 100:   1%|          | 154/23050 [02:59<2:43:54,  2.33it/s][!] loss: 0.0382; token_acc: 100:   1%|          | 155/23050 [02:59<2:44:15,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0214; token_acc: 100:   1%|          | 155/23050 [02:59<2:44:15,  2.32it/s][!] loss: 0.0214; token_acc: 100:   1%|          | 156/23050 [02:59<2:44:28,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0513; token_acc: 100:   1%|          | 156/23050 [03:00<2:44:28,  2.32it/s][!] loss: 0.0513; token_acc: 100:   1%|          | 157/23050 [03:00<2:44:36,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0509; token_acc: 100:   1%|          | 157/23050 [03:00<2:44:36,  2.32it/s][!] loss: 0.0509; token_acc: 100:   1%|          | 158/23050 [03:00<2:43:51,  2.33it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0212; token_acc: 100:   1%|          | 158/23050 [03:01<2:43:51,  2.33it/s][!] loss: 0.0212; token_acc: 100:   1%|          | 159/23050 [03:01<2:43:40,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[2024-06-07 03:39:11,776] [INFO] [logging.py:96:log_dist] [Rank 0] step=5, skipped=0, lr=[0.00018816501775504376], mom=[[0.9, 0.95]]
-[2024-06-07 03:39:11,777] [INFO] [timer.py:215:stop] epoch=0/micro_step=160/global_step=5, RunningAvgSamplesPerSec=8.422138155011307, CurrSamplesPerSec=8.544600224336158, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.0294; token_acc: 100:   1%|          | 159/23050 [03:03<2:43:40,  2.33it/s][!] loss: 0.0294; token_acc: 100:   1%|          | 160/23050 [03:03<5:47:08,  1.10it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0035; token_acc: 100:   1%|          | 160/23050 [03:03<5:47:08,  1.10it/s][!] loss: 0.0035; token_acc: 100:   1%|          | 161/23050 [03:03<4:51:13,  1.31it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0126; token_acc: 100:   1%|          | 161/23050 [03:03<4:51:13,  1.31it/s][!] loss: 0.0126; token_acc: 100:   1%|          | 162/23050 [03:03<4:12:43,  1.51it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0168; token_acc: 100:   1%|          | 162/23050 [03:04<4:12:43,  1.51it/s][!] loss: 0.0168; token_acc: 100:   1%|          | 163/23050 [03:04<3:45:52,  1.69it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0227; token_acc: 100:   1%|          | 163/23050 [03:04<3:45:52,  1.69it/s][!] loss: 0.0227; token_acc: 100:   1%|          | 164/23050 [03:04<3:29:18,  1.82it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0202; token_acc: 100:   1%|          | 164/23050 [03:05<3:29:18,  1.82it/s][!] loss: 0.0202; token_acc: 100:   1%|          | 165/23050 [03:05<3:16:36,  1.94it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0208; token_acc: 100:   1%|          | 165/23050 [03:05<3:16:36,  1.94it/s][!] loss: 0.0208; token_acc: 100:   1%|          | 166/23050 [03:05<3:09:10,  2.02it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0173; token_acc: 100:   1%|          | 166/23050 [03:06<3:09:10,  2.02it/s][!] loss: 0.0173; token_acc: 100:   1%|          | 167/23050 [03:06<3:02:24,  2.09it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0061; token_acc: 100:   1%|          | 167/23050 [03:06<3:02:24,  2.09it/s][!] loss: 0.0061; token_acc: 100:   1%|          | 168/23050 [03:06<2:57:09,  2.15it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0206; token_acc: 100:   1%|          | 168/23050 [03:06<2:57:09,  2.15it/s][!] loss: 0.0206; token_acc: 100:   1%|          | 169/23050 [03:06<2:53:15,  2.20it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0094; token_acc: 100:   1%|          | 169/23050 [03:07<2:53:15,  2.20it/s][!] loss: 0.0094; token_acc: 100:   1%|          | 170/23050 [03:07<2:50:05,  2.24it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0089; token_acc: 100:   1%|          | 170/23050 [03:07<2:50:05,  2.24it/s][!] loss: 0.0089; token_acc: 100:   1%|          | 171/23050 [03:07<2:49:03,  2.26it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0226; token_acc: 100:   1%|          | 171/23050 [03:08<2:49:03,  2.26it/s][!] loss: 0.0226; token_acc: 100:   1%|          | 172/23050 [03:08<2:49:29,  2.25it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0128; token_acc: 100:   1%|          | 172/23050 [03:08<2:49:29,  2.25it/s][!] loss: 0.0128; token_acc: 100:   1%|          | 173/23050 [03:08<2:47:42,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0142; token_acc: 100:   1%|          | 173/23050 [03:09<2:47:42,  2.27it/s][!] loss: 0.0142; token_acc: 100:   1%|          | 174/23050 [03:09<2:46:36,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0122; token_acc: 100:   1%|          | 174/23050 [03:09<2:46:36,  2.29it/s][!] loss: 0.0122; token_acc: 100:   1%|          | 175/23050 [03:09<2:46:00,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0024; token_acc: 100:   1%|          | 175/23050 [03:10<2:46:00,  2.30it/s][!] loss: 0.0024; token_acc: 100:   1%|          | 176/23050 [03:10<2:47:10,  2.28it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0066; token_acc: 100:   1%|          | 176/23050 [03:10<2:47:10,  2.28it/s][!] loss: 0.0066; token_acc: 100:   1%|          | 177/23050 [03:10<2:47:24,  2.28it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0108; token_acc: 100:   1%|          | 177/23050 [03:10<2:47:24,  2.28it/s][!] loss: 0.0108; token_acc: 100:   1%|          | 178/23050 [03:10<2:46:45,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0203; token_acc: 100:   1%|          | 178/23050 [03:11<2:46:45,  2.29it/s][!] loss: 0.0203; token_acc: 100:   1%|          | 179/23050 [03:11<2:46:16,  2.29it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0066; token_acc: 100:   1%|          | 179/23050 [03:11<2:46:16,  2.29it/s][!] loss: 0.0066; token_acc: 100:   1%|          | 180/23050 [03:11<2:45:58,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0023; token_acc: 100:   1%|          | 180/23050 [03:12<2:45:58,  2.30it/s][!] loss: 0.0023; token_acc: 100:   1%|          | 181/23050 [03:12<2:45:32,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0142; token_acc: 100:   1%|          | 181/23050 [03:12<2:45:32,  2.30it/s][!] loss: 0.0142; token_acc: 100:   1%|          | 182/23050 [03:12<2:46:04,  2.30it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0305; token_acc: 100:   1%|          | 182/23050 [03:13<2:46:04,  2.30it/s][!] loss: 0.0305; token_acc: 100:   1%|          | 183/23050 [03:13<2:46:33,  2.29it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.011; token_acc: 100:   1%|          | 183/23050 [03:13<2:46:33,  2.29it/s] [!] loss: 0.011; token_acc: 100:   1%|          | 184/23050 [03:13<2:46:32,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0048; token_acc: 100:   1%|          | 184/23050 [03:13<2:46:32,  2.29it/s][!] loss: 0.0048; token_acc: 100:   1%|          | 185/23050 [03:13<2:45:24,  2.30it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0127; token_acc: 100:   1%|          | 185/23050 [03:14<2:45:24,  2.30it/s][!] loss: 0.0127; token_acc: 100:   1%|          | 186/23050 [03:14<2:45:25,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0032; token_acc: 100:   1%|          | 186/23050 [03:14<2:45:25,  2.30it/s][!] loss: 0.0032; token_acc: 100:   1%|          | 187/23050 [03:14<2:44:45,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0027; token_acc: 100:   1%|          | 187/23050 [03:15<2:44:45,  2.31it/s][!] loss: 0.0027; token_acc: 100:   1%|          | 188/23050 [03:15<2:48:01,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0149; token_acc: 100:   1%|          | 188/23050 [03:15<2:48:01,  2.27it/s][!] loss: 0.0149; token_acc: 100:   1%|          | 189/23050 [03:15<2:48:06,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0036; token_acc: 100:   1%|          | 189/23050 [03:16<2:48:06,  2.27it/s][!] loss: 0.0036; token_acc: 100:   1%|          | 190/23050 [03:16<2:46:38,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0096; token_acc: 100:   1%|          | 190/23050 [03:16<2:46:38,  2.29it/s][!] loss: 0.0096; token_acc: 100:   1%|          | 191/23050 [03:16<2:46:32,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[2024-06-07 03:39:27,594] [INFO] [logging.py:96:log_dist] [Rank 0] step=6, skipped=0, lr=[0.00020948086890171944], mom=[[0.9, 0.95]]
-[2024-06-07 03:39:27,595] [INFO] [timer.py:215:stop] epoch=0/micro_step=192/global_step=6, RunningAvgSamplesPerSec=8.39199659643818, CurrSamplesPerSec=8.302852635217517, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.0024; token_acc: 100:   1%|          | 191/23050 [03:18<2:46:32,  2.29it/s][!] loss: 0.0024; token_acc: 100:   1%|          | 192/23050 [03:18<6:20:44,  1.00it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0023; token_acc: 100:   1%|          | 192/23050 [03:19<6:20:44,  1.00it/s][!] loss: 0.0023; token_acc: 100:   1%|          | 193/23050 [03:19<5:14:34,  1.21it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0026; token_acc: 100:   1%|          | 193/23050 [03:19<5:14:34,  1.21it/s][!] loss: 0.0026; token_acc: 100:   1%|          | 194/23050 [03:19<4:28:57,  1.42it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0139; token_acc: 100:   1%|          | 194/23050 [03:20<4:28:57,  1.42it/s][!] loss: 0.0139; token_acc: 100:   1%|          | 195/23050 [03:20<3:56:37,  1.61it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0144; token_acc: 100:   1%|          | 195/23050 [03:20<3:56:37,  1.61it/s][!] loss: 0.0144; token_acc: 100:   1%|          | 196/23050 [03:20<3:34:18,  1.78it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0039; token_acc: 100:   1%|          | 196/23050 [03:20<3:34:18,  1.78it/s][!] loss: 0.0039; token_acc: 100:   1%|          | 197/23050 [03:20<3:19:14,  1.91it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0032; token_acc: 100:   1%|          | 197/23050 [03:21<3:19:14,  1.91it/s][!] loss: 0.0032; token_acc: 100:   1%|          | 198/23050 [03:21<3:07:55,  2.03it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0045; token_acc: 100:   1%|          | 198/23050 [03:21<3:07:55,  2.03it/s][!] loss: 0.0045; token_acc: 100:   1%|          | 199/23050 [03:21<3:00:53,  2.11it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0074; token_acc: 100:   1%|          | 199/23050 [03:22<3:00:53,  2.11it/s][!] loss: 0.0074; token_acc: 100:   1%|          | 200/23050 [03:22<2:55:23,  2.17it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0047; token_acc: 100:   1%|          | 200/23050 [03:22<2:55:23,  2.17it/s][!] loss: 0.0047; token_acc: 100:   1%|          | 201/23050 [03:22<2:52:05,  2.21it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0084; token_acc: 100:   1%|          | 201/23050 [03:23<2:52:05,  2.21it/s][!] loss: 0.0084; token_acc: 100:   1%|          | 202/23050 [03:23<2:52:04,  2.21it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0111; token_acc: 100:   1%|          | 202/23050 [03:23<2:52:04,  2.21it/s][!] loss: 0.0111; token_acc: 100:   1%|          | 203/23050 [03:23<2:49:22,  2.25it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0134; token_acc: 100:   1%|          | 203/23050 [03:24<2:49:22,  2.25it/s][!] loss: 0.0134; token_acc: 100:   1%|          | 204/23050 [03:24<2:47:16,  2.28it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0026; token_acc: 100:   1%|          | 204/23050 [03:24<2:47:16,  2.28it/s][!] loss: 0.0026; token_acc: 100:   1%|          | 205/23050 [03:24<2:46:16,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0031; token_acc: 100:   1%|          | 205/23050 [03:24<2:46:16,  2.29it/s][!] loss: 0.0031; token_acc: 100:   1%|          | 206/23050 [03:24<2:45:24,  2.30it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0091; token_acc: 100:   1%|          | 206/23050 [03:25<2:45:24,  2.30it/s][!] loss: 0.0091; token_acc: 100:   1%|          | 207/23050 [03:25<2:44:50,  2.31it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0072; token_acc: 100:   1%|          | 207/23050 [03:25<2:44:50,  2.31it/s][!] loss: 0.0072; token_acc: 100:   1%|          | 208/23050 [03:25<2:44:32,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0061; token_acc: 100:   1%|          | 208/23050 [03:26<2:44:32,  2.31it/s][!] loss: 0.0061; token_acc: 100:   1%|          | 209/23050 [03:26<2:44:39,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0089; token_acc: 100:   1%|          | 209/23050 [03:26<2:44:39,  2.31it/s][!] loss: 0.0089; token_acc: 100:   1%|          | 210/23050 [03:26<2:43:33,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0027; token_acc: 100:   1%|          | 210/23050 [03:27<2:43:33,  2.33it/s][!] loss: 0.0027; token_acc: 100:   1%|          | 211/23050 [03:27<2:43:47,  2.32it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.011; token_acc: 100:   1%|          | 211/23050 [03:27<2:43:47,  2.32it/s] [!] loss: 0.011; token_acc: 100:   1%|          | 212/23050 [03:27<2:46:01,  2.29it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0017; token_acc: 100:   1%|          | 212/23050 [03:27<2:46:01,  2.29it/s][!] loss: 0.0017; token_acc: 100:   1%|          | 213/23050 [03:27<2:44:45,  2.31it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0126; token_acc: 100:   1%|          | 213/23050 [03:28<2:44:45,  2.31it/s][!] loss: 0.0126; token_acc: 100:   1%|          | 214/23050 [03:28<2:44:27,  2.31it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0127; token_acc: 100:   1%|          | 214/23050 [03:28<2:44:27,  2.31it/s][!] loss: 0.0127; token_acc: 100:   1%|          | 215/23050 [03:28<2:44:28,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0019; token_acc: 100:   1%|          | 215/23050 [03:29<2:44:28,  2.31it/s][!] loss: 0.0019; token_acc: 100:   1%|          | 216/23050 [03:29<2:43:44,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0046; token_acc: 100:   1%|          | 216/23050 [03:29<2:43:44,  2.32it/s][!] loss: 0.0046; token_acc: 100:   1%|          | 217/23050 [03:29<2:43:28,  2.33it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0099; token_acc: 100:   1%|          | 217/23050 [03:30<2:43:28,  2.33it/s][!] loss: 0.0099; token_acc: 100:   1%|          | 218/23050 [03:30<2:43:46,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0039; token_acc: 100:   1%|          | 218/23050 [03:30<2:43:46,  2.32it/s][!] loss: 0.0039; token_acc: 100:   1%|          | 219/23050 [03:30<2:43:26,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.015; token_acc: 100:   1%|          | 219/23050 [03:30<2:43:26,  2.33it/s] [!] loss: 0.015; token_acc: 100:   1%|          | 220/23050 [03:30<2:43:57,  2.32it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0224; token_acc: 100:   1%|          | 220/23050 [03:31<2:43:57,  2.32it/s][!] loss: 0.0224; token_acc: 100:   1%|          | 221/23050 [03:31<2:44:08,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0198; token_acc: 100:   1%|          | 221/23050 [03:31<2:44:08,  2.32it/s][!] loss: 0.0198; token_acc: 100:   1%|          | 222/23050 [03:31<2:44:23,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.002; token_acc: 100:   1%|          | 222/23050 [03:32<2:44:23,  2.31it/s] [!] loss: 0.002; token_acc: 100:   1%|          | 223/23050 [03:32<2:44:12,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[2024-06-07 03:39:42,931] [INFO] [logging.py:96:log_dist] [Rank 0] step=7, skipped=0, lr=[0.0002275031642525106], mom=[[0.9, 0.95]]
-[2024-06-07 03:39:42,932] [INFO] [timer.py:215:stop] epoch=0/micro_step=224/global_step=7, RunningAvgSamplesPerSec=8.423245570304, CurrSamplesPerSec=8.550603866359673, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.0127; token_acc: 100:   1%|          | 223/23050 [03:34<2:44:12,  2.32it/s][!] loss: 0.0127; token_acc: 100:   1%|          | 224/23050 [03:34<5:43:02,  1.11it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0006; token_acc: 100:   1%|          | 224/23050 [03:34<5:43:02,  1.11it/s][!] loss: 0.0006; token_acc: 100:   1%|          | 225/23050 [03:34<4:48:04,  1.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0046; token_acc: 100:   1%|          | 225/23050 [03:35<4:48:04,  1.32it/s][!] loss: 0.0046; token_acc: 100:   1%|          | 226/23050 [03:35<4:10:07,  1.52it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0125; token_acc: 100:   1%|          | 226/23050 [03:35<4:10:07,  1.52it/s][!] loss: 0.0125; token_acc: 100:   1%|          | 227/23050 [03:35<3:44:46,  1.69it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.003; token_acc: 100:   1%|          | 227/23050 [03:35<3:44:46,  1.69it/s] [!] loss: 0.003; token_acc: 100:   1%|          | 228/23050 [03:35<3:25:29,  1.85it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0237; token_acc: 100:   1%|          | 228/23050 [03:36<3:25:29,  1.85it/s][!] loss: 0.0237; token_acc: 100:   1%|          | 229/23050 [03:36<3:12:09,  1.98it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0032; token_acc: 100:   1%|          | 229/23050 [03:36<3:12:09,  1.98it/s][!] loss: 0.0032; token_acc: 100:   1%|          | 230/23050 [03:36<3:02:38,  2.08it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0016; token_acc: 100:   1%|          | 230/23050 [03:37<3:02:38,  2.08it/s][!] loss: 0.0016; token_acc: 100:   1%|          | 231/23050 [03:37<2:56:02,  2.16it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0007; token_acc: 100:   1%|          | 231/23050 [03:37<2:56:02,  2.16it/s][!] loss: 0.0007; token_acc: 100:   1%|          | 232/23050 [03:37<2:51:32,  2.22it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0058; token_acc: 100:   1%|          | 232/23050 [03:38<2:51:32,  2.22it/s][!] loss: 0.0058; token_acc: 100:   1%|          | 233/23050 [03:38<2:48:12,  2.26it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0013; token_acc: 100:   1%|          | 233/23050 [03:38<2:48:12,  2.26it/s][!] loss: 0.0013; token_acc: 100:   1%|          | 234/23050 [03:38<2:45:46,  2.29it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0065; token_acc: 100:   1%|          | 234/23050 [03:38<2:45:46,  2.29it/s][!] loss: 0.0065; token_acc: 100:   1%|          | 235/23050 [03:38<2:44:15,  2.31it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0121; token_acc: 100:   1%|          | 235/23050 [03:39<2:44:15,  2.31it/s][!] loss: 0.0121; token_acc: 100:   1%|          | 236/23050 [03:39<2:43:17,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0009; token_acc: 100:   1%|          | 236/23050 [03:39<2:43:17,  2.33it/s][!] loss: 0.0009; token_acc: 100:   1%|          | 237/23050 [03:39<2:42:45,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0033; token_acc: 100:   1%|          | 237/23050 [03:40<2:42:45,  2.34it/s][!] loss: 0.0033; token_acc: 100:   1%|          | 238/23050 [03:40<2:42:09,  2.34it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0036; token_acc: 100:   1%|          | 238/23050 [03:40<2:42:09,  2.34it/s][!] loss: 0.0036; token_acc: 100:   1%|          | 239/23050 [03:40<2:41:34,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0164; token_acc: 100:   1%|          | 239/23050 [03:40<2:41:34,  2.35it/s][!] loss: 0.0164; token_acc: 100:   1%|          | 240/23050 [03:40<2:41:23,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0003; token_acc: 100:   1%|          | 240/23050 [03:41<2:41:23,  2.36it/s][!] loss: 0.0003; token_acc: 100:   1%|          | 241/23050 [03:41<2:41:04,  2.36it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0034; token_acc: 100:   1%|          | 241/23050 [03:41<2:41:04,  2.36it/s][!] loss: 0.0034; token_acc: 100:   1%|          | 242/23050 [03:41<2:41:20,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0023; token_acc: 100:   1%|          | 242/23050 [03:42<2:41:20,  2.36it/s][!] loss: 0.0023; token_acc: 100:   1%|          | 243/23050 [03:42<2:41:09,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0048; token_acc: 100:   1%|          | 243/23050 [03:42<2:41:09,  2.36it/s][!] loss: 0.0048; token_acc: 100:   1%|          | 244/23050 [03:42<2:41:05,  2.36it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0028; token_acc: 100:   1%|          | 244/23050 [03:43<2:41:05,  2.36it/s][!] loss: 0.0028; token_acc: 100:   1%|          | 245/23050 [03:43<2:40:58,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0038; token_acc: 100:   1%|          | 245/23050 [03:43<2:40:58,  2.36it/s][!] loss: 0.0038; token_acc: 100:   1%|          | 246/23050 [03:43<2:40:54,  2.36it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0033; token_acc: 100:   1%|          | 246/23050 [03:43<2:40:54,  2.36it/s][!] loss: 0.0033; token_acc: 100:   1%|          | 247/23050 [03:43<2:41:15,  2.36it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0123; token_acc: 100:   1%|          | 247/23050 [03:44<2:41:15,  2.36it/s][!] loss: 0.0123; token_acc: 100:   1%|          | 248/23050 [03:44<2:41:13,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0065; token_acc: 100:   1%|          | 248/23050 [03:44<2:41:13,  2.36it/s][!] loss: 0.0065; token_acc: 100:   1%|          | 249/23050 [03:44<2:41:09,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0008; token_acc: 100:   1%|          | 249/23050 [03:45<2:41:09,  2.36it/s][!] loss: 0.0008; token_acc: 100:   1%|          | 250/23050 [03:45<2:41:39,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0123; token_acc: 100:   1%|          | 250/23050 [03:45<2:41:39,  2.35it/s][!] loss: 0.0123; token_acc: 100:   1%|          | 251/23050 [03:45<2:41:24,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0063; token_acc: 100:   1%|          | 251/23050 [03:46<2:41:24,  2.35it/s][!] loss: 0.0063; token_acc: 100:   1%|          | 252/23050 [03:46<2:41:50,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0004; token_acc: 100:   1%|          | 252/23050 [03:46<2:41:50,  2.35it/s][!] loss: 0.0004; token_acc: 100:   1%|          | 253/23050 [03:46<2:41:32,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0041; token_acc: 100:   1%|          | 253/23050 [03:46<2:41:32,  2.35it/s][!] loss: 0.0041; token_acc: 100:   1%|          | 254/23050 [03:46<2:41:21,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0115; token_acc: 100:   1%|          | 254/23050 [03:47<2:41:21,  2.35it/s][!] loss: 0.0115; token_acc: 100:   1%|          | 255/23050 [03:47<2:41:10,  2.36it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[2024-06-07 03:39:58,521] [INFO] [logging.py:96:log_dist] [Rank 0] step=8, skipped=0, lr=[0.00024311478658968342], mom=[[0.9, 0.95]]
-[2024-06-07 03:39:58,522] [INFO] [timer.py:215:stop] epoch=0/micro_step=256/global_step=8, RunningAvgSamplesPerSec=8.417648822675348, CurrSamplesPerSec=8.389776276346481, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.0148; token_acc: 100:   1%|          | 255/23050 [03:49<2:41:10,  2.36it/s][!] loss: 0.0148; token_acc: 100:   1%|          | 256/23050 [03:49<6:31:55,  1.03s/it]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0025; token_acc: 100:   1%|          | 256/23050 [03:50<6:31:55,  1.03s/it][!] loss: 0.0025; token_acc: 100:   1%|          | 257/23050 [03:50<5:24:19,  1.17it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0037; token_acc: 100:   1%|          | 257/23050 [03:50<5:24:19,  1.17it/s][!] loss: 0.0037; token_acc: 100:   1%|          | 258/23050 [03:50<4:40:45,  1.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0127; token_acc: 100:   1%|          | 258/23050 [03:51<4:40:45,  1.35it/s][!] loss: 0.0127; token_acc: 100:   1%|          | 259/23050 [03:51<4:08:27,  1.53it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.005; token_acc: 100:   1%|          | 259/23050 [03:51<4:08:27,  1.53it/s] [!] loss: 0.005; token_acc: 100:   1%|          | 260/23050 [03:51<3:43:01,  1.70it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0017; token_acc: 100:   1%|          | 260/23050 [03:52<3:43:01,  1.70it/s][!] loss: 0.0017; token_acc: 100:   1%|          | 261/23050 [03:52<3:28:34,  1.82it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0013; token_acc: 100:   1%|          | 261/23050 [03:52<3:28:34,  1.82it/s][!] loss: 0.0013; token_acc: 100:   1%|          | 262/23050 [03:52<3:16:44,  1.93it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0057; token_acc: 100:   1%|          | 262/23050 [03:52<3:16:44,  1.93it/s][!] loss: 0.0057; token_acc: 100:   1%|          | 263/23050 [03:52<3:08:10,  2.02it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0028; token_acc: 100:   1%|          | 263/23050 [03:53<3:08:10,  2.02it/s][!] loss: 0.0028; token_acc: 100:   1%|          | 264/23050 [03:53<2:59:54,  2.11it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0036; token_acc: 100:   1%|          | 264/23050 [03:53<2:59:54,  2.11it/s][!] loss: 0.0036; token_acc: 100:   1%|          | 265/23050 [03:53<2:54:15,  2.18it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.01; token_acc: 100:   1%|          | 265/23050 [03:54<2:54:15,  2.18it/s]  [!] loss: 0.01; token_acc: 100:   1%|          | 266/23050 [03:54<2:50:03,  2.23it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0008; token_acc: 100:   1%|          | 266/23050 [03:54<2:50:03,  2.23it/s][!] loss: 0.0008; token_acc: 100:   1%|          | 267/23050 [03:54<2:47:26,  2.27it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0024; token_acc: 100:   1%|          | 267/23050 [03:55<2:47:26,  2.27it/s][!] loss: 0.0024; token_acc: 100:   1%|          | 268/23050 [03:55<2:45:25,  2.30it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0046; token_acc: 100:   1%|          | 268/23050 [03:55<2:45:25,  2.30it/s][!] loss: 0.0046; token_acc: 100:   1%|          | 269/23050 [03:55<2:44:32,  2.31it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0054; token_acc: 100:   1%|          | 269/23050 [03:55<2:44:32,  2.31it/s][!] loss: 0.0054; token_acc: 100:   1%|          | 270/23050 [03:55<2:43:20,  2.32it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.004; token_acc: 100:   1%|          | 270/23050 [03:56<2:43:20,  2.32it/s] [!] loss: 0.004; token_acc: 100:   1%|          | 271/23050 [03:56<2:42:43,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0008; token_acc: 100:   1%|          | 271/23050 [03:56<2:42:43,  2.33it/s][!] loss: 0.0008; token_acc: 100:   1%|          | 272/23050 [03:56<2:42:20,  2.34it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0017; token_acc: 100:   1%|          | 272/23050 [03:57<2:42:20,  2.34it/s][!] loss: 0.0017; token_acc: 100:   1%|          | 273/23050 [03:57<2:41:47,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0118; token_acc: 100:   1%|          | 273/23050 [03:57<2:41:47,  2.35it/s][!] loss: 0.0118; token_acc: 100:   1%|          | 274/23050 [03:57<2:41:54,  2.34it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0031; token_acc: 100:   1%|          | 274/23050 [03:58<2:41:54,  2.34it/s][!] loss: 0.0031; token_acc: 100:   1%|          | 275/23050 [03:58<2:41:46,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0084; token_acc: 100:   1%|          | 275/23050 [03:58<2:41:46,  2.35it/s][!] loss: 0.0084; token_acc: 100:   1%|          | 276/23050 [03:58<2:41:29,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0003; token_acc: 100:   1%|          | 276/23050 [03:58<2:41:29,  2.35it/s][!] loss: 0.0003; token_acc: 100:   1%|          | 277/23050 [03:58<2:41:34,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0014; token_acc: 100:   1%|          | 277/23050 [03:59<2:41:34,  2.35it/s][!] loss: 0.0014; token_acc: 100:   1%|          | 278/23050 [03:59<2:41:27,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0064; token_acc: 100:   1%|          | 278/23050 [03:59<2:41:27,  2.35it/s][!] loss: 0.0064; token_acc: 100:   1%|          | 279/23050 [03:59<2:41:18,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0016; token_acc: 100:   1%|          | 279/23050 [04:00<2:41:18,  2.35it/s][!] loss: 0.0016; token_acc: 100:   1%|          | 280/23050 [04:00<2:41:19,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0002; token_acc: 100:   1%|          | 280/23050 [04:00<2:41:19,  2.35it/s][!] loss: 0.0002; token_acc: 100:   1%|          | 281/23050 [04:00<2:41:12,  2.35it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0034; token_acc: 100:   1%|          | 281/23050 [04:01<2:41:12,  2.35it/s][!] loss: 0.0034; token_acc: 100:   1%|          | 282/23050 [04:01<2:41:27,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0043; token_acc: 100:   1%|          | 282/23050 [04:01<2:41:27,  2.35it/s][!] loss: 0.0043; token_acc: 100:   1%|          | 283/23050 [04:01<2:41:20,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0003; token_acc: 100:   1%|          | 283/23050 [04:01<2:41:20,  2.35it/s][!] loss: 0.0003; token_acc: 100:   1%|          | 284/23050 [04:01<2:41:09,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0001; token_acc: 100:   1%|          | 284/23050 [04:02<2:41:09,  2.35it/s][!] loss: 0.0001; token_acc: 100:   1%|          | 285/23050 [04:02<2:41:27,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0038; token_acc: 100:   1%|          | 285/23050 [04:02<2:41:27,  2.35it/s][!] loss: 0.0038; token_acc: 100:   1%|          | 286/23050 [04:02<2:41:29,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.001; token_acc: 100:   1%|          | 286/23050 [04:03<2:41:29,  2.35it/s] [!] loss: 0.001; token_acc: 100:   1%|          | 287/23050 [04:03<2:41:33,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[2024-06-07 03:40:14,081] [INFO] [logging.py:96:log_dist] [Rank 0] step=9, skipped=0, lr=[0.00025688521341031664], mom=[[0.9, 0.95]]
-[2024-06-07 03:40:14,082] [INFO] [timer.py:215:stop] epoch=0/micro_step=288/global_step=9, RunningAvgSamplesPerSec=8.418574988785918, CurrSamplesPerSec=8.424136268202627, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.0032; token_acc: 100:   1%|          | 287/23050 [04:05<2:41:33,  2.35it/s][!] loss: 0.0032; token_acc: 100:   1%|          | 288/23050 [04:05<6:05:25,  1.04it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0005; token_acc: 100:   1%|          | 288/23050 [04:05<6:05:25,  1.04it/s][!] loss: 0.0005; token_acc: 100:   1%|▏         | 289/23050 [04:05<5:03:45,  1.25it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0009; token_acc: 100:   1%|▏         | 289/23050 [04:06<5:03:45,  1.25it/s][!] loss: 0.0009; token_acc: 100:   1%|▏         | 290/23050 [04:06<4:20:41,  1.46it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.002; token_acc: 100:   1%|▏         | 290/23050 [04:06<4:20:41,  1.46it/s] [!] loss: 0.002; token_acc: 100:   1%|▏         | 291/23050 [04:06<3:50:29,  1.65it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0019; token_acc: 100:   1%|▏         | 291/23050 [04:07<3:50:29,  1.65it/s][!] loss: 0.0019; token_acc: 100:   1%|▏         | 292/23050 [04:07<3:29:51,  1.81it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0017; token_acc: 100:   1%|▏         | 292/23050 [04:07<3:29:51,  1.81it/s][!] loss: 0.0017; token_acc: 100:   1%|▏         | 293/23050 [04:07<3:15:25,  1.94it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0018; token_acc: 100:   1%|▏         | 293/23050 [04:07<3:15:25,  1.94it/s][!] loss: 0.0018; token_acc: 100:   1%|▏         | 294/23050 [04:07<3:06:34,  2.03it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.001; token_acc: 100:   1%|▏         | 294/23050 [04:08<3:06:34,  2.03it/s] [!] loss: 0.001; token_acc: 100:   1%|▏         | 295/23050 [04:08<2:58:37,  2.12it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0018; token_acc: 100:   1%|▏         | 295/23050 [04:08<2:58:37,  2.12it/s][!] loss: 0.0018; token_acc: 100:   1%|▏         | 296/23050 [04:08<2:53:11,  2.19it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0008; token_acc: 100:   1%|▏         | 296/23050 [04:09<2:53:11,  2.19it/s][!] loss: 0.0008; token_acc: 100:   1%|▏         | 297/23050 [04:09<2:49:32,  2.24it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0019; token_acc: 100:   1%|▏         | 297/23050 [04:09<2:49:32,  2.24it/s][!] loss: 0.0019; token_acc: 100:   1%|▏         | 298/23050 [04:09<2:46:49,  2.27it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.002; token_acc: 100:   1%|▏         | 298/23050 [04:10<2:46:49,  2.27it/s] [!] loss: 0.002; token_acc: 100:   1%|▏         | 299/23050 [04:10<2:45:02,  2.30it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.002; token_acc: 100:   1%|▏         | 299/23050 [04:10<2:45:02,  2.30it/s][!] loss: 0.002; token_acc: 100:   1%|▏         | 300/23050 [04:10<2:43:48,  2.31it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0003; token_acc: 100:   1%|▏         | 300/23050 [04:10<2:43:48,  2.31it/s][!] loss: 0.0003; token_acc: 100:   1%|▏         | 301/23050 [04:10<2:42:45,  2.33it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0011; token_acc: 100:   1%|▏         | 301/23050 [04:11<2:42:45,  2.33it/s][!] loss: 0.0011; token_acc: 100:   1%|▏         | 302/23050 [04:11<2:42:21,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0014; token_acc: 100:   1%|▏         | 302/23050 [04:11<2:42:21,  2.34it/s][!] loss: 0.0014; token_acc: 100:   1%|▏         | 303/23050 [04:11<2:41:44,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0004; token_acc: 100:   1%|▏         | 303/23050 [04:12<2:41:44,  2.34it/s][!] loss: 0.0004; token_acc: 100:   1%|▏         | 304/23050 [04:12<2:41:20,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.001; token_acc: 100:   1%|▏         | 304/23050 [04:12<2:41:20,  2.35it/s] [!] loss: 0.001; token_acc: 100:   1%|▏         | 305/23050 [04:12<2:41:24,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0037; token_acc: 100:   1%|▏         | 305/23050 [04:12<2:41:24,  2.35it/s][!] loss: 0.0037; token_acc: 100:   1%|▏         | 306/23050 [04:12<2:41:03,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0003; token_acc: 100:   1%|▏         | 306/23050 [04:13<2:41:03,  2.35it/s][!] loss: 0.0003; token_acc: 100:   1%|▏         | 307/23050 [04:13<2:40:53,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0006; token_acc: 100:   1%|▏         | 307/23050 [04:13<2:40:53,  2.36it/s][!] loss: 0.0006; token_acc: 100:   1%|▏         | 308/23050 [04:13<2:41:02,  2.35it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.003; token_acc: 100:   1%|▏         | 308/23050 [04:14<2:41:02,  2.35it/s] [!] loss: 0.003; token_acc: 100:   1%|▏         | 309/23050 [04:14<2:40:49,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0013; token_acc: 100:   1%|▏         | 309/23050 [04:14<2:40:49,  2.36it/s][!] loss: 0.0013; token_acc: 100:   1%|▏         | 310/23050 [04:14<2:40:37,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0016; token_acc: 100:   1%|▏         | 310/23050 [04:15<2:40:37,  2.36it/s][!] loss: 0.0016; token_acc: 100:   1%|▏         | 311/23050 [04:15<2:40:31,  2.36it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0032; token_acc: 100:   1%|▏         | 311/23050 [04:15<2:40:31,  2.36it/s][!] loss: 0.0032; token_acc: 100:   1%|▏         | 312/23050 [04:15<2:40:40,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0018; token_acc: 100:   1%|▏         | 312/23050 [04:15<2:40:40,  2.36it/s][!] loss: 0.0018; token_acc: 100:   1%|▏         | 313/23050 [04:15<2:40:58,  2.35it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0079; token_acc: 100:   1%|▏         | 313/23050 [04:16<2:40:58,  2.35it/s][!] loss: 0.0079; token_acc: 100:   1%|▏         | 314/23050 [04:16<2:40:42,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0005; token_acc: 100:   1%|▏         | 314/23050 [04:16<2:40:42,  2.36it/s][!] loss: 0.0005; token_acc: 100:   1%|▏         | 315/23050 [04:16<2:40:36,  2.36it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0016; token_acc: 100:   1%|▏         | 315/23050 [04:17<2:40:36,  2.36it/s][!] loss: 0.0016; token_acc: 100:   1%|▏         | 316/23050 [04:17<2:40:30,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0009; token_acc: 100:   1%|▏         | 316/23050 [04:17<2:40:30,  2.36it/s][!] loss: 0.0009; token_acc: 100:   1%|▏         | 317/23050 [04:17<2:41:00,  2.35it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.002; token_acc: 100:   1%|▏         | 317/23050 [04:18<2:41:00,  2.35it/s] [!] loss: 0.002; token_acc: 100:   1%|▏         | 318/23050 [04:18<2:40:52,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0027; token_acc: 100:   1%|▏         | 318/23050 [04:18<2:40:52,  2.35it/s][!] loss: 0.0027; token_acc: 100:   1%|▏         | 319/23050 [04:18<2:40:42,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[2024-06-07 03:40:29,185] [INFO] [logging.py:96:log_dist] [Rank 0] step=10, skipped=0, lr=[0.00026920327995160495], mom=[[0.9, 0.95]]
-[2024-06-07 03:40:29,187] [INFO] [timer.py:215:stop] epoch=0/micro_step=320/global_step=10, RunningAvgSamplesPerSec=8.448880298842182, CurrSamplesPerSec=8.667284629595251, MemAllocated=15.87GB, MaxMemAllocated=29.97GB
-[!] loss: 0.0023; token_acc: 100:   1%|▏         | 319/23050 [04:20<2:40:42,  2.36it/s][!] loss: 0.0023; token_acc: 100:   1%|▏         | 320/23050 [04:20<5:33:53,  1.13it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0001; token_acc: 100:   1%|▏         | 320/23050 [04:20<5:33:53,  1.13it/s][!] loss: 0.0001; token_acc: 100:   1%|▏         | 321/23050 [04:20<4:41:33,  1.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0005; token_acc: 100:   1%|▏         | 321/23050 [04:21<4:41:33,  1.35it/s][!] loss: 0.0005; token_acc: 100:   1%|▏         | 322/23050 [04:21<4:05:59,  1.54it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0001; token_acc: 100:   1%|▏         | 322/23050 [04:21<4:05:59,  1.54it/s][!] loss: 0.0001; token_acc: 100:   1%|▏         | 323/23050 [04:21<3:40:34,  1.72it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0016; token_acc: 100:   1%|▏         | 323/23050 [04:22<3:40:34,  1.72it/s][!] loss: 0.0016; token_acc: 100:   1%|▏         | 324/23050 [04:22<3:22:31,  1.87it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0002; token_acc: 100:   1%|▏         | 324/23050 [04:22<3:22:31,  1.87it/s][!] loss: 0.0002; token_acc: 100:   1%|▏         | 325/23050 [04:22<3:10:56,  1.98it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0018; token_acc: 100:   1%|▏         | 325/23050 [04:23<3:10:56,  1.98it/s][!] loss: 0.0018; token_acc: 100:   1%|▏         | 326/23050 [04:23<3:02:24,  2.08it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0067; token_acc: 100:   1%|▏         | 326/23050 [04:23<3:02:24,  2.08it/s][!] loss: 0.0067; token_acc: 100:   1%|▏         | 327/23050 [04:23<2:56:00,  2.15it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0003; token_acc: 100:   1%|▏         | 327/23050 [04:23<2:56:00,  2.15it/s][!] loss: 0.0003; token_acc: 100:   1%|▏         | 328/23050 [04:23<2:51:12,  2.21it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0015; token_acc: 100:   1%|▏         | 328/23050 [04:24<2:51:12,  2.21it/s][!] loss: 0.0015; token_acc: 100:   1%|▏         | 329/23050 [04:24<2:47:53,  2.26it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0005; token_acc: 100:   1%|▏         | 329/23050 [04:24<2:47:53,  2.26it/s][!] loss: 0.0005; token_acc: 100:   1%|▏         | 330/23050 [04:24<2:45:40,  2.29it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0016; token_acc: 100:   1%|▏         | 330/23050 [04:25<2:45:40,  2.29it/s][!] loss: 0.0016; token_acc: 100:   1%|▏         | 331/23050 [04:25<2:44:29,  2.30it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0004; token_acc: 100:   1%|▏         | 331/23050 [04:25<2:44:29,  2.30it/s][!] loss: 0.0004; token_acc: 100:   1%|▏         | 332/23050 [04:25<2:43:19,  2.32it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0002; token_acc: 100:   1%|▏         | 332/23050 [04:25<2:43:19,  2.32it/s][!] loss: 0.0002; token_acc: 100:   1%|▏         | 333/23050 [04:25<2:42:09,  2.33it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0006; token_acc: 100:   1%|▏         | 333/23050 [04:26<2:42:09,  2.33it/s][!] loss: 0.0006; token_acc: 100:   1%|▏         | 334/23050 [04:26<2:41:30,  2.34it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0001; token_acc: 100:   1%|▏         | 334/23050 [04:26<2:41:30,  2.34it/s][!] loss: 0.0001; token_acc: 100:   1%|▏         | 335/23050 [04:26<2:40:49,  2.35it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0024; token_acc: 100:   1%|▏         | 335/23050 [04:27<2:40:49,  2.35it/s][!] loss: 0.0024; token_acc: 100:   1%|▏         | 336/23050 [04:27<2:40:35,  2.36it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0011; token_acc: 100:   1%|▏         | 336/23050 [04:27<2:40:35,  2.36it/s][!] loss: 0.0011; token_acc: 100:   1%|▏         | 337/23050 [04:27<2:40:31,  2.36it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0016; token_acc: 100:   1%|▏         | 337/23050 [04:28<2:40:31,  2.36it/s][!] loss: 0.0016; token_acc: 100:   1%|▏         | 338/23050 [04:28<2:40:16,  2.36it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-[!] loss: 0.0013; token_acc: 100:   1%|▏         | 338/23050 [04:28<2:40:16,  2.36it/s][!] loss: 0.0013; token_acc: 100:   1%|▏         | 339/23050 [04:28<2:40:06,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0001; token_acc: 100:   1%|▏         | 339/23050 [04:28<2:40:06,  2.36it/s][!] loss: 0.0001; token_acc: 100:   1%|▏         | 340/23050 [04:28<2:39:53,  2.37it/s]answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0013; token_acc: 100:   1%|▏         | 340/23050 [04:29<2:39:53,  2.37it/s][!] loss: 0.0013; token_acc: 100:   1%|▏         | 341/23050 [04:29<2:40:08,  2.36it/s]answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0007; token_acc: 100:   1%|▏         | 341/23050 [04:29<2:40:08,  2.36it/s][!] loss: 0.0007; token_acc: 100:   1%|▏         | 342/23050 [04:29<2:40:13,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: No
-###
-[!] loss: 0.0011; token_acc: 100:   1%|▏         | 342/23050 [04:30<2:40:13,  2.36it/s][!] loss: 0.0011; token_acc: 100:   1%|▏         | 343/23050 [04:30<2:40:02,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0016; token_acc: 100:   1%|▏         | 343/23050 [04:30<2:40:02,  2.36it/s][!] loss: 0.0016; token_acc: 100:   1%|▏         | 344/23050 [04:30<2:40:35,  2.36it/s]answer: Answer: No
-###
-answer: Answer: No
-###
-answer: Answer: Yes
-###
-answer: Answer: No
-###
-[!] loss: 0.0008; token_acc: 100:   1%|▏         | 344/23050 [04:31<2:40:35,  2.36it/s][!] loss: 0.0008; token_acc: 100:   1%|▏         | 345/23050 [04:31<2:40:12,  2.36it/s][!] save model into /data/xiaochen/FedMFM/ckpt/lora_fedavg_covid
-
- 10%|█         | 1/10 [04:35<41:23, 275.93s/it][Ause prox
-Epoch 1
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:00<00:21,  1.41it/s][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:01<00:20,  1.42it/s][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:02<00:19,  1.47it/s][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:02<00:18,  1.49it/s][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:03<00:17,  1.51it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:04<00:16,  1.52it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:04<00:15,  1.50it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:05<00:15,  1.52it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:06<00:14,  1.50it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:06<00:13,  1.55it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:07<00:12,  1.58it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:07<00:11,  1.62it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:08<00:11,  1.60it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:09<00:11,  1.52it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:09<00:10,  1.51it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:10<00:09,  1.51it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:11<00:08,  1.56it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:11<00:08,  1.57it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:12<00:07,  1.57it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:12<00:06,  1.61it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:13<00:06,  1.60it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:14<00:05,  1.62it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:14<00:04,  1.65it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:15<00:04,  1.67it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:16<00:03,  1.58it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:16<00:03,  1.52it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:17<00:02,  1.46it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:18<00:02,  1.49it/s][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:18<00:01,  1.50it/s][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:19<00:00,  1.57it/s][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:19<00:00,  2.01it/s][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:19<00:00,  1.58it/s]
-Client Covid Loss: 0.25574794724102945
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:00<00:17,  1.67it/s][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:01<00:17,  1.70it/s][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:01<00:16,  1.71it/s][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:02<00:15,  1.73it/s][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:02<00:15,  1.72it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:03<00:15,  1.65it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:04<00:14,  1.64it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:04<00:13,  1.66it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:05<00:13,  1.64it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:05<00:12,  1.67it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:06<00:11,  1.69it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:07<00:11,  1.71it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:07<00:10,  1.72it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:08<00:09,  1.72it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:08<00:09,  1.71it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:09<00:08,  1.70it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:10<00:08,  1.65it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:10<00:07,  1.67it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:11<00:07,  1.58it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:12<00:08,  1.34it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:13<00:07,  1.33it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:13<00:06,  1.39it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:14<00:05,  1.46it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:15<00:04,  1.51it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:15<00:03,  1.54it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:16<00:03,  1.49it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:17<00:02,  1.50it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:17<00:02,  1.43it/s][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:18<00:01,  1.48it/s][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:19<00:00,  1.53it/s][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:19<00:00,  1.96it/s][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:19<00:00,  1.61it/s]
-Client Covid Loss: 0.31437517969959206
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:00<00:19,  1.56it/s][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:01<00:18,  1.60it/s][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:01<00:17,  1.62it/s][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:02<00:16,  1.60it/s][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:03<00:17,  1.47it/s][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:04<00:17,  1.43it/s][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:04<00:16,  1.45it/s][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:05<00:15,  1.48it/s][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:06<00:14,  1.47it/s][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:06<00:13,  1.52it/s][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:07<00:14,  1.34it/s][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:08<00:14,  1.33it/s][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:09<00:13,  1.29it/s][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:10<00:14,  1.21it/s][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:10<00:12,  1.30it/s][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:11<00:11,  1.36it/s][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:12<00:10,  1.39it/s][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:12<00:09,  1.32it/s][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:13<00:08,  1.42it/s][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:14<00:07,  1.50it/s][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:14<00:06,  1.55it/s][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:15<00:05,  1.58it/s][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:15<00:05,  1.58it/s][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:16<00:04,  1.52it/s][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:17<00:03,  1.58it/s][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:17<00:03,  1.58it/s][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:18<00:02,  1.63it/s][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:19<00:01,  1.65it/s][A[A

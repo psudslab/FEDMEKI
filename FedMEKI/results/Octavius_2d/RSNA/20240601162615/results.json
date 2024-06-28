@@ -1,8 +1,0 @@
-{
-    "answer_path": "../results/Octavius_2d/RSNA/20240601162615/MedQA_20240601162656.json",
-    "result": {
-        "ACC": 0.1666666716337204,
-        "ROUGE1": 0.16666666666666666,
-        "METEOR": 0.146875
-    }
-}

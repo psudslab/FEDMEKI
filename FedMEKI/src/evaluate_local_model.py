@@ -1,12 +1,14 @@
-from fed_local_4 import *
+from local_FL import *
 
-device = "cuda:1"
-# modalities = ['image', 'covid', 'ecg', 'clinicals']
-modalities = ['ecg']
-test_image_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_test.json"
-test_covid_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
-test_ecg_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/ecg_test.json"
-test_clinical_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/mortality_test.json"
+device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+modalities = ['image', 'covid', 'ecg', 'clinicals']
+
+test_image_data_path = path_to_image_data
+test_covid_data_path = path_to_covid_data
+test_ecg_data_path = path_to_ecg_data
+test_clinical_data_path = path_to_clinical_data
+global_model_path = path_to_global_model
+
 
 test_data_paths = {
    'image': test_image_data_path,
@@ -37,7 +39,9 @@ for modality in modalities:
                 test_clinical_paths, test_clinical_labels = parse_data(test_data_path, modality)
                 test_data_loaders[modality] = DataLoader(ClinicalDataset(test_clinical_paths, test_clinical_labels), batch_size=32, shuffle=False)
 
-global_model = torch.load("/data/xiaochen/FedMFM/ckpt/ours_fedavg_ecg/5/local.pt")
+
+
+global_model = torch.load(path_to_global_model)
 
 if test_data_loaders['image']:
     print("Evaluating Image Model:")

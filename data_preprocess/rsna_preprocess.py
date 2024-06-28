@@ -18,10 +18,9 @@ from sklearn.model_selection import train_test_split
 seed = 42
 random.seed(seed)
 np.random.seed(seed)
-# torch.manual_seed(seed)
 
 
-# Function to generate GPT responses based on classification
+# Function to generate responses based on classification
 def determine_gpt_response(classification):
    if classification == 'Lung Opacity':
        return 'Yes'
@@ -31,13 +30,19 @@ def determine_gpt_response(classification):
        return 'Unavailable'
 
 # Paths to your files and directories
-csv_file_path = "/data/junyu/RSNA/stage_2_detailed_class_info.csv"
-train_image_base_path = '/data/junyu/RSNA/stage_2_train_images/'
+
+csv_file_path = path_to_stage_2_detailed_class_info
+train_image_base_path = path_to_stage_2_train_images
+# csv_file_path = "/data/junyu/RSNA/stage_2_detailed_class_info.csv"
+# train_image_base_path = '/data/junyu/RSNA/stage_2_train_images/'
 
 # Output JSON file paths
-json_train_main = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_client.json"
-json_train_secondary = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_server.json"
-json_test = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_test.json"
+json_train_main = path_to_client_output
+json_train_secondary = path_to_server_output
+json_test = path_to_test_output
+# json_train_main = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_client.json"
+# json_train_secondary = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_server.json"
+# json_test = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_test.json"
 
 # Read CSV and process data
 patient_data = []
@@ -112,8 +117,10 @@ def split_client_data(train_json_path, validation_ratio=1/8, seed=42):
     train_data, validation_data = train_test_split(client_data, test_size=validation_ratio, random_state=seed)
 
     # Save the new train and validation splits
-    client_train_json_path = '/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_client.json'
-    client_valid_json_path = '/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_valid.json'
+    client_train_json_path = path_to_client_output
+    client_valid_json_path = path_to_valid_output
+    # client_train_json_path = '/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_client.json'
+    # client_valid_json_path = '/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_valid.json'
     
     with open(client_train_json_path, 'w') as train_file:
         json.dump(train_data, train_file, indent=4)
@@ -126,5 +133,5 @@ def split_client_data(train_json_path, validation_ratio=1/8, seed=42):
     print(f"Client data split into train and validation sets with ratio 1:7 and saved to {client_train_json_path} and {client_valid_json_path}")
 
 # Call the function to split client data
-split_client_data('/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_client.json')
+split_client_data(json_train_main)
 

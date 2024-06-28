@@ -16,11 +16,11 @@ combinations=(
 #    "/data/xiaochen/FedMFM/ckpt/ours_fedavg_multi___/5/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/ecg_test.json"
 #    "/data/xiaochen/FedMFM/ckpt/ours_fedavg_multi___/5/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/mortality_test.json"
     #"/data/xiaochen/FedMFM/ckpt/ours_no_fl/0/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
-    #"/data/xiaochen/FedMFM/ckpt/ours_no_modal/5/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
-    #"/data/xiaochen/FedMFM/ckpt/ours_no_task/5/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
+    "/data/xiaochen/FedMFM/ckpt/ours_no_modality__final/pytorch_model_ep9.pt /data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
+    # "/data/xiaochen/FedMFM/ckpt/ours_no_task__/5/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
     # Add more combinations as needed
     # "/data/xiaochen/FedMFM/ckpt/fedprox_multi_/pytorch_model_ep3.pt /data/xiaochen/FedMFM/preprocessed_jsons/eb_test.json"
-    "/data/xiaochen/FedMFM/ckpt/fedavg_multi_/5/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/slake_test.json"
+    # "/data/xiaochen/FedMFM/ckpt/ours_fedprox_covid__/5/pytorch_model.pt /data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
     #"/data/xiaochen/FedMFM/ckpt/fedprox_multi_/pytorch_model_ep3.pt /data/xiaochen/FedMFM/preprocessed_jsons/ate_test.json"
     #"/data/xiaochen/FedMFM/ckpt/fedprox_multi_/pytorch_model_ep3.pt /data/xiaochen/FedMFM/preprocessed_jsons/pf_test.json"
     #"/data/xiaochen/FedMFM/ckpt/fedprox_multi_/pytorch_model_ep3.pt /data/xiaochen/FedMFM/preprocessed_jsons/slake_test.json"
@@ -51,7 +51,7 @@ vision_feature_type: local
 num_vision_token: 198
 
 peft_type: moe_lora
-moe_lora_num_experts: 1
+moe_lora_num_experts: 8
 moe_gate_mode: top2_gate
 lora_r: 8
 lora_alpha: 32

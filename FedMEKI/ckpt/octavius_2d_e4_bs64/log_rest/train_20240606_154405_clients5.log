@@ -1,2458 +1,0 @@
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
-and will be removed in future. Use torchrun.
-Note that --use_env is set by default in torchrun.
-If your script expects `--local_rank` argument to be set, please
-change it to read from `os.environ['LOCAL_RANK']` instead. See 
-https://pytorch.org/docs/stable/distributed.html#launch-utility for 
-further instructions
-
-  warnings.warn(
-Setting ds_accelerator to cuda (auto detect)
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torchvision/transforms/_functional_video.py:6: UserWarning: The 'torchvision.transforms._functional_video' module is deprecated since 0.12 and will be removed in 0.14. Please use the 'torchvision.transforms.functional' module instead.
-  warnings.warn(
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torchvision/transforms/_transforms_video.py:25: UserWarning: The 'torchvision.transforms._transforms_video' module is deprecated since 0.12 and will be removed in 0.14. Please use the 'torchvision.transforms' module instead.
-  warnings.warn(
-WARNING:root:Could not import _ext module.
-Please see the setup instructions in the README: https://github.com/erikwijmans/Pointnet2_PyTorch/blob/master/README.rst. Please refer to README.md to install optional extension for 3D environment if required.
-WARNING:root:No module named 'lightllm'. Please refer to README.md to install optional LightLLM extension if required.
-Arguments: 
-{
-    "cfg": "config/Octavius/octavius_2d_e4_bs64.yaml",
-    "conv_template": "default",
-    "data_path": null,
-    "delta_ckpt_path": null,
-    "encoder_ckpt_path": null,
-    "encoder_pretrain": "clip",
-    "gradient_checkpointing": false,
-    "llm_ckpt_path": "/data/xiaochen/FedMFM/MMedLM2/",
-    "llm_proj_path": null,
-    "local_rank": 0,
-    "log_path": "../ckpt/octavius_2d_e4_bs64/log_rest/",
-    "max_tgt_len": 128,
-    "model": "octavius",
-    "num_clients": "5",
-    "num_points": 40000,
-    "num_vision_token": 198,
-    "save_path": "/data/xiaochen/FedMFM/ckpt/lora_fedavg_multi",
-    "stage": 1,
-    "use_color": false,
-    "use_flash_attn": false,
-    "use_height": false,
-    "use_system": true,
-    "use_xformers": false,
-    "vision_feature_type": "local",
-    "vision_output_layer": -1,
-    "vision_root_path": null,
-    "vision_type": "image"
-}
-[2024-06-06 15:44:09,780] [WARNING] [comm.py:152:init_deepspeed_backend] NCCL backend in DeepSpeed not yet implemented
-[2024-06-06 15:44:09,780] [INFO] [comm.py:594:init_distributed] cdb=None
-[2024-06-06 15:44:09,780] [INFO] [comm.py:625:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
-Initializing [clip] visual encoder from ~/.cache/clip/ViT-L-14.pt [cuda]...
-/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/transformers/models/deit/feature_extraction_deit.py:28: FutureWarning: The class DeiTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use DeiTImageProcessor instead.
-  warnings.warn(
-Visual encoder initialized.
-Initializing language decoder from /data/xiaochen/FedMFM/MMedLM2/ ...
-Build PEFT model with LoRA-MoE.
-loading medical ckpt
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:09<00:27,  9.16s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:27<00:28, 14.45s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:41<00:14, 14.46s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:44<00:00,  9.73s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:44<00:00, 11.06s/it]
-InternLM2ForCausalLM(
-  (model): InternLM2Model(
-    (tok_embeddings): Embedding(92544, 4096, padding_idx=2)
-    (layers): ModuleList(
-      (0): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (1): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (2): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (3): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (4): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (5): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (6): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (7): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (8): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (9): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (10): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (11): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (12): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (13): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (14): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (15): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (16): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (17): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (18): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (19): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (20): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (21): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (22): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (23): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (24): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (25): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (26): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (27): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (28): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (29): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (30): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-      (31): InternLM2DecoderLayer(
-        (attention): InternLM2Attention(
-          (wqkv): Linear(in_features=4096, out_features=6144, bias=False)
-          (wo): Linear(in_features=4096, out_features=4096, bias=False)
-          (rotary_emb): InternLM2RotaryEmbedding()
-        )
-        (feed_forward): InternLM2MLP(
-          (w1): Linear(in_features=4096, out_features=14336, bias=False)
-          (w3): Linear(in_features=4096, out_features=14336, bias=False)
-          (w2): Linear(in_features=14336, out_features=4096, bias=False)
-          (act_fn): SiLUActivation()
-        )
-        (attention_norm): InternLM2RMSNorm()
-        (ffn_norm): InternLM2RMSNorm()
-      )
-    )
-    (norm): InternLM2RMSNorm()
-  )
-  (output): Linear(in_features=4096, out_features=92544, bias=False)
-)
-trainable params: 19647488 || all params: 7757356032 || trainable%: 0.25327557377735166
-Language decoder initialized.
-Add VISION TAG ("<Img>" and "</Img>") for modality image.
-Octavius Modalities: ['image']
-Octavius 2D projection layer initialized.
-Signal processing module initialized.
-Clinical readings processing module initialized.
-Demographics MLP encoder initialized.
-[2024-06-06 15:47:44,895] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.9.3, git-hash=4e80e29, git-branch=HEAD
-[2024-06-06 15:47:44,895] [INFO] [comm.py:619:init_distributed] Distributed backend already initialized
-[2024-06-06 15:47:59,397] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
-[93m [WARNING] [0m cpu_adam cuda is missing or is incompatible with installed torch, only cpu ops can be compiled!
-Using /home/xmw5190/.cache/torch_extensions/py310_cu113 as PyTorch extensions root...
-Emitting ninja build file /home/xmw5190/.cache/torch_extensions/py310_cu113/cpu_adam/build.ninja...
-Building extension module cpu_adam...
-Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
-ninja: no work to do.
-Loading extension module cpu_adam...
-Time to load cpu_adam op: 2.471679925918579 seconds
-Adam Optimizer #0 is created with AVX512 arithmetic capability.
-Config: alpha=0.000500, betas=(0.900000, 0.950000), weight_decay=0.000010, adam_w=1
-[2024-06-06 15:48:03,534] [INFO] [logging.py:96:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adam as basic optimizer
-[2024-06-06 15:48:03,671] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
-[2024-06-06 15:48:03,671] [INFO] [utils.py:54:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
-[2024-06-06 15:48:03,671] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float16 ZeRO stage 1 optimizer
-[2024-06-06 15:48:03,671] [INFO] [stage_1_and_2.py:133:__init__] Reduce bucket size 500,000,000
-[2024-06-06 15:48:03,671] [INFO] [stage_1_and_2.py:134:__init__] Allgather bucket size 500000000
-[2024-06-06 15:48:03,671] [INFO] [stage_1_and_2.py:135:__init__] CPU Offload: True
-[2024-06-06 15:48:03,671] [INFO] [stage_1_and_2.py:136:__init__] Round robin gradient partitioning: False
-Using /home/xmw5190/.cache/torch_extensions/py310_cu113 as PyTorch extensions root...
-Emitting ninja build file /home/xmw5190/.cache/torch_extensions/py310_cu113/utils/build.ninja...
-Building extension module utils...
-Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
-ninja: no work to do.
-Loading extension module utils...
-Time to load utils op: 0.1003427505493164 seconds
-Rank: 0 partition count [1] and sizes[(836009386, False)] 
-[2024-06-06 15:48:07,877] [INFO] [utils.py:785:see_memory_usage] Before initializing optimizer states
-[2024-06-06 15:48:07,878] [INFO] [utils.py:786:see_memory_usage] MA 15.78 GB         Max_MA 15.78 GB         CA 15.93 GB         Max_CA 16 GB 
-[2024-06-06 15:48:07,878] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 77.35 GB, percent = 20.5%
-[2024-06-06 15:48:10,894] [INFO] [utils.py:785:see_memory_usage] After initializing optimizer states
-[2024-06-06 15:48:10,895] [INFO] [utils.py:786:see_memory_usage] MA 15.78 GB         Max_MA 15.78 GB         CA 15.93 GB         Max_CA 16 GB 
-[2024-06-06 15:48:10,895] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 87.67 GB, percent = 23.3%
-[2024-06-06 15:48:10,895] [INFO] [stage_1_and_2.py:489:__init__] optimizer state initialized
-[2024-06-06 15:48:11,006] [INFO] [utils.py:785:see_memory_usage] After initializing ZeRO optimizer
-[2024-06-06 15:48:11,006] [INFO] [utils.py:786:see_memory_usage] MA 15.78 GB         Max_MA 15.78 GB         CA 15.93 GB         Max_CA 16 GB 
-[2024-06-06 15:48:11,006] [INFO] [utils.py:793:see_memory_usage] CPU Virtual Memory:  used = 87.69 GB, percent = 23.3%
-[2024-06-06 15:48:11,022] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = adam
-[2024-06-06 15:48:11,022] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = WarmupDecayLR
-[2024-06-06 15:48:11,022] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = <deepspeed.runtime.lr_schedules.WarmupDecayLR object at 0x7f58ac2d7fd0>
-[2024-06-06 15:48:11,022] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0005], mom=[[0.9, 0.95]]
-[2024-06-06 15:48:11,026] [INFO] [config.py:960:print] DeepSpeedEngine configuration:
-[2024-06-06 15:48:11,026] [INFO] [config.py:964:print]   activation_checkpointing_config  {
-    "partition_activations": true, 
-    "contiguous_memory_optimization": false, 
-    "cpu_checkpointing": true, 
-    "number_checkpoints": null, 
-    "synchronize_checkpoint_boundary": false, 
-    "profile": false
-}
-[2024-06-06 15:48:11,026] [INFO] [config.py:964:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
-[2024-06-06 15:48:11,026] [INFO] [config.py:964:print]   amp_enabled .................. False
-[2024-06-06 15:48:11,026] [INFO] [config.py:964:print]   amp_params ................... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   autotuning_config ............ {
-    "enabled": false, 
-    "start_step": null, 
-    "end_step": null, 
-    "metric_path": null, 
-    "arg_mappings": null, 
-    "metric": "throughput", 
-    "model_info": null, 
-    "results_dir": "autotuning_results", 
-    "exps_dir": "autotuning_exps", 
-    "overwrite": true, 
-    "fast": true, 
-    "start_profile_step": 3, 
-    "end_profile_step": 5, 
-    "tuner_type": "gridsearch", 
-    "tuner_early_stopping": 5, 
-    "tuner_num_trials": 50, 
-    "model_info_path": null, 
-    "mp_size": 1, 
-    "max_train_batch_size": null, 
-    "min_train_batch_size": 1, 
-    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
-    "min_train_micro_batch_size_per_gpu": 1, 
-    "num_tuning_micro_batch_sizes": 3
-}
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   bfloat16_enabled ............. False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   checkpoint_parallel_write_pipeline  False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   checkpoint_tag_validation_enabled  True
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   checkpoint_tag_validation_fail  False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f58bc5b1f90>
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   communication_data_type ...... None
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   curriculum_enabled_legacy .... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   curriculum_params_legacy ..... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   data_efficiency_enabled ...... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   dataloader_drop_last ......... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   disable_allgather ............ False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   dump_state ................... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   dynamic_loss_scale_args ...... {'init_scale': 65536, 'scale_window': 1000, 'delayed_shift': 2, 'consecutive_hysteresis': False, 'min_scale': 128}
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_enabled ........... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_gas_boundary_resolution  1
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_layer_name ........ bert.encoder.layer
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_layer_num ......... 0
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_max_iter .......... 100
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_stability ......... 1e-06
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_tol ............... 0.01
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   eigenvalue_verbose ........... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   elasticity_enabled ........... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   flops_profiler_config ........ {
-    "enabled": false, 
-    "recompute_fwd_factor": 0.0, 
-    "profile_step": 1, 
-    "module_depth": -1, 
-    "top_modules": 1, 
-    "detailed": true, 
-    "output_file": null
-}
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   fp16_auto_cast ............... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   fp16_enabled ................. True
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   fp16_master_weights_and_gradients  False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   global_rank .................. 0
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   grad_accum_dtype ............. None
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   gradient_accumulation_steps .. 32
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   gradient_clipping ............ 1
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   gradient_predivide_factor .... 1.0
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   initial_dynamic_scale ........ 65536
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   load_universal_checkpoint .... False
-[2024-06-06 15:48:11,027] [INFO] [config.py:964:print]   loss_scale ................... 0
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   memory_breakdown ............. False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   mics_hierarchial_params_gather  False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   mics_shard_size .............. -1
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   nebula_config ................ {
-    "enabled": false, 
-    "persistent_storage_path": null, 
-    "persistent_time_interval": 100, 
-    "num_of_version_in_retention": 2, 
-    "enable_nebula_load": true, 
-    "load_path": null
-}
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   optimizer_legacy_fusion ...... False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   optimizer_name ............... adam
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   optimizer_params ............. {'betas': [0.9, 0.95], 'eps': 1e-08, 'lr': 0.0005, 'weight_decay': 1e-05}
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   pld_enabled .................. False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   pld_params ................... False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   prescale_gradients ........... False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   scheduler_name ............... WarmupDecayLR
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   scheduler_params ............. {'total_num_steps': 720, 'warmup_max_lr': 0.0005, 'warmup_min_lr': 0, 'warmup_num_steps': 72}
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   sparse_attention ............. None
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   sparse_gradients_enabled ..... False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   steps_per_print .............. 1
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   train_batch_size ............. 128
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   train_micro_batch_size_per_gpu  4
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   use_node_local_storage ....... False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   wall_clock_breakdown ......... False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   world_size ................... 1
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   zero_allow_untested_optimizer  False
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   zero_config .................. stage=1 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=False, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   zero_enabled ................. True
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   zero_force_ds_cpu_optimizer .. True
-[2024-06-06 15:48:11,028] [INFO] [config.py:964:print]   zero_optimization_stage ...... 1
-[2024-06-06 15:48:11,028] [INFO] [config.py:950:print_user_config]   json = {
-    "train_batch_size": 128, 
-    "train_micro_batch_size_per_gpu": 4, 
-    "gradient_accumulation_steps": 32, 
-    "gradient_clipping": 1, 
-    "steps_per_print": 1, 
-    "zero_optimization": {
-        "allgather_bucket_size": 5.000000e+08, 
-        "allgather_partitions": true, 
-        "contiguous_gradients": true, 
-        "offload_optimizer": {
-            "device": "cpu"
-        }, 
-        "stage": 1
-    }, 
-    "optimizer": {
-        "type": "Adam", 
-        "params": {
-            "betas": [0.9, 0.95], 
-            "eps": 1e-08, 
-            "lr": 0.0005, 
-            "weight_decay": 1e-05
-        }
-    }, 
-    "scheduler": {
-        "type": "WarmupDecayLR", 
-        "params": {
-            "total_num_steps": 720, 
-            "warmup_max_lr": 0.0005, 
-            "warmup_min_lr": 0, 
-            "warmup_num_steps": 72
-        }
-    }, 
-    "fp16": {
-        "enabled": true, 
-        "min_loss_scale": 128, 
-        "opt_level": "O2"
-    }, 
-    "bf16": {
-        "enable": false
-    }, 
-    "activation_checkpointing": {
-        "partition_activations": true, 
-        "cpu_checkpointing": true, 
-        "contiguous_memory_optimization": false, 
-        "number_checkpoints": null, 
-        "synchronize_checkpoint_boundary": false, 
-        "profile": false
-    }
-}
-Using /home/xmw5190/.cache/torch_extensions/py310_cu113 as PyTorch extensions root...
-No modifications detected for re-loaded extension module utils, skipping build step...
-Loading extension module utils...
-Time to load utils op: 0.0003333091735839844 seconds
-DeepSpeedAgent Octavius
-  0%|          | 0/23050 [00:00<?, ?it/s]/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/transformers/models/deit/feature_extraction_deit.py:28: FutureWarning: The class DeiTFeatureExtractor is deprecated and will be removed in version 5 of Transformers. Please use DeiTImageProcessor instead.
-  warnings.warn(
-
-  0%|          | 0/10 [00:00<?, ?it/s][Ause prox
-Epoch 1
-
-
-Training on Image Data:   0%|          | 0/41 [00:00<?, ?it/s][A[A
-
-Training on Image Data:   2%|▏         | 1/41 [00:07<04:48,  7.22s/it][A[A
-
-Training on Image Data:   5%|▍         | 2/41 [00:09<02:50,  4.36s/it][A[A
-
-Training on Image Data:   7%|▋         | 3/41 [00:12<02:15,  3.57s/it][A[A
-
-Training on Image Data:  10%|▉         | 4/41 [00:14<01:54,  3.10s/it][A[A
-
-Training on Image Data:  12%|█▏        | 5/41 [00:16<01:40,  2.79s/it][A[A
-
-Training on Image Data:  15%|█▍        | 6/41 [00:19<01:34,  2.69s/it][A[A
-
-Training on Image Data:  17%|█▋        | 7/41 [00:21<01:29,  2.64s/it][A[A
-
-Training on Image Data:  20%|█▉        | 8/41 [00:24<01:24,  2.55s/it][A[A
-
-Training on Image Data:  22%|██▏       | 9/41 [00:26<01:20,  2.51s/it][A[A
-
-Training on Image Data:  24%|██▍       | 10/41 [00:29<01:19,  2.57s/it][A[A
-
-Training on Image Data:  27%|██▋       | 11/41 [00:31<01:17,  2.58s/it][A[A
-
-Training on Image Data:  29%|██▉       | 12/41 [00:34<01:12,  2.49s/it][A[A
-
-Training on Image Data:  32%|███▏      | 13/41 [00:36<01:11,  2.57s/it][A[A
-
-Training on Image Data:  34%|███▍      | 14/41 [00:39<01:08,  2.53s/it][A[A
-
-Training on Image Data:  37%|███▋      | 15/41 [00:42<01:07,  2.62s/it][A[A
-
-Training on Image Data:  39%|███▉      | 16/41 [00:44<01:05,  2.62s/it][A[A
-
-Training on Image Data:  41%|████▏     | 17/41 [00:47<01:00,  2.54s/it][A[A
-
-Training on Image Data:  44%|████▍     | 18/41 [00:50<01:00,  2.62s/it][A[A
-
-Training on Image Data:  46%|████▋     | 19/41 [00:52<00:57,  2.63s/it][A[A
-
-Training on Image Data:  49%|████▉     | 20/41 [00:55<00:55,  2.66s/it][A[A
-
-Training on Image Data:  51%|█████     | 21/41 [00:58<00:55,  2.76s/it][A[A
-
-Training on Image Data:  54%|█████▎    | 22/41 [01:01<00:52,  2.77s/it][A[A
-
-Training on Image Data:  56%|█████▌    | 23/41 [01:04<00:51,  2.88s/it][A[A
-
-Training on Image Data:  59%|█████▊    | 24/41 [01:07<00:48,  2.84s/it][A[A
-
-Training on Image Data:  61%|██████    | 25/41 [01:09<00:44,  2.78s/it][A[A
-
-Training on Image Data:  63%|██████▎   | 26/41 [01:12<00:42,  2.83s/it][A[A
-
-Training on Image Data:  66%|██████▌   | 27/41 [01:15<00:37,  2.71s/it][A[A
-
-Training on Image Data:  68%|██████▊   | 28/41 [01:17<00:34,  2.64s/it][A[A
-
-Training on Image Data:  71%|███████   | 29/41 [01:20<00:30,  2.57s/it][A[A
-
-Training on Image Data:  73%|███████▎  | 30/41 [01:22<00:27,  2.51s/it][A[A
-
-Training on Image Data:  76%|███████▌  | 31/41 [01:24<00:25,  2.51s/it][A[A
-
-Training on Image Data:  78%|███████▊  | 32/41 [01:27<00:22,  2.51s/it][A[A
-
-Training on Image Data:  80%|████████  | 33/41 [01:29<00:19,  2.45s/it][A[A
-
-Training on Image Data:  83%|████████▎ | 34/41 [01:32<00:17,  2.52s/it][A[A
-
-Training on Image Data:  85%|████████▌ | 35/41 [01:34<00:14,  2.47s/it][A[A
-
-Training on Image Data:  88%|████████▊ | 36/41 [01:37<00:12,  2.45s/it][A[A
-
-Training on Image Data:  90%|█████████ | 37/41 [01:39<00:09,  2.36s/it][A[A
-
-Training on Image Data:  93%|█████████▎| 38/41 [01:42<00:07,  2.51s/it][A[A
-
-Training on Image Data:  95%|█████████▌| 39/41 [01:44<00:05,  2.56s/it][A[A
-
-Training on Image Data:  98%|█████████▊| 40/41 [01:47<00:02,  2.60s/it][A[A
-
-Training on Image Data: 100%|██████████| 41/41 [01:48<00:00,  2.05s/it][A[ATraining on Image Data: 100%|██████████| 41/41 [01:48<00:00,  2.64s/it]
-Client Image Loss: 0.36569451631569283
-
-
-Training on Image Data:   0%|          | 0/41 [00:00<?, ?it/s][A[A
-
-Training on Image Data:   2%|▏         | 1/41 [00:02<01:59,  2.98s/it][A[A
-
-Training on Image Data:   5%|▍         | 2/41 [00:05<01:49,  2.80s/it][A[A
-
-Training on Image Data:   7%|▋         | 3/41 [00:08<01:39,  2.61s/it][A[A
-
-Training on Image Data:  10%|▉         | 4/41 [00:10<01:37,  2.64s/it][A[A
-
-Training on Image Data:  12%|█▏        | 5/41 [00:13<01:31,  2.55s/it][A[A
-
-Training on Image Data:  15%|█▍        | 6/41 [00:15<01:28,  2.54s/it][A[A
-
-Training on Image Data:  17%|█▋        | 7/41 [00:18<01:24,  2.48s/it][A[A
-
-Training on Image Data:  20%|█▉        | 8/41 [00:20<01:22,  2.51s/it][A[A
-
-Training on Image Data:  22%|██▏       | 9/41 [00:23<01:23,  2.60s/it][A[A
-
-Training on Image Data:  24%|██▍       | 10/41 [00:26<01:22,  2.66s/it][A[A
-
-Training on Image Data:  27%|██▋       | 11/41 [00:28<01:17,  2.59s/it][A[A
-
-Training on Image Data:  29%|██▉       | 12/41 [00:31<01:16,  2.64s/it][A[A
-
-Training on Image Data:  32%|███▏      | 13/41 [00:33<01:13,  2.64s/it][A[A
-
-Training on Image Data:  34%|███▍      | 14/41 [00:36<01:10,  2.62s/it][A[A
-
-Training on Image Data:  37%|███▋      | 15/41 [00:38<01:06,  2.56s/it][A[A
-
-Training on Image Data:  39%|███▉      | 16/41 [00:41<01:03,  2.53s/it][A[A
-
-Training on Image Data:  41%|████▏     | 17/41 [00:44<01:00,  2.54s/it][A[A
-
-Training on Image Data:  44%|████▍     | 18/41 [00:46<00:59,  2.57s/it][A[A
-
-Training on Image Data:  46%|████▋     | 19/41 [00:49<00:55,  2.52s/it][A[A
-
-Training on Image Data:  49%|████▉     | 20/41 [00:51<00:52,  2.49s/it][A[A
-
-Training on Image Data:  51%|█████     | 21/41 [00:54<00:50,  2.52s/it][A[A
-
-Training on Image Data:  54%|█████▎    | 22/41 [00:56<00:46,  2.45s/it][A[A
-
-Training on Image Data:  56%|█████▌    | 23/41 [00:58<00:44,  2.48s/it][A[A
-
-Training on Image Data:  59%|█████▊    | 24/41 [01:01<00:41,  2.45s/it][A[A
-
-Training on Image Data:  61%|██████    | 25/41 [01:03<00:39,  2.48s/it][A[A
-
-Training on Image Data:  63%|██████▎   | 26/41 [01:06<00:38,  2.54s/it][A[A
-
-Training on Image Data:  66%|██████▌   | 27/41 [01:08<00:34,  2.50s/it][A[A
-
-Training on Image Data:  68%|██████▊   | 28/41 [01:11<00:31,  2.46s/it][A[A
-
-Training on Image Data:  71%|███████   | 29/41 [01:14<00:30,  2.58s/it][A[A
-
-Training on Image Data:  73%|███████▎  | 30/41 [01:16<00:28,  2.59s/it][A[A
-
-Training on Image Data:  76%|███████▌  | 31/41 [01:19<00:25,  2.60s/it][A[A
-
-Training on Image Data:  78%|███████▊  | 32/41 [01:21<00:23,  2.60s/it][A[A
-
-Training on Image Data:  80%|████████  | 33/41 [01:24<00:20,  2.51s/it][A[A
-
-Training on Image Data:  83%|████████▎ | 34/41 [01:26<00:17,  2.44s/it][A[A
-
-Training on Image Data:  85%|████████▌ | 35/41 [01:29<00:14,  2.46s/it][A[A
-
-Training on Image Data:  88%|████████▊ | 36/41 [01:31<00:12,  2.48s/it][A[A
-
-Training on Image Data:  90%|█████████ | 37/41 [01:34<00:10,  2.50s/it][A[A
-
-Training on Image Data:  93%|█████████▎| 38/41 [01:36<00:07,  2.43s/it][A[A
-
-Training on Image Data:  95%|█████████▌| 39/41 [01:38<00:04,  2.43s/it][A[A
-
-Training on Image Data:  98%|█████████▊| 40/41 [01:41<00:02,  2.45s/it][A[A
-
-Training on Image Data: 100%|██████████| 41/41 [01:42<00:00,  1.92s/it][A[ATraining on Image Data: 100%|██████████| 41/41 [01:42<00:00,  2.49s/it]
-Client Image Loss: 0.34785435584987084
-
-
-Training on Image Data:   0%|          | 0/41 [00:00<?, ?it/s][A[A
-
-Training on Image Data:   2%|▏         | 1/41 [00:03<02:03,  3.09s/it][A[A
-
-Training on Image Data:   5%|▍         | 2/41 [00:05<01:39,  2.54s/it][A[A
-
-Training on Image Data:   7%|▋         | 3/41 [00:08<01:42,  2.70s/it][A[A
-
-Training on Image Data:  10%|▉         | 4/41 [00:10<01:34,  2.54s/it][A[A
-
-Training on Image Data:  12%|█▏        | 5/41 [00:12<01:31,  2.54s/it][A[A
-
-Training on Image Data:  15%|█▍        | 6/41 [00:15<01:26,  2.48s/it][A[A
-
-Training on Image Data:  17%|█▋        | 7/41 [00:17<01:23,  2.46s/it][A[A
-
-Training on Image Data:  20%|█▉        | 8/41 [00:20<01:22,  2.49s/it][A[A
-
-Training on Image Data:  22%|██▏       | 9/41 [00:22<01:20,  2.50s/it][A[A
-
-Training on Image Data:  24%|██▍       | 10/41 [00:25<01:20,  2.59s/it][A[A
-
-Training on Image Data:  27%|██▋       | 11/41 [00:28<01:20,  2.67s/it][A[A
-
-Training on Image Data:  29%|██▉       | 12/41 [00:31<01:19,  2.73s/it][A[A
-
-Training on Image Data:  32%|███▏      | 13/41 [00:33<01:15,  2.68s/it][A[A
-
-Training on Image Data:  34%|███▍      | 14/41 [00:36<01:10,  2.61s/it][A[A
-
-Training on Image Data:  37%|███▋      | 15/41 [00:38<01:07,  2.58s/it][A[A
-
-Training on Image Data:  39%|███▉      | 16/41 [00:41<01:02,  2.50s/it][A[A
-
-Training on Image Data:  41%|████▏     | 17/41 [00:43<01:00,  2.53s/it][A[A
-
-Training on Image Data:  44%|████▍     | 18/41 [00:46<00:59,  2.57s/it][A[A
-
-Training on Image Data:  46%|████▋     | 19/41 [00:48<00:54,  2.47s/it][A[A
-
-Training on Image Data:  49%|████▉     | 20/41 [00:50<00:49,  2.38s/it][A[A
-
-Training on Image Data:  51%|█████     | 21/41 [00:53<00:46,  2.32s/it][A[A
-
-Training on Image Data:  54%|█████▎    | 22/41 [00:55<00:44,  2.34s/it][A[A
-
-Training on Image Data:  56%|█████▌    | 23/41 [00:57<00:42,  2.36s/it][A[A
-
-Training on Image Data:  59%|█████▊    | 24/41 [01:00<00:39,  2.31s/it][A[A
-
-Training on Image Data:  61%|██████    | 25/41 [01:02<00:36,  2.26s/it][A[A
-
-Training on Image Data:  63%|██████▎   | 26/41 [01:04<00:33,  2.25s/it][A[A
-
-Training on Image Data:  66%|██████▌   | 27/41 [01:06<00:32,  2.34s/it][A[A
-
-Training on Image Data:  68%|██████▊   | 28/41 [01:09<00:29,  2.27s/it][A[A
-
-Training on Image Data:  71%|███████   | 29/41 [01:11<00:26,  2.24s/it][A[A
-
-Training on Image Data:  73%|███████▎  | 30/41 [01:13<00:24,  2.21s/it][A[A
-
-Training on Image Data:  76%|███████▌  | 31/41 [01:15<00:22,  2.21s/it][A[A
-
-Training on Image Data:  78%|███████▊  | 32/41 [01:17<00:20,  2.24s/it][A[A
-
-Training on Image Data:  80%|████████  | 33/41 [01:20<00:17,  2.25s/it][A[A
-
-Training on Image Data:  83%|████████▎ | 34/41 [01:22<00:15,  2.22s/it][A[A
-
-Training on Image Data:  85%|████████▌ | 35/41 [01:24<00:12,  2.16s/it][A[A
-
-Training on Image Data:  88%|████████▊ | 36/41 [01:26<00:11,  2.25s/it][A[A
-
-Training on Image Data:  90%|█████████ | 37/41 [01:29<00:09,  2.32s/it][A[A
-
-Training on Image Data:  93%|█████████▎| 38/41 [01:31<00:06,  2.28s/it][A[A
-
-Training on Image Data:  95%|█████████▌| 39/41 [01:33<00:04,  2.27s/it][A[A
-
-Training on Image Data:  98%|█████████▊| 40/41 [01:36<00:02,  2.32s/it][A[A
-
-Training on Image Data: 100%|██████████| 41/41 [01:36<00:00,  1.83s/it][A[ATraining on Image Data: 100%|██████████| 41/41 [01:36<00:00,  2.36s/it]
-Client Image Loss: 0.33220947006853613
-
-
-Training on Image Data:   0%|          | 0/41 [00:00<?, ?it/s][A[A
-
-Training on Image Data:   2%|▏         | 1/41 [00:02<01:49,  2.74s/it][A[A
-
-Training on Image Data:   5%|▍         | 2/41 [00:05<01:46,  2.74s/it][A[A
-
-Training on Image Data:   7%|▋         | 3/41 [00:08<01:43,  2.72s/it][A[A
-
-Training on Image Data:  10%|▉         | 4/41 [00:10<01:32,  2.49s/it][A[A
-
-Training on Image Data:  12%|█▏        | 5/41 [00:12<01:28,  2.46s/it][A[A
-
-Training on Image Data:  15%|█▍        | 6/41 [00:15<01:26,  2.48s/it][A[A
-
-Training on Image Data:  17%|█▋        | 7/41 [00:17<01:20,  2.37s/it][A[A
-
-Training on Image Data:  20%|█▉        | 8/41 [00:19<01:19,  2.41s/it][A[A
-
-Training on Image Data:  22%|██▏       | 9/41 [00:22<01:20,  2.53s/it][A[A
-
-Training on Image Data:  24%|██▍       | 10/41 [00:25<01:20,  2.60s/it][A[A
-
-Training on Image Data:  27%|██▋       | 11/41 [00:28<01:18,  2.62s/it][A[A
-
-Training on Image Data:  29%|██▉       | 12/41 [00:30<01:14,  2.55s/it][A[A
-
-Training on Image Data:  32%|███▏      | 13/41 [00:33<01:11,  2.56s/it][A[A
-
-Training on Image Data:  34%|███▍      | 14/41 [00:35<01:09,  2.57s/it][A[A
-
-Training on Image Data:  37%|███▋      | 15/41 [00:38<01:05,  2.52s/it][A[A
-
-Training on Image Data:  39%|███▉      | 16/41 [00:40<01:02,  2.51s/it][A[A
-
-Training on Image Data:  41%|████▏     | 17/41 [00:42<00:57,  2.40s/it][A[A
-
-Training on Image Data:  44%|████▍     | 18/41 [00:45<00:55,  2.39s/it][A[A
-
-Training on Image Data:  46%|████▋     | 19/41 [00:47<00:55,  2.53s/it][A[A
-
-Training on Image Data:  49%|████▉     | 20/41 [00:50<00:52,  2.48s/it][A[A
-
-Training on Image Data:  51%|█████     | 21/41 [00:52<00:48,  2.44s/it][A[A
-
-Training on Image Data:  54%|█████▎    | 22/41 [00:54<00:45,  2.40s/it][A[A
-
-Training on Image Data:  56%|█████▌    | 23/41 [00:57<00:44,  2.47s/it][A[A
-
-Training on Image Data:  59%|█████▊    | 24/41 [01:00<00:41,  2.46s/it][A[A
-
-Training on Image Data:  61%|██████    | 25/41 [01:02<00:38,  2.43s/it][A[A
-
-Training on Image Data:  63%|██████▎   | 26/41 [01:04<00:36,  2.45s/it][A[A
-
-Training on Image Data:  66%|██████▌   | 27/41 [01:07<00:34,  2.44s/it][A[A
-
-Training on Image Data:  68%|██████▊   | 28/41 [01:09<00:31,  2.43s/it][A[A
-
-Training on Image Data:  71%|███████   | 29/41 [01:12<00:29,  2.49s/it][A[A
-
-Training on Image Data:  73%|███████▎  | 30/41 [01:14<00:27,  2.53s/it][A[A
-
-Training on Image Data:  76%|███████▌  | 31/41 [01:17<00:25,  2.59s/it][A[A
-
-Training on Image Data:  78%|███████▊  | 32/41 [01:20<00:23,  2.63s/it][A[A
-
-Training on Image Data:  80%|████████  | 33/41 [01:23<00:21,  2.65s/it][A[A
-
-Training on Image Data:  83%|████████▎ | 34/41 [01:25<00:18,  2.62s/it][A[A
-
-Training on Image Data:  85%|████████▌ | 35/41 [01:28<00:15,  2.65s/it][A[A
-
-Training on Image Data:  88%|████████▊ | 36/41 [01:30<00:12,  2.54s/it][A[A
-
-Training on Image Data:  90%|█████████ | 37/41 [01:33<00:09,  2.49s/it][A[A
-
-Training on Image Data:  93%|█████████▎| 38/41 [01:35<00:07,  2.55s/it][A[A
-
-Training on Image Data:  95%|█████████▌| 39/41 [01:37<00:04,  2.46s/it][A[A
-
-Training on Image Data:  98%|█████████▊| 40/41 [01:40<00:02,  2.44s/it][A[A
-
-Training on Image Data: 100%|██████████| 41/41 [01:41<00:00,  1.93s/it][A[ATraining on Image Data: 100%|██████████| 41/41 [01:41<00:00,  2.47s/it]
-Client Image Loss: 0.3242144195771799
-
-
-Training on Image Data:   0%|          | 0/41 [00:00<?, ?it/s][A[A
-
-Training on Image Data:   2%|▏         | 1/41 [00:02<01:35,  2.40s/it][A[A
-
-Training on Image Data:   5%|▍         | 2/41 [00:04<01:35,  2.46s/it][A[A
-
-Training on Image Data:   7%|▋         | 3/41 [00:07<01:35,  2.51s/it][A[A
-
-Training on Image Data:  10%|▉         | 4/41 [00:10<01:33,  2.52s/it][A[A
-
-Training on Image Data:  12%|█▏        | 5/41 [00:12<01:30,  2.52s/it][A[A
-
-Training on Image Data:  15%|█▍        | 6/41 [00:15<01:29,  2.56s/it][A[A
-
-Training on Image Data:  17%|█▋        | 7/41 [00:17<01:26,  2.53s/it][A[A
-
-Training on Image Data:  20%|█▉        | 8/41 [00:19<01:20,  2.45s/it][A[A
-
-Training on Image Data:  22%|██▏       | 9/41 [00:22<01:18,  2.44s/it][A[A
-
-Training on Image Data:  24%|██▍       | 10/41 [00:24<01:15,  2.42s/it][A[A
-
-Training on Image Data:  27%|██▋       | 11/41 [00:26<01:11,  2.37s/it][A[A
-
-Training on Image Data:  29%|██▉       | 12/41 [00:29<01:09,  2.40s/it][A[A
-
-Training on Image Data:  32%|███▏      | 13/41 [00:31<01:07,  2.40s/it][A[A
-
-Training on Image Data:  34%|███▍      | 14/41 [00:34<01:03,  2.34s/it][A[A
-
-Training on Image Data:  37%|███▋      | 15/41 [00:36<01:00,  2.32s/it][A[A
-
-Training on Image Data:  39%|███▉      | 16/41 [00:38<00:58,  2.34s/it][A[A
-
-Training on Image Data:  41%|████▏     | 17/41 [00:41<00:56,  2.35s/it][A[A
-
-Training on Image Data:  44%|████▍     | 18/41 [00:43<00:55,  2.40s/it][A[A
-
-Training on Image Data:  46%|████▋     | 19/41 [00:46<00:54,  2.47s/it][A[A
-
-Training on Image Data:  49%|████▉     | 20/41 [00:48<00:50,  2.43s/it][A[A
-
-Training on Image Data:  51%|█████     | 21/41 [00:50<00:48,  2.42s/it][A[A
-
-Training on Image Data:  54%|█████▎    | 22/41 [00:53<00:46,  2.46s/it][A[A
-
-Training on Image Data:  56%|█████▌    | 23/41 [00:55<00:43,  2.44s/it][A[A
-
-Training on Image Data:  59%|█████▊    | 24/41 [00:58<00:43,  2.54s/it][A[A
-
-Training on Image Data:  61%|██████    | 25/41 [01:01<00:39,  2.48s/it][A[A
-
-Training on Image Data:  63%|██████▎   | 26/41 [01:03<00:37,  2.51s/it][A[A
-
-Training on Image Data:  66%|██████▌   | 27/41 [01:06<00:35,  2.54s/it][A[A
-
-Training on Image Data:  68%|██████▊   | 28/41 [01:08<00:33,  2.55s/it][A[A
-
-Training on Image Data:  71%|███████   | 29/41 [01:11<00:29,  2.48s/it][A[A
-
-Training on Image Data:  73%|███████▎  | 30/41 [01:13<00:27,  2.47s/it][A[A
-
-Training on Image Data:  76%|███████▌  | 31/41 [01:16<00:25,  2.53s/it][A[A
-
-Training on Image Data:  78%|███████▊  | 32/41 [01:18<00:23,  2.59s/it][A[A
-
-Training on Image Data:  80%|████████  | 33/41 [01:21<00:20,  2.56s/it][A[A
-
-Training on Image Data:  83%|████████▎ | 34/41 [01:23<00:17,  2.44s/it][A[A
-
-Training on Image Data:  85%|████████▌ | 35/41 [01:25<00:14,  2.40s/it][A[A
-
-Training on Image Data:  88%|████████▊ | 36/41 [01:28<00:12,  2.46s/it][A[A
-
-Training on Image Data:  90%|█████████ | 37/41 [01:31<00:10,  2.51s/it][A[A
-
-Training on Image Data:  93%|█████████▎| 38/41 [01:33<00:07,  2.50s/it][A[A
-
-Training on Image Data:  95%|█████████▌| 39/41 [01:35<00:04,  2.45s/it][A[A
-
-Training on Image Data:  98%|█████████▊| 40/41 [01:38<00:02,  2.48s/it][A[A
-
-Training on Image Data: 100%|██████████| 41/41 [01:39<00:00,  1.90s/it][A[ATraining on Image Data: 100%|██████████| 41/41 [01:39<00:00,  2.42s/it]
-Client Image Loss: 0.3598562240964029
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:02<01:05,  2.19s/it][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:04<01:04,  2.21s/it][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:06<00:56,  2.01s/it][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:08<00:52,  1.94s/it][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:10<00:52,  2.01s/it][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:12<00:53,  2.13s/it][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:14<00:51,  2.16s/it][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:16<00:50,  2.19s/it][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:19<00:48,  2.19s/it][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:20<00:42,  2.01s/it][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:22<00:39,  1.96s/it][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:24<00:37,  1.98s/it][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:26<00:37,  2.06s/it][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:29<00:37,  2.18s/it][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:31<00:36,  2.25s/it][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:33<00:33,  2.21s/it][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:36<00:31,  2.21s/it][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:37<00:26,  2.03s/it][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:39<00:22,  1.91s/it][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:41<00:20,  1.88s/it][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:43<00:20,  2.07s/it][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:46<00:19,  2.17s/it][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:48<00:17,  2.21s/it][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:50<00:14,  2.13s/it][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:52<00:12,  2.10s/it][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:53<00:09,  1.93s/it][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:55<00:07,  1.84s/it][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:57<00:05,  1.86s/it][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:59<00:03,  1.98s/it][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [01:02<00:02,  2.10s/it][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [01:02<00:00,  1.67s/it][A[ATraining on Covid Data: 100%|██████████| 31/31 [01:02<00:00,  2.02s/it]
-Client Covid Loss: 0.40079628267595846
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:02<01:07,  2.24s/it][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:04<00:59,  2.06s/it][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:06<00:56,  2.02s/it][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:07<00:52,  1.93s/it][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:09<00:47,  1.84s/it][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:11<00:47,  1.90s/it][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:13<00:48,  2.01s/it][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:16<00:49,  2.17s/it][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:18<00:48,  2.20s/it][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:20<00:44,  2.14s/it][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:22<00:40,  2.05s/it][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:24<00:36,  1.92s/it][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:25<00:33,  1.85s/it][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:27<00:31,  1.86s/it][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:29<00:31,  1.98s/it][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:31<00:27,  1.83s/it][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:32<00:23,  1.70s/it][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:34<00:20,  1.60s/it][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:35<00:17,  1.48s/it][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:36<00:15,  1.45s/it][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:38<00:14,  1.47s/it][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:39<00:13,  1.46s/it][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:41<00:11,  1.44s/it][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:43<00:11,  1.68s/it][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:45<00:10,  1.70s/it][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:47<00:09,  1.90s/it][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:49<00:07,  1.96s/it][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:51<00:05,  1.92s/it][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:53<00:03,  1.83s/it][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:54<00:01,  1.76s/it][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:54<00:00,  1.33s/it][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:54<00:00,  1.77s/it]
-Client Covid Loss: 0.3769688101545457
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:01<00:45,  1.52s/it][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:03<00:56,  1.95s/it][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:05<00:57,  2.05s/it][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:08<00:58,  2.18s/it][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:10<00:57,  2.23s/it][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:12<00:54,  2.18s/it][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:14<00:49,  2.04s/it][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:16<00:44,  1.95s/it][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:17<00:39,  1.78s/it][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:19<00:38,  1.83s/it][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:21<00:38,  1.93s/it][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:24<00:39,  2.09s/it][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:26<00:40,  2.25s/it][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:28<00:37,  2.22s/it][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:30<00:33,  2.11s/it][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:32<00:29,  1.99s/it][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:34<00:26,  1.92s/it][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:36<00:24,  1.91s/it][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:38<00:23,  1.92s/it][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:40<00:22,  2.02s/it][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:42<00:20,  2.10s/it][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:44<00:19,  2.14s/it][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:46<00:16,  2.07s/it][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:48<00:13,  1.94s/it][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:50<00:11,  1.85s/it][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:51<00:08,  1.74s/it][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:53<00:07,  1.85s/it][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:55<00:05,  1.93s/it][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:57<00:04,  2.02s/it][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:59<00:01,  1.82s/it][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:59<00:00,  1.39s/it][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:59<00:00,  1.93s/it]
-Client Covid Loss: 0.3805403565206835
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:02<01:12,  2.43s/it][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:04<01:09,  2.40s/it][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:06<00:58,  2.07s/it][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:08<00:52,  1.95s/it][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:09<00:47,  1.84s/it][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:11<00:44,  1.78s/it][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:13<00:43,  1.81s/it][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:14<00:38,  1.66s/it][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:17<00:41,  1.88s/it][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:19<00:42,  2.02s/it][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:21<00:43,  2.15s/it][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:23<00:39,  2.09s/it][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:25<00:37,  2.06s/it][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:27<00:32,  1.94s/it][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:29<00:29,  1.87s/it][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:31<00:29,  1.94s/it][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:33<00:28,  2.01s/it][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:35<00:24,  1.85s/it][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:36<00:20,  1.67s/it][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:38<00:21,  1.97s/it][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:41<00:20,  2.08s/it][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:43<00:18,  2.07s/it][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:45<00:15,  1.99s/it][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:46<00:13,  1.94s/it][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:48<00:11,  1.83s/it][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:50<00:09,  1.82s/it][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:52<00:07,  1.90s/it][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:54<00:05,  1.98s/it][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:57<00:04,  2.18s/it][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:59<00:02,  2.21s/it][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:59<00:00,  1.70s/it][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:59<00:00,  1.94s/it]
-Client Covid Loss: 0.37987392515905444
-
-
-Training on Covid Data:   0%|          | 0/31 [00:00<?, ?it/s][A[A
-
-Training on Covid Data:   3%|▎         | 1/31 [00:02<01:00,  2.00s/it][A[A
-
-Training on Covid Data:   6%|▋         | 2/31 [00:03<00:52,  1.81s/it][A[A
-
-Training on Covid Data:  10%|▉         | 3/31 [00:05<00:48,  1.74s/it][A[A
-
-Training on Covid Data:  13%|█▎        | 4/31 [00:07<00:46,  1.72s/it][A[A
-
-Training on Covid Data:  16%|█▌        | 5/31 [00:09<00:48,  1.85s/it][A[A
-
-Training on Covid Data:  19%|█▉        | 6/31 [00:11<00:50,  2.03s/it][A[A
-
-Training on Covid Data:  23%|██▎       | 7/31 [00:13<00:51,  2.16s/it][A[A
-
-Training on Covid Data:  26%|██▌       | 8/31 [00:15<00:43,  1.90s/it][A[A
-
-Training on Covid Data:  29%|██▉       | 9/31 [00:17<00:42,  1.95s/it][A[A
-
-Training on Covid Data:  32%|███▏      | 10/31 [00:19<00:39,  1.89s/it][A[A
-
-Training on Covid Data:  35%|███▌      | 11/31 [00:21<00:38,  1.91s/it][A[A
-
-Training on Covid Data:  39%|███▊      | 12/31 [00:22<00:34,  1.84s/it][A[A
-
-Training on Covid Data:  42%|████▏     | 13/31 [00:24<00:32,  1.81s/it][A[A
-
-Training on Covid Data:  45%|████▌     | 14/31 [00:26<00:31,  1.86s/it][A[A
-
-Training on Covid Data:  48%|████▊     | 15/31 [00:28<00:29,  1.84s/it][A[A
-
-Training on Covid Data:  52%|█████▏    | 16/31 [00:30<00:31,  2.07s/it][A[A
-
-Training on Covid Data:  55%|█████▍    | 17/31 [00:33<00:31,  2.24s/it][A[A
-
-Training on Covid Data:  58%|█████▊    | 18/31 [00:35<00:27,  2.14s/it][A[A
-
-Training on Covid Data:  61%|██████▏   | 19/31 [00:37<00:24,  2.08s/it][A[A
-
-Training on Covid Data:  65%|██████▍   | 20/31 [00:39<00:22,  2.03s/it][A[A
-
-Training on Covid Data:  68%|██████▊   | 21/31 [00:40<00:18,  1.86s/it][A[A
-
-Training on Covid Data:  71%|███████   | 22/31 [00:42<00:15,  1.74s/it][A[A
-
-Training on Covid Data:  74%|███████▍  | 23/31 [00:44<00:14,  1.81s/it][A[A
-
-Training on Covid Data:  77%|███████▋  | 24/31 [00:45<00:12,  1.74s/it][A[A
-
-Training on Covid Data:  81%|████████  | 25/31 [00:47<00:09,  1.66s/it][A[A
-
-Training on Covid Data:  84%|████████▍ | 26/31 [00:49<00:09,  1.85s/it][A[A
-
-Training on Covid Data:  87%|████████▋ | 27/31 [00:51<00:08,  2.04s/it][A[A
-
-Training on Covid Data:  90%|█████████ | 28/31 [00:54<00:06,  2.13s/it][A[A
-
-Training on Covid Data:  94%|█████████▎| 29/31 [00:56<00:04,  2.03s/it][A[A
-
-Training on Covid Data:  97%|█████████▋| 30/31 [00:57<00:01,  1.82s/it][A[A
-
-Training on Covid Data: 100%|██████████| 31/31 [00:57<00:00,  1.38s/it][A[ATraining on Covid Data: 100%|██████████| 31/31 [00:57<00:00,  1.86s/it]
-Client Covid Loss: 0.44936139545133036
-
-
-Training on Ecg Data:   0%|          | 0/48 [00:00<?, ?it/s][A[A
-
-Training on Ecg Data:   2%|▏         | 1/48 [00:01<00:56,  1.20s/it][A[A
-
-Training on Ecg Data:   4%|▍         | 2/48 [00:02<00:46,  1.02s/it][A[A
-
-Training on Ecg Data:   6%|▋         | 3/48 [00:02<00:41,  1.09it/s][A[A
-
-Training on Ecg Data:   8%|▊         | 4/48 [00:03<00:39,  1.12it/s][A[A
-
-Training on Ecg Data:  10%|█         | 5/48 [00:04<00:36,  1.17it/s][A[A
-
-Training on Ecg Data:  12%|█▎        | 6/48 [00:05<00:39,  1.07it/s][A[A
-
-Training on Ecg Data:  15%|█▍        | 7/48 [00:06<00:37,  1.09it/s][A[A
-
-Training on Ecg Data:  17%|█▋        | 8/48 [00:07<00:35,  1.13it/s][A[A
-
-Training on Ecg Data:  19%|█▉        | 9/48 [00:08<00:33,  1.16it/s][A[A
-
-Training on Ecg Data:  21%|██        | 10/48 [00:08<00:31,  1.19it/s][A[A
-
-Training on Ecg Data:  23%|██▎       | 11/48 [00:09<00:30,  1.22it/s][A[A
-
-Training on Ecg Data:  25%|██▌       | 12/48 [00:10<00:31,  1.15it/s][A[A
-
-Training on Ecg Data:  27%|██▋       | 13/48 [00:11<00:29,  1.17it/s][A[A
-
-Training on Ecg Data:  29%|██▉       | 14/48 [00:12<00:28,  1.18it/s][A[A
-
-Training on Ecg Data:  31%|███▏      | 15/48 [00:13<00:27,  1.19it/s][A[A
-
-Training on Ecg Data:  33%|███▎      | 16/48 [00:13<00:26,  1.19it/s][A[A
-
-Training on Ecg Data:  35%|███▌      | 17/48 [00:14<00:25,  1.20it/s][A[A
-
-Training on Ecg Data:  38%|███▊      | 18/48 [00:15<00:27,  1.08it/s][A[A
-
-Training on Ecg Data:  40%|███▉      | 19/48 [00:16<00:24,  1.16it/s][A[A
-
-Training on Ecg Data:  42%|████▏     | 20/48 [00:17<00:24,  1.14it/s][A[A
-
-Training on Ecg Data:  44%|████▍     | 21/48 [00:18<00:23,  1.14it/s][A[A
-
-Training on Ecg Data:  46%|████▌     | 22/48 [00:19<00:22,  1.17it/s][A[A
-
-Training on Ecg Data:  48%|████▊     | 23/48 [00:20<00:21,  1.19it/s][A[A
-
-Training on Ecg Data:  50%|█████     | 24/48 [00:21<00:22,  1.08it/s][A[A
-
-Training on Ecg Data:  52%|█████▏    | 25/48 [00:22<00:20,  1.11it/s][A[A
-
-Training on Ecg Data:  54%|█████▍    | 26/48 [00:22<00:19,  1.13it/s][A[A
-
-Training on Ecg Data:  56%|█████▋    | 27/48 [00:23<00:17,  1.18it/s][A[A
-
-Training on Ecg Data:  58%|█████▊    | 28/48 [00:24<00:16,  1.19it/s][A[A
-
-Training on Ecg Data:  60%|██████    | 29/48 [00:25<00:16,  1.14it/s][A[A
-
-Training on Ecg Data:  62%|██████▎   | 30/48 [00:26<00:16,  1.12it/s][A[A
-
-Training on Ecg Data:  65%|██████▍   | 31/48 [00:27<00:14,  1.14it/s][A[A
-
-Training on Ecg Data:  67%|██████▋   | 32/48 [00:28<00:13,  1.15it/s][A[A
-
-Training on Ecg Data:  69%|██████▉   | 33/48 [00:28<00:12,  1.20it/s][A[A
-
-Training on Ecg Data:  71%|███████   | 34/48 [00:29<00:11,  1.20it/s][A[A
-
-Training on Ecg Data:  73%|███████▎  | 35/48 [00:30<00:11,  1.17it/s][A[A
-
-Training on Ecg Data:  75%|███████▌  | 36/48 [00:31<00:10,  1.14it/s][A[A
-
-Training on Ecg Data:  77%|███████▋  | 37/48 [00:32<00:09,  1.18it/s][A[A
-
-Training on Ecg Data:  79%|███████▉  | 38/48 [00:33<00:08,  1.16it/s][A[A
-
-Training on Ecg Data:  81%|████████▏ | 39/48 [00:33<00:07,  1.20it/s][A[A
-
-Training on Ecg Data:  83%|████████▎ | 40/48 [00:34<00:06,  1.21it/s][A[A
-
-Training on Ecg Data:  85%|████████▌ | 41/48 [00:35<00:05,  1.18it/s][A[A
-
-Training on Ecg Data:  88%|████████▊ | 42/48 [00:36<00:05,  1.12it/s][A[A
-
-Training on Ecg Data:  90%|████████▉ | 43/48 [00:37<00:04,  1.15it/s][A[A
-
-Training on Ecg Data:  92%|█████████▏| 44/48 [00:38<00:03,  1.20it/s][A[A
-
-Training on Ecg Data:  94%|█████████▍| 45/48 [00:39<00:02,  1.20it/s][A[A
-
-Training on Ecg Data:  96%|█████████▌| 46/48 [00:39<00:01,  1.20it/s][A[A
-
-Training on Ecg Data:  98%|█████████▊| 47/48 [00:40<00:00,  1.19it/s][A[A
-
-Training on Ecg Data: 100%|██████████| 48/48 [00:41<00:00,  1.20it/s][A[ATraining on Ecg Data: 100%|██████████| 48/48 [00:41<00:00,  1.16it/s]
-Client Ecg Loss: 0.6667434858779112
-
-
-Training on Ecg Data:   0%|          | 0/48 [00:00<?, ?it/s][A[A
-
-Training on Ecg Data:   2%|▏         | 1/48 [00:00<00:39,  1.20it/s][A[A
-
-Training on Ecg Data:   4%|▍         | 2/48 [00:01<00:40,  1.14it/s][A[A
-
-Training on Ecg Data:   6%|▋         | 3/48 [00:02<00:36,  1.23it/s][A[A
-
-Training on Ecg Data:   8%|▊         | 4/48 [00:03<00:36,  1.21it/s][A[A
-
-Training on Ecg Data:  10%|█         | 5/48 [00:04<00:38,  1.12it/s][A[A
-
-Training on Ecg Data:  12%|█▎        | 6/48 [00:05<00:39,  1.07it/s][A[A
-
-Training on Ecg Data:  15%|█▍        | 7/48 [00:06<00:36,  1.11it/s][A[A
-
-Training on Ecg Data:  17%|█▋        | 8/48 [00:07<00:35,  1.13it/s][A[A
-
-Training on Ecg Data:  19%|█▉        | 9/48 [00:07<00:32,  1.20it/s][A[A
-
-Training on Ecg Data:  21%|██        | 10/48 [00:08<00:30,  1.24it/s][A[A
-
-Training on Ecg Data:  23%|██▎       | 11/48 [00:09<00:31,  1.17it/s][A[A
-
-Training on Ecg Data:  25%|██▌       | 12/48 [00:10<00:32,  1.12it/s][A[A
-
-Training on Ecg Data:  27%|██▋       | 13/48 [00:11<00:30,  1.16it/s][A[A
-
-Training on Ecg Data:  29%|██▉       | 14/48 [00:12<00:28,  1.19it/s][A[A
-
-Training on Ecg Data:  31%|███▏      | 15/48 [00:12<00:26,  1.23it/s][A[A
-
-Training on Ecg Data:  33%|███▎      | 16/48 [00:13<00:27,  1.18it/s][A[A
-
-Training on Ecg Data:  35%|███▌      | 17/48 [00:14<00:26,  1.18it/s][A[A
-
-Training on Ecg Data:  38%|███▊      | 18/48 [00:15<00:26,  1.11it/s][A[A
-
-Training on Ecg Data:  40%|███▉      | 19/48 [00:16<00:24,  1.17it/s][A[A
-
-Training on Ecg Data:  42%|████▏     | 20/48 [00:17<00:23,  1.18it/s][A[A
-
-Training on Ecg Data:  44%|████▍     | 21/48 [00:18<00:23,  1.17it/s][A[A
-
-Training on Ecg Data:  46%|████▌     | 22/48 [00:19<00:24,  1.08it/s][A[A
-
-Training on Ecg Data:  48%|████▊     | 23/48 [00:20<00:23,  1.09it/s][A[A
-
-Training on Ecg Data:  50%|█████     | 24/48 [00:20<00:21,  1.11it/s][A[A
-
-Training on Ecg Data:  52%|█████▏    | 25/48 [00:21<00:20,  1.11it/s][A[A
-
-Training on Ecg Data:  54%|█████▍    | 26/48 [00:22<00:19,  1.14it/s][A[A
-
-Training on Ecg Data:  56%|█████▋    | 27/48 [00:23<00:17,  1.19it/s][A[A
-
-Training on Ecg Data:  58%|█████▊    | 28/48 [00:24<00:17,  1.13it/s][A[A
-
-Training on Ecg Data:  60%|██████    | 29/48 [00:25<00:16,  1.13it/s][A[A
-
-Training on Ecg Data:  62%|██████▎   | 30/48 [00:26<00:15,  1.15it/s][A[A
-
-Training on Ecg Data:  65%|██████▍   | 31/48 [00:26<00:14,  1.15it/s][A[A
-
-Training on Ecg Data:  67%|██████▋   | 32/48 [00:27<00:13,  1.18it/s][A[A
-
-Training on Ecg Data:  69%|██████▉   | 33/48 [00:28<00:12,  1.17it/s][A[A
-
-Training on Ecg Data:  71%|███████   | 34/48 [00:29<00:11,  1.17it/s][A[A
-
-Training on Ecg Data:  73%|███████▎  | 35/48 [00:30<00:11,  1.12it/s][A[A
-
-Training on Ecg Data:  75%|███████▌  | 36/48 [00:31<00:10,  1.14it/s][A[A
-
-Training on Ecg Data:  77%|███████▋  | 37/48 [00:32<00:09,  1.18it/s][A[A
-
-Training on Ecg Data:  79%|███████▉  | 38/48 [00:32<00:08,  1.17it/s][A[A
-
-Training on Ecg Data:  81%|████████▏ | 39/48 [00:33<00:07,  1.13it/s][A[A
-
-Training on Ecg Data:  83%|████████▎ | 40/48 [00:34<00:07,  1.11it/s][A[A
-
-Training on Ecg Data:  85%|████████▌ | 41/48 [00:35<00:06,  1.09it/s][A[A
-
-Training on Ecg Data:  88%|████████▊ | 42/48 [00:36<00:05,  1.13it/s][A[A
-
-Training on Ecg Data:  90%|████████▉ | 43/48 [00:37<00:04,  1.16it/s][A[A
-
-Training on Ecg Data:  92%|█████████▏| 44/48 [00:39<00:04,  1.12s/it][A[A
-
-Training on Ecg Data:  94%|█████████▍| 45/48 [00:39<00:03,  1.04s/it][A[A
-
-Training on Ecg Data:  96%|█████████▌| 46/48 [00:40<00:01,  1.04it/s][A[A
-
-Training on Ecg Data:  98%|█████████▊| 47/48 [00:41<00:00,  1.09it/s][A[A
-
-Training on Ecg Data: 100%|██████████| 48/48 [00:42<00:00,  1.24it/s][A[ATraining on Ecg Data: 100%|██████████| 48/48 [00:42<00:00,  1.14it/s]
-Client Ecg Loss: 0.6745193724830946
-
-
-Training on Ecg Data:   0%|          | 0/48 [00:00<?, ?it/s][A[A
-
-Training on Ecg Data:   2%|▏         | 1/48 [00:00<00:34,  1.35it/s][A[A
-
-Training on Ecg Data:   4%|▍         | 2/48 [00:01<00:36,  1.24it/s][A[A
-
-Training on Ecg Data:   6%|▋         | 3/48 [00:02<00:38,  1.18it/s][A[A
-
-Training on Ecg Data:   8%|▊         | 4/48 [00:03<00:37,  1.17it/s][A[A
-
-Training on Ecg Data:  10%|█         | 5/48 [00:04<00:35,  1.20it/s][A[A
-
-Training on Ecg Data:  12%|█▎        | 6/48 [00:05<00:35,  1.18it/s][A[A
-
-Training on Ecg Data:  15%|█▍        | 7/48 [00:05<00:34,  1.20it/s][A[A
-
-Training on Ecg Data:  17%|█▋        | 8/48 [00:06<00:34,  1.17it/s][A[A
-
-Training on Ecg Data:  19%|█▉        | 9/48 [00:07<00:33,  1.17it/s][A[A
-
-Training on Ecg Data:  21%|██        | 10/48 [00:08<00:31,  1.20it/s][A[A
-
-Training on Ecg Data:  23%|██▎       | 11/48 [00:09<00:31,  1.19it/s][A[A
-
-Training on Ecg Data:  25%|██▌       | 12/48 [00:10<00:30,  1.20it/s][A[A
-
-Training on Ecg Data:  27%|██▋       | 13/48 [00:10<00:28,  1.24it/s][A[A
-
-Training on Ecg Data:  29%|██▉       | 14/48 [00:11<00:29,  1.17it/s][A[A
-
-Training on Ecg Data:  31%|███▏      | 15/48 [00:12<00:28,  1.16it/s][A[A
-
-Training on Ecg Data:  33%|███▎      | 16/48 [00:13<00:29,  1.10it/s][A[A
-
-Training on Ecg Data:  35%|███▌      | 17/48 [00:14<00:28,  1.10it/s][A[A
-
-Training on Ecg Data:  38%|███▊      | 18/48 [00:15<00:26,  1.14it/s][A[A
-
-Training on Ecg Data:  40%|███▉      | 19/48 [00:16<00:24,  1.17it/s][A[A
-
-Training on Ecg Data:  42%|████▏     | 20/48 [00:17<00:24,  1.13it/s][A[A
-
-Training on Ecg Data:  44%|████▍     | 21/48 [00:17<00:23,  1.16it/s][A[A
-
-Training on Ecg Data:  46%|████▌     | 22/48 [00:18<00:22,  1.18it/s][A[A
-
-Training on Ecg Data:  48%|████▊     | 23/48 [00:19<00:21,  1.17it/s][A[A
-
-Training on Ecg Data:  50%|█████     | 24/48 [00:20<00:20,  1.18it/s][A[A
-
-Training on Ecg Data:  52%|█████▏    | 25/48 [00:21<00:19,  1.20it/s][A[A
-
-Training on Ecg Data:  54%|█████▍    | 26/48 [00:22<00:19,  1.12it/s][A[A
-
-Training on Ecg Data:  56%|█████▋    | 27/48 [00:23<00:17,  1.17it/s][A[A
-
-Training on Ecg Data:  58%|█████▊    | 28/48 [00:24<00:19,  1.05it/s][A[A
-
-Training on Ecg Data:  60%|██████    | 29/48 [00:25<00:17,  1.08it/s][A[A
-
-Training on Ecg Data:  62%|██████▎   | 30/48 [00:25<00:16,  1.10it/s][A[A
-
-Training on Ecg Data:  65%|██████▍   | 31/48 [00:26<00:15,  1.11it/s][A[A
-
-Training on Ecg Data:  67%|██████▋   | 32/48 [00:27<00:14,  1.14it/s][A[A
-
-Training on Ecg Data:  69%|██████▉   | 33/48 [00:28<00:13,  1.15it/s][A[A
-
-Training on Ecg Data:  71%|███████   | 34/48 [00:29<00:12,  1.10it/s][A[A
-
-Training on Ecg Data:  73%|███████▎  | 35/48 [00:30<00:11,  1.11it/s][A[A
-
-Training on Ecg Data:  75%|███████▌  | 36/48 [00:31<00:10,  1.15it/s][A[A
-
-Training on Ecg Data:  77%|███████▋  | 37/48 [00:32<00:09,  1.12it/s][A[A
-
-Training on Ecg Data:  79%|███████▉  | 38/48 [00:33<00:08,  1.13it/s][A[A
-
-Training on Ecg Data:  81%|████████▏ | 39/48 [00:33<00:07,  1.17it/s][A[A
-
-Training on Ecg Data:  83%|████████▎ | 40/48 [00:34<00:07,  1.09it/s][A[A
-
-Training on Ecg Data:  85%|████████▌ | 41/48 [00:35<00:06,  1.16it/s][A[A
-
-Training on Ecg Data:  88%|████████▊ | 42/48 [00:36<00:05,  1.17it/s][A[A
-
-Training on Ecg Data:  90%|████████▉ | 43/48 [00:37<00:04,  1.17it/s][A[A
-
-Training on Ecg Data:  92%|█████████▏| 44/48 [00:38<00:03,  1.16it/s][A[A
-
-Training on Ecg Data:  94%|█████████▍| 45/48 [00:39<00:02,  1.17it/s][A[A
-
-Training on Ecg Data:  96%|█████████▌| 46/48 [00:39<00:01,  1.12it/s][A[A
-
-Training on Ecg Data:  98%|█████████▊| 47/48 [00:40<00:00,  1.15it/s][A[A
-
-Training on Ecg Data: 100%|██████████| 48/48 [00:41<00:00,  1.27it/s][A[ATraining on Ecg Data: 100%|██████████| 48/48 [00:41<00:00,  1.16it/s]
-Client Ecg Loss: 0.6801478763421377
-
-
-Training on Ecg Data:   0%|          | 0/48 [00:00<?, ?it/s][A[A
-
-Training on Ecg Data:   2%|▏         | 1/48 [00:00<00:44,  1.06it/s][A[A
-
-Training on Ecg Data:   4%|▍         | 2/48 [00:01<00:41,  1.12it/s][A[A
-
-Training on Ecg Data:   6%|▋         | 3/48 [00:02<00:38,  1.15it/s][A[A
-
-Training on Ecg Data:   8%|▊         | 4/48 [00:03<00:39,  1.11it/s][A[A
-
-Training on Ecg Data:  10%|█         | 5/48 [00:04<00:38,  1.13it/s][A[A
-
-Training on Ecg Data:  12%|█▎        | 6/48 [00:05<00:37,  1.12it/s][A[A
-
-Training on Ecg Data:  15%|█▍        | 7/48 [00:06<00:35,  1.14it/s][A[A
-
-Training on Ecg Data:  17%|█▋        | 8/48 [00:07<00:34,  1.16it/s][A[A
-
-Training on Ecg Data:  19%|█▉        | 9/48 [00:08<00:36,  1.07it/s][A[A
-
-Training on Ecg Data:  21%|██        | 10/48 [00:09<00:35,  1.08it/s][A[A
-
-Training on Ecg Data:  23%|██▎       | 11/48 [00:09<00:32,  1.13it/s][A[A
-
-Training on Ecg Data:  25%|██▌       | 12/48 [00:10<00:32,  1.12it/s][A[A
-
-Training on Ecg Data:  27%|██▋       | 13/48 [00:11<00:31,  1.13it/s][A[A
-
-Training on Ecg Data:  29%|██▉       | 14/48 [00:12<00:28,  1.20it/s][A[A
-
-Training on Ecg Data:  31%|███▏      | 15/48 [00:13<00:29,  1.12it/s][A[A
-
-Training on Ecg Data:  33%|███▎      | 16/48 [00:14<00:28,  1.14it/s][A[A
-
-Training on Ecg Data:  35%|███▌      | 17/48 [00:14<00:26,  1.17it/s][A[A
-
-Training on Ecg Data:  38%|███▊      | 18/48 [00:15<00:25,  1.16it/s][A[A
-
-Training on Ecg Data:  40%|███▉      | 19/48 [00:16<00:24,  1.20it/s][A[A
-
-Training on Ecg Data:  42%|████▏     | 20/48 [00:17<00:23,  1.21it/s][A[A
-
-Training on Ecg Data:  44%|████▍     | 21/48 [00:18<00:24,  1.10it/s][A[A
-
-Training on Ecg Data:  46%|████▌     | 22/48 [00:19<00:23,  1.11it/s][A[A
-
-Training on Ecg Data:  48%|████▊     | 23/48 [00:20<00:22,  1.13it/s][A[A
-
-Training on Ecg Data:  50%|█████     | 24/48 [00:21<00:20,  1.17it/s][A[A
-
-Training on Ecg Data:  52%|█████▏    | 25/48 [00:21<00:19,  1.18it/s][A[A
-
-Training on Ecg Data:  54%|█████▍    | 26/48 [00:22<00:18,  1.18it/s][A[A
-
-Training on Ecg Data:  56%|█████▋    | 27/48 [00:23<00:19,  1.09it/s][A[A
-
-Training on Ecg Data:  58%|█████▊    | 28/48 [00:24<00:17,  1.12it/s][A[A
-
-Training on Ecg Data:  60%|██████    | 29/48 [00:25<00:17,  1.10it/s][A[A
-
-Training on Ecg Data:  62%|██████▎   | 30/48 [00:26<00:15,  1.13it/s][A[A
-
-Training on Ecg Data:  65%|██████▍   | 31/48 [00:27<00:14,  1.15it/s][A[A
-
-Training on Ecg Data:  67%|██████▋   | 32/48 [00:28<00:14,  1.13it/s][A[A
-
-Training on Ecg Data:  69%|██████▉   | 33/48 [00:29<00:13,  1.15it/s][A[A
-
-Training on Ecg Data:  71%|███████   | 34/48 [00:29<00:11,  1.17it/s][A[A
-
-Training on Ecg Data:  73%|███████▎  | 35/48 [00:30<00:11,  1.14it/s][A[A
-
-Training on Ecg Data:  75%|███████▌  | 36/48 [00:31<00:10,  1.12it/s][A[A
-
-Training on Ecg Data:  77%|███████▋  | 37/48 [00:32<00:09,  1.12it/s][A[A
-
-Training on Ecg Data:  79%|███████▉  | 38/48 [00:33<00:09,  1.09it/s][A[A
-
-Training on Ecg Data:  81%|████████▏ | 39/48 [00:34<00:08,  1.10it/s][A[A
-
-Training on Ecg Data:  83%|████████▎ | 40/48 [00:35<00:07,  1.08it/s][A[A
-
-Training on Ecg Data:  85%|████████▌ | 41/48 [00:36<00:06,  1.13it/s][A[A
-
-Training on Ecg Data:  88%|████████▊ | 42/48 [00:37<00:05,  1.14it/s][A[A
-
-Training on Ecg Data:  90%|████████▉ | 43/48 [00:37<00:04,  1.15it/s][A[A
-
-Training on Ecg Data:  92%|█████████▏| 44/48 [00:38<00:03,  1.08it/s][A[A
-
-Training on Ecg Data:  94%|█████████▍| 45/48 [00:39<00:02,  1.10it/s][A[A
-
-Training on Ecg Data:  96%|█████████▌| 46/48 [00:40<00:01,  1.07it/s][A[A
-
-Training on Ecg Data:  98%|█████████▊| 47/48 [00:41<00:00,  1.10it/s][A[A
-
-Training on Ecg Data: 100%|██████████| 48/48 [00:42<00:00,  1.22it/s][A[ATraining on Ecg Data: 100%|██████████| 48/48 [00:42<00:00,  1.14it/s]
-Client Ecg Loss: 0.6704629721740881
-
-
-Training on Ecg Data:   0%|          | 0/48 [00:00<?, ?it/s][A[A
-
-Training on Ecg Data:   2%|▏         | 1/48 [00:00<00:40,  1.16it/s][A[A
-
-Training on Ecg Data:   4%|▍         | 2/48 [00:01<00:41,  1.10it/s][A[A
-
-Training on Ecg Data:   6%|▋         | 3/48 [00:02<00:37,  1.21it/s][A[A
-
-Training on Ecg Data:   8%|▊         | 4/48 [00:03<00:38,  1.13it/s][A[A
-
-Training on Ecg Data:  10%|█         | 5/48 [00:04<00:37,  1.14it/s][A[A
-
-Training on Ecg Data:  12%|█▎        | 6/48 [00:05<00:35,  1.17it/s][A[A
-
-Training on Ecg Data:  15%|█▍        | 7/48 [00:05<00:34,  1.19it/s][A[A
-
-Training on Ecg Data:  17%|█▋        | 8/48 [00:06<00:35,  1.13it/s][A[A
-
-Training on Ecg Data:  19%|█▉        | 9/48 [00:07<00:35,  1.09it/s][A[A
-
-Training on Ecg Data:  21%|██        | 10/48 [00:08<00:34,  1.11it/s][A[A
-
-Training on Ecg Data:  23%|██▎       | 11/48 [00:09<00:32,  1.15it/s][A[A
-
-Training on Ecg Data:  25%|██▌       | 12/48 [00:10<00:31,  1.15it/s][A[A
-
-Training on Ecg Data:  27%|██▋       | 13/48 [00:11<00:30,  1.17it/s][A[A
-
-Training on Ecg Data:  29%|██▉       | 14/48 [00:12<00:29,  1.16it/s][A[A
-
-Training on Ecg Data:  31%|███▏      | 15/48 [00:13<00:29,  1.12it/s][A[A
-
-Training on Ecg Data:  33%|███▎      | 16/48 [00:14<00:28,  1.13it/s][A[A
-
-Training on Ecg Data:  35%|███▌      | 17/48 [00:14<00:26,  1.16it/s][A[A
-
-Training on Ecg Data:  38%|███▊      | 18/48 [00:15<00:26,  1.15it/s][A[A
-
-Training on Ecg Data:  40%|███▉      | 19/48 [00:16<00:25,  1.13it/s][A[A
-
-Training on Ecg Data:  42%|████▏     | 20/48 [00:17<00:25,  1.12it/s][A[A
-
-Training on Ecg Data:  44%|████▍     | 21/48 [00:18<00:25,  1.06it/s][A[A
-
-Training on Ecg Data:  46%|████▌     | 22/48 [00:19<00:23,  1.09it/s][A[A
-
-Training on Ecg Data:  48%|████▊     | 23/48 [00:20<00:22,  1.13it/s][A[A
-
-Training on Ecg Data:  50%|█████     | 24/48 [00:21<00:21,  1.14it/s][A[A
-
-Training on Ecg Data:  52%|█████▏    | 25/48 [00:22<00:21,  1.07it/s][A[A
-
-Training on Ecg Data:  54%|█████▍    | 26/48 [00:23<00:20,  1.10it/s][A[A
-
-Training on Ecg Data:  56%|█████▋    | 27/48 [00:24<00:19,  1.09it/s][A[A
-
-Training on Ecg Data:  58%|█████▊    | 28/48 [00:24<00:17,  1.12it/s][A[A
-
-Training on Ecg Data:  60%|██████    | 29/48 [00:25<00:16,  1.14it/s][A[A
-
-Training on Ecg Data:  62%|██████▎   | 30/48 [00:26<00:15,  1.18it/s][A[A
-
-Training on Ecg Data:  65%|██████▍   | 31/48 [00:27<00:15,  1.11it/s][A[A
-
-Training on Ecg Data:  67%|██████▋   | 32/48 [00:28<00:15,  1.06it/s][A[A
-
-Training on Ecg Data:  69%|██████▉   | 33/48 [00:29<00:13,  1.12it/s][A[A
-
-Training on Ecg Data:  71%|███████   | 34/48 [00:30<00:12,  1.13it/s][A[A
-
-Training on Ecg Data:  73%|███████▎  | 35/48 [00:31<00:11,  1.12it/s][A[A
-
-Training on Ecg Data:  75%|███████▌  | 36/48 [00:31<00:10,  1.11it/s][A[A
-
-Training on Ecg Data:  77%|███████▋  | 37/48 [00:33<00:10,  1.06it/s][A[A
-
-Training on Ecg Data:  79%|███████▉  | 38/48 [00:33<00:09,  1.09it/s][A[A
-
-Training on Ecg Data:  81%|████████▏ | 39/48 [00:34<00:08,  1.10it/s][A[A
-
-Training on Ecg Data:  83%|████████▎ | 40/48 [00:35<00:06,  1.16it/s][A[A
-
-Training on Ecg Data:  85%|████████▌ | 41/48 [00:36<00:06,  1.14it/s][A[A
-
-Training on Ecg Data:  88%|████████▊ | 42/48 [00:37<00:05,  1.10it/s][A[A
-
-Training on Ecg Data:  90%|████████▉ | 43/48 [00:38<00:04,  1.10it/s][A[A
-
-Training on Ecg Data:  92%|█████████▏| 44/48 [00:39<00:03,  1.12it/s][A[A
-
-Training on Ecg Data:  94%|█████████▍| 45/48 [00:40<00:02,  1.14it/s][A[A
-
-Training on Ecg Data:  96%|█████████▌| 46/48 [00:40<00:01,  1.14it/s][A[A
-
-Training on Ecg Data:  98%|█████████▊| 47/48 [00:41<00:00,  1.18it/s][A[A
-
-Training on Ecg Data: 100%|██████████| 48/48 [00:42<00:00,  1.24it/s][A[ATraining on Ecg Data: 100%|██████████| 48/48 [00:42<00:00,  1.13it/s]
-Client Ecg Loss: 0.6753246113657951
-
-
-Training on Clinicals Data:   0%|          | 0/84 [00:00<?, ?it/s][A[A
-
-Training on Clinicals Data:   1%|          | 1/84 [00:00<00:08,  9.65it/s][A[A
-
-Training on Clinicals Data:   4%|▎         | 3/84 [00:00<00:06, 12.06it/s][A[A
-
-Training on Clinicals Data:   6%|▌         | 5/84 [00:00<00:06, 12.22it/s][A[A
-
-Training on Clinicals Data:   8%|▊         | 7/84 [00:00<00:05, 13.54it/s][A[A
-
-Training on Clinicals Data:  11%|█         | 9/84 [00:00<00:05, 13.82it/s][A[A
-
-Training on Clinicals Data:  13%|█▎        | 11/84 [00:00<00:05, 14.30it/s][A[A
-
-Training on Clinicals Data:  15%|█▌        | 13/84 [00:00<00:04, 15.72it/s][A[A
-
-Training on Clinicals Data:  18%|█▊        | 15/84 [00:01<00:04, 15.59it/s][A[A
-
-Training on Clinicals Data:  20%|██        | 17/84 [00:01<00:04, 16.06it/s][A[A
-
-Training on Clinicals Data:  23%|██▎       | 19/84 [00:01<00:03, 17.10it/s][A[A
-
-Training on Clinicals Data:  26%|██▌       | 22/84 [00:01<00:03, 18.10it/s][A[A
-
-Training on Clinicals Data:  29%|██▊       | 24/84 [00:01<00:03, 17.98it/s][A[A
-
-Training on Clinicals Data:  31%|███       | 26/84 [00:01<00:03, 17.51it/s][A[A
-
-Training on Clinicals Data:  35%|███▍      | 29/84 [00:01<00:02, 18.51it/s][A[A
-
-Training on Clinicals Data:  38%|███▊      | 32/84 [00:01<00:02, 20.09it/s][A[A
-
-Training on Clinicals Data:  42%|████▏     | 35/84 [00:02<00:02, 21.22it/s][A[A
-
-Training on Clinicals Data:  45%|████▌     | 38/84 [00:02<00:02, 22.34it/s][A[A
-
-Training on Clinicals Data:  49%|████▉     | 41/84 [00:02<00:02, 21.29it/s][A[A
-
-Training on Clinicals Data:  52%|█████▏    | 44/84 [00:02<00:02, 19.81it/s][A[A
-
-Training on Clinicals Data:  56%|█████▌    | 47/84 [00:02<00:02, 18.32it/s][A[A
-
-Training on Clinicals Data:  58%|█████▊    | 49/84 [00:02<00:01, 17.60it/s][A[A
-
-Training on Clinicals Data:  61%|██████    | 51/84 [00:02<00:01, 18.09it/s][A[A
-
-Training on Clinicals Data:  63%|██████▎   | 53/84 [00:03<00:01, 18.28it/s][A[A
-
-Training on Clinicals Data:  67%|██████▋   | 56/84 [00:03<00:01, 20.09it/s][A[A
-
-Training on Clinicals Data:  70%|███████   | 59/84 [00:03<00:01, 19.94it/s][A[A
-
-Training on Clinicals Data:  74%|███████▍  | 62/84 [00:03<00:01, 18.14it/s][A[A
-
-Training on Clinicals Data:  76%|███████▌  | 64/84 [00:03<00:01, 16.15it/s][A[A
-
-Training on Clinicals Data:  79%|███████▊  | 66/84 [00:03<00:01, 15.61it/s][A[A
-
-Training on Clinicals Data:  81%|████████  | 68/84 [00:03<00:00, 16.18it/s][A[A
-
-Training on Clinicals Data:  83%|████████▎ | 70/84 [00:04<00:00, 16.62it/s][A[A
-
-Training on Clinicals Data:  86%|████████▌ | 72/84 [00:04<00:00, 17.22it/s][A[A
-
-Training on Clinicals Data:  88%|████████▊ | 74/84 [00:04<00:00, 16.68it/s][A[A
-
-Training on Clinicals Data:  90%|█████████ | 76/84 [00:04<00:00, 17.17it/s][A[A
-
-Training on Clinicals Data:  93%|█████████▎| 78/84 [00:04<00:00, 16.73it/s][A[A
-
-Training on Clinicals Data:  95%|█████████▌| 80/84 [00:04<00:00, 16.80it/s][A[A
-
-Training on Clinicals Data:  98%|█████████▊| 82/84 [00:04<00:00, 16.64it/s][A[ATraining on Clinicals Data: 100%|██████████| 84/84 [00:04<00:00, 17.38it/s]
-Client Clinicals Loss: 0.26818899526482537
-
-
-Training on Clinicals Data:   0%|          | 0/84 [00:00<?, ?it/s][A[A
-
-Training on Clinicals Data:   1%|          | 1/84 [00:00<00:13,  6.21it/s][A[A
-
-Training on Clinicals Data:   4%|▎         | 3/84 [00:00<00:06, 12.31it/s][A[A
-
-Training on Clinicals Data:   7%|▋         | 6/84 [00:00<00:04, 17.89it/s][A[A
-
-Training on Clinicals Data:  11%|█         | 9/84 [00:00<00:03, 20.38it/s][A[A
-
-Training on Clinicals Data:  14%|█▍        | 12/84 [00:00<00:03, 21.04it/s][A[A
-
-Training on Clinicals Data:  18%|█▊        | 15/84 [00:00<00:03, 19.06it/s][A[A
-
-Training on Clinicals Data:  21%|██▏       | 18/84 [00:00<00:03, 20.86it/s][A[A
-
-Training on Clinicals Data:  25%|██▌       | 21/84 [00:01<00:02, 22.13it/s][A[A
-
-Training on Clinicals Data:  29%|██▊       | 24/84 [00:01<00:02, 23.06it/s][A[A
-
-Training on Clinicals Data:  32%|███▏      | 27/84 [00:01<00:02, 20.07it/s][A[A
-
-Training on Clinicals Data:  36%|███▌      | 30/84 [00:01<00:02, 21.35it/s][A[A
-
-Training on Clinicals Data:  39%|███▉      | 33/84 [00:01<00:02, 22.04it/s][A[A
-
-Training on Clinicals Data:  43%|████▎     | 36/84 [00:01<00:02, 23.11it/s][A[A
-
-Training on Clinicals Data:  46%|████▋     | 39/84 [00:01<00:02, 20.96it/s][A[A
-
-Training on Clinicals Data:  50%|█████     | 42/84 [00:02<00:01, 21.24it/s][A[A
-
-Training on Clinicals Data:  54%|█████▎    | 45/84 [00:02<00:01, 21.60it/s][A[A
-
-Training on Clinicals Data:  57%|█████▋    | 48/84 [00:02<00:01, 20.76it/s][A[A
-
-Training on Clinicals Data:  61%|██████    | 51/84 [00:02<00:01, 22.06it/s][A[A
-
-Training on Clinicals Data:  64%|██████▍   | 54/84 [00:02<00:01, 22.92it/s][A[A
-
-Training on Clinicals Data:  68%|██████▊   | 57/84 [00:02<00:01, 23.29it/s][A[A
-
-Training on Clinicals Data:  71%|███████▏  | 60/84 [00:02<00:01, 22.03it/s][A[A
-
-Training on Clinicals Data:  75%|███████▌  | 63/84 [00:03<00:01, 19.84it/s][A[A
-
-Training on Clinicals Data:  79%|███████▊  | 66/84 [00:03<00:00, 19.08it/s][A[A
-
-Training on Clinicals Data:  81%|████████  | 68/84 [00:03<00:00, 17.42it/s][A[A
-
-Training on Clinicals Data:  83%|████████▎ | 70/84 [00:03<00:00, 17.35it/s][A[A
-
-Training on Clinicals Data:  86%|████████▌ | 72/84 [00:03<00:00, 17.27it/s][A[A
-
-Training on Clinicals Data:  88%|████████▊ | 74/84 [00:03<00:00, 17.52it/s][A[A
-
-Training on Clinicals Data:  90%|█████████ | 76/84 [00:03<00:00, 17.93it/s][A[A
-
-Training on Clinicals Data:  93%|█████████▎| 78/84 [00:03<00:00, 18.32it/s][A[A
-
-Training on Clinicals Data:  95%|█████████▌| 80/84 [00:04<00:00, 18.36it/s][A[A
-
-Training on Clinicals Data:  98%|█████████▊| 82/84 [00:04<00:00, 17.64it/s][A[A
-
-Training on Clinicals Data: 100%|██████████| 84/84 [00:04<00:00, 16.75it/s][A[ATraining on Clinicals Data: 100%|██████████| 84/84 [00:04<00:00, 19.63it/s]
-Client Clinicals Loss: 0.2545975651592016
-
-
-Training on Clinicals Data:   0%|          | 0/84 [00:00<?, ?it/s][A[A
-
-Training on Clinicals Data:   2%|▏         | 2/84 [00:00<00:05, 14.31it/s][A[A
-
-Training on Clinicals Data:   5%|▍         | 4/84 [00:00<00:04, 16.67it/s][A[A
-
-Training on Clinicals Data:   7%|▋         | 6/84 [00:00<00:04, 17.67it/s][A[A
-
-Training on Clinicals Data:  10%|▉         | 8/84 [00:00<00:04, 18.23it/s][A[A
-
-Training on Clinicals Data:  12%|█▏        | 10/84 [00:00<00:03, 18.61it/s][A[A
-
-Training on Clinicals Data:  14%|█▍        | 12/84 [00:00<00:04, 14.82it/s][A[A
-
-Training on Clinicals Data:  17%|█▋        | 14/84 [00:00<00:04, 14.99it/s][A[A
-
-Training on Clinicals Data:  19%|█▉        | 16/84 [00:00<00:04, 16.11it/s][A[A
-
-Training on Clinicals Data:  21%|██▏       | 18/84 [00:01<00:03, 16.96it/s][A[A
-
-Training on Clinicals Data:  24%|██▍       | 20/84 [00:01<00:03, 16.86it/s][A[A
-
-Training on Clinicals Data:  26%|██▌       | 22/84 [00:01<00:03, 17.53it/s][A[A
-
-Training on Clinicals Data:  29%|██▊       | 24/84 [00:01<00:03, 17.83it/s][A[A
-
-Training on Clinicals Data:  31%|███       | 26/84 [00:01<00:03, 17.30it/s][A[A
-
-Training on Clinicals Data:  33%|███▎      | 28/84 [00:01<00:03, 17.85it/s][A[A
-
-Training on Clinicals Data:  36%|███▌      | 30/84 [00:01<00:02, 18.15it/s][A[A
-
-Training on Clinicals Data:  38%|███▊      | 32/84 [00:01<00:02, 18.48it/s][A[A
-
-Training on Clinicals Data:  42%|████▏     | 35/84 [00:01<00:02, 19.96it/s][A[A
-
-Training on Clinicals Data:  44%|████▍     | 37/84 [00:02<00:02, 19.21it/s][A[A
-
-Training on Clinicals Data:  48%|████▊     | 40/84 [00:02<00:02, 20.23it/s][A[A
-
-Training on Clinicals Data:  51%|█████     | 43/84 [00:02<00:01, 21.63it/s][A[A
-
-Training on Clinicals Data:  55%|█████▍    | 46/84 [00:02<00:01, 21.29it/s][A[A
-
-Training on Clinicals Data:  58%|█████▊    | 49/84 [00:02<00:01, 22.39it/s][A[A
-
-Training on Clinicals Data:  62%|██████▏   | 52/84 [00:02<00:01, 23.03it/s][A[A
-
-Training on Clinicals Data:  65%|██████▌   | 55/84 [00:02<00:01, 20.61it/s][A[A
-
-Training on Clinicals Data:  69%|██████▉   | 58/84 [00:03<00:01, 19.32it/s][A[A
-
-Training on Clinicals Data:  71%|███████▏  | 60/84 [00:03<00:01, 18.75it/s][A[A
-
-Training on Clinicals Data:  74%|███████▍  | 62/84 [00:03<00:01, 19.03it/s][A[A
-
-Training on Clinicals Data:  76%|███████▌  | 64/84 [00:03<00:01, 18.80it/s][A[A
-
-Training on Clinicals Data:  80%|███████▉  | 67/84 [00:03<00:00, 19.81it/s][A[A
-
-Training on Clinicals Data:  83%|████████▎ | 70/84 [00:03<00:00, 20.28it/s][A[A
-
-Training on Clinicals Data:  87%|████████▋ | 73/84 [00:03<00:00, 21.06it/s][A[A
-
-Training on Clinicals Data:  90%|█████████ | 76/84 [00:04<00:00, 19.61it/s][A[A
-
-Training on Clinicals Data:  94%|█████████▍| 79/84 [00:04<00:00, 20.96it/s][A[A
-
-Training on Clinicals Data:  98%|█████████▊| 82/84 [00:04<00:00, 19.81it/s][A[ATraining on Clinicals Data: 100%|██████████| 84/84 [00:04<00:00, 18.98it/s]
-Client Clinicals Loss: 0.25536676052780377
-
-
-Training on Clinicals Data:   0%|          | 0/84 [00:00<?, ?it/s][A[A
-
-Training on Clinicals Data:   1%|          | 1/84 [00:00<00:41,  2.02it/s][A[A
-
-Training on Clinicals Data:   4%|▎         | 3/84 [00:00<00:13,  6.00it/s][A[A
-
-Training on Clinicals Data:   6%|▌         | 5/84 [00:00<00:08,  9.35it/s][A[A
-
-Training on Clinicals Data:   8%|▊         | 7/84 [00:00<00:07, 10.96it/s][A[A
-
-Training on Clinicals Data:  11%|█         | 9/84 [00:00<00:05, 13.13it/s][A[A
-
-Training on Clinicals Data:  13%|█▎        | 11/84 [00:01<00:05, 12.37it/s][A[A
-
-Training on Clinicals Data:  15%|█▌        | 13/84 [00:01<00:05, 14.06it/s][A[A
-
-Training on Clinicals Data:  18%|█▊        | 15/84 [00:01<00:04, 15.42it/s][A[A
-
-Training on Clinicals Data:  20%|██        | 17/84 [00:01<00:04, 15.55it/s][A[A
-
-Training on Clinicals Data:  23%|██▎       | 19/84 [00:01<00:04, 15.99it/s][A[A
-
-Training on Clinicals Data:  25%|██▌       | 21/84 [00:01<00:03, 16.86it/s][A[A
-
-Training on Clinicals Data:  27%|██▋       | 23/84 [00:01<00:03, 16.38it/s][A[A
-
-Training on Clinicals Data:  31%|███       | 26/84 [00:01<00:03, 17.37it/s][A[A
-
-Training on Clinicals Data:  33%|███▎      | 28/84 [00:02<00:03, 17.38it/s][A[A
-
-Training on Clinicals Data:  36%|███▌      | 30/84 [00:02<00:02, 18.03it/s][A[A
-
-Training on Clinicals Data:  38%|███▊      | 32/84 [00:02<00:02, 17.85it/s][A[A
-
-Training on Clinicals Data:  40%|████      | 34/84 [00:02<00:02, 17.60it/s][A[A
-
-Training on Clinicals Data:  43%|████▎     | 36/84 [00:02<00:02, 17.88it/s][A[A
-
-Training on Clinicals Data:  45%|████▌     | 38/84 [00:02<00:02, 18.23it/s][A[A
-
-Training on Clinicals Data:  49%|████▉     | 41/84 [00:02<00:02, 19.82it/s][A[A
-
-Training on Clinicals Data:  52%|█████▏    | 44/84 [00:02<00:01, 21.17it/s][A[A
-
-Training on Clinicals Data:  56%|█████▌    | 47/84 [00:03<00:01, 21.02it/s][A[A
-
-Training on Clinicals Data:  60%|█████▉    | 50/84 [00:03<00:01, 21.26it/s][A[A
-
-Training on Clinicals Data:  63%|██████▎   | 53/84 [00:03<00:01, 22.01it/s][A[A
-
-Training on Clinicals Data:  67%|██████▋   | 56/84 [00:03<00:01, 22.59it/s][A[A
-
-Training on Clinicals Data:  70%|███████   | 59/84 [00:03<00:01, 21.31it/s][A[A
-
-Training on Clinicals Data:  74%|███████▍  | 62/84 [00:03<00:01, 20.45it/s][A[A
-
-Training on Clinicals Data:  77%|███████▋  | 65/84 [00:03<00:00, 20.85it/s][A[A
-
-Training on Clinicals Data:  81%|████████  | 68/84 [00:04<00:00, 20.64it/s][A[A
-
-Training on Clinicals Data:  85%|████████▍ | 71/84 [00:04<00:00, 21.23it/s][A[A
-
-Training on Clinicals Data:  88%|████████▊ | 74/84 [00:04<00:00, 20.69it/s][A[A
-
-Training on Clinicals Data:  92%|█████████▏| 77/84 [00:04<00:00, 20.98it/s][A[A
-
-Training on Clinicals Data:  95%|█████████▌| 80/84 [00:04<00:00, 22.21it/s][A[A
-
-Training on Clinicals Data:  99%|█████████▉| 83/84 [00:04<00:00, 22.79it/s][A[ATraining on Clinicals Data: 100%|██████████| 84/84 [00:04<00:00, 17.78it/s]
-Client Clinicals Loss: 0.2526395499174084
-
-
-Training on Clinicals Data:   0%|          | 0/84 [00:00<?, ?it/s][A[A
-
-Training on Clinicals Data:   2%|▏         | 2/84 [00:00<00:05, 15.52it/s][A[A
-
-Training on Clinicals Data:   5%|▍         | 4/84 [00:00<00:05, 15.52it/s][A[A
-
-Training on Clinicals Data:   8%|▊         | 7/84 [00:00<00:03, 19.59it/s][A[A
-
-Training on Clinicals Data:  12%|█▏        | 10/84 [00:00<00:03, 20.37it/s][A[A
-
-Training on Clinicals Data:  15%|█▌        | 13/84 [00:00<00:03, 21.81it/s][A[A
-
-Training on Clinicals Data:  19%|█▉        | 16/84 [00:00<00:03, 21.07it/s][A[A
-
-Training on Clinicals Data:  23%|██▎       | 19/84 [00:00<00:03, 20.50it/s][A[A
-
-Training on Clinicals Data:  26%|██▌       | 22/84 [00:01<00:03, 19.59it/s][A[A
-
-Training on Clinicals Data:  29%|██▊       | 24/84 [00:01<00:03, 16.45it/s][A[A
-
-Training on Clinicals Data:  31%|███       | 26/84 [00:01<00:03, 17.07it/s][A[A
-
-Training on Clinicals Data:  33%|███▎      | 28/84 [00:01<00:03, 17.60it/s][A[A
-
-Training on Clinicals Data:  37%|███▋      | 31/84 [00:01<00:02, 17.77it/s][A[A
-
-Training on Clinicals Data:  39%|███▉      | 33/84 [00:01<00:02, 18.09it/s][A[A
-
-Training on Clinicals Data:  43%|████▎     | 36/84 [00:01<00:02, 20.12it/s][A[A
-
-Training on Clinicals Data:  46%|████▋     | 39/84 [00:02<00:02, 18.96it/s][A[A
-
-Training on Clinicals Data:  49%|████▉     | 41/84 [00:02<00:02, 19.07it/s][A[A
-
-Training on Clinicals Data:  51%|█████     | 43/84 [00:02<00:02, 19.08it/s][A[A
-
-Training on Clinicals Data:  54%|█████▎    | 45/84 [00:02<00:02, 18.01it/s][A[A
-
-Training on Clinicals Data:  56%|█████▌    | 47/84 [00:02<00:02, 17.36it/s][A[A
-
-Training on Clinicals Data:  58%|█████▊    | 49/84 [00:02<00:02, 17.08it/s][A[A
-
-Training on Clinicals Data:  61%|██████    | 51/84 [00:02<00:01, 17.71it/s][A[A
-
-Training on Clinicals Data:  63%|██████▎   | 53/84 [00:02<00:01, 18.03it/s][A[A
-
-Training on Clinicals Data:  65%|██████▌   | 55/84 [00:02<00:01, 17.60it/s][A[A
-
-Training on Clinicals Data:  69%|██████▉   | 58/84 [00:03<00:01, 19.52it/s][A[A
-
-Training on Clinicals Data:  71%|███████▏  | 60/84 [00:03<00:01, 19.05it/s][A[A
-
-Training on Clinicals Data:  75%|███████▌  | 63/84 [00:03<00:01, 18.41it/s][A[A
-
-Training on Clinicals Data:  77%|███████▋  | 65/84 [00:03<00:01, 18.56it/s][A[A
-
-Training on Clinicals Data:  80%|███████▉  | 67/84 [00:03<00:00, 18.68it/s][A[A
-
-Training on Clinicals Data:  82%|████████▏ | 69/84 [00:03<00:00, 15.46it/s][A[A
-
-Training on Clinicals Data:  85%|████████▍ | 71/84 [00:03<00:00, 15.84it/s][A[A
-
-Training on Clinicals Data:  87%|████████▋ | 73/84 [00:04<00:00, 16.24it/s][A[A
-
-Training on Clinicals Data:  90%|█████████ | 76/84 [00:04<00:00, 17.91it/s][A[A
-
-Training on Clinicals Data:  94%|█████████▍| 79/84 [00:04<00:00, 19.62it/s][A[A
-
-Training on Clinicals Data:  96%|█████████▋| 81/84 [00:04<00:00, 18.81it/s][A[A
-
-Training on Clinicals Data:  99%|█████████▉| 83/84 [00:04<00:00, 19.09it/s][A[ATraining on Clinicals Data: 100%|██████████| 84/84 [00:04<00:00, 18.48it/s]
-Client Clinicals Loss: 0.27050299090998514
-  0%|          | 0/10 [17:30<?, ?it/s]
-Traceback (most recent call last):
-  File "/home/xmw5190/FedMFM/LAMM/src/train.py", line 499, in <module>
-    main(**cfg)
-  File "/home/xmw5190/FedMFM/LAMM/src/train.py", line 447, in main
-    agent.train_model(batch, current_step=current_step, pbar=pbar)
-  File "/home/xmw5190/FedMFM/LAMM/src/model/training_agent.py", line 41, in train_model
-    loss, mle_acc = self.ds_engine(batch)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
-    ret_val = func(*args, **kwargs)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1736, in forward
-    loss = self.module(*inputs, **kwargs)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/xmw5190/FedMFM/LAMM/src/model/Octavius/octavius.py", line 573, in forward
-    self.moe_set_Xattn_gate(
-  File "/home/xmw5190/FedMFM/LAMM/src/model/Octavius/octavius.py", line 518, in moe_set_Xattn_gate
-    input_embeds_0 = embedding_layer(input_tokens_0)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 158, in forward
-    return F.embedding(
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/nn/functional.py", line 2199, in embedding
-    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:1! (when checking argument for argument index in method wrapper__index_select)
-  0%|          | 0/23050 [17:31<?, ?it/s]
-ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 2754709) of binary: /home/xmw5190/.conda/envs/lamm/bin/python
-Traceback (most recent call last):
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/runpy.py", line 196, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/runpy.py", line 86, in _run_code
-    exec(code, run_globals)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/launch.py", line 193, in <module>
-    main()
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/launch.py", line 189, in main
-    launch(args)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/launch.py", line 174, in launch
-    run(args)
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/run.py", line 752, in run
-    elastic_launch(
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/home/xmw5190/.conda/envs/lamm/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 245, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-train.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2024-06-06_16:05:47
-  host      : i4-l-ffm5105-02.ad.psu.edu
-  rank      : 0 (local_rank: 0)
-  exitcode  : 1 (pid: 2754709)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
