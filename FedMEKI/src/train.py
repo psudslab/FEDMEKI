@@ -14,7 +14,7 @@ import yaml
 from model import load_model
 from datasets import load_dataset
 from copy import deepcopy
-from fed_local_4 import * 
+from local_FL import * 
 
 logging.getLogger("transformers").setLevel(logging.WARNING)
 logging.getLogger("transformers.tokenization_utils").setLevel(logging.ERROR)
@@ -195,11 +195,8 @@ def initialize_distributed(args):
     args["master_ip"] = os.getenv("MASTER_ADDR", "localhost")
     args["master_port"] = os.getenv("MASTER_PORT", "6000")
     args["world_size"] = int(os.getenv("WORLD_SIZE", "1"))
-    args["local_rank"] = 1 % torch.cuda.device_count()
-    # args["local_rank"] = int(os.getenv("RANK", "0")) % torch.cuda.device_count()
-    # args["world_size"] = 2
-    # args["local_rank"] = 1
-    os.environ['LOCAL_RANK']='1'
+    args["local_rank"] = 0 % torch.cuda.device_count()
+    os.environ['LOCAL_RANK']='0'
     device = args["local_rank"] % torch.cuda.device_count()
     torch.cuda.set_device(device)
     deepspeed.init_distributed(dist_backend="nccl")
@@ -276,14 +273,30 @@ def main(**args):
         logging.info("xxx enable xformers attention.")
         replace_llama_attn_with_xformers_attn()
 
+
+
+    server_rsna_data_path = path_to_server_rsna_data  
+    server_covid_data_path = path_to_server_covid_data  
+    server_ecg_data_path = path_to_server_ecg_data  
+    server_clinical_data_path = path_to_server_clinical_data 
+    
+    client_rsna_data_path = path_to_client_rsna_data
+    client_covid_data_path = path_to_client_covid_data
+    client_ecg_data_path = path_to_client_ecg_data
+    client_clinical_data_path = path_to_client_clinical_data
+    
+    test_rsna_data_path = path_to_test_rsna_data
+    test_covid_data_path = path_to_test_covid_data
+    test_ecg_data_path = path_to_test_ecg_data
+    test_clinical_data_path = path_to_test_clinical_data
+
+    
+    
     # Load the datasets
-    
-    
-    
-    RSNA_train_data, RSNA_train_iter, _ = load_dataset(args, "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_server.json")
-    covid_train_data, covid_train_iter, _ = load_dataset(args, "/data/xiaochen/FedMFM/preprocessed_jsons/covid_server.json")
-    mortality_train_data, mortality_train_iter, _ = load_dataset(args, "/data/xiaochen/FedMFM/preprocessed_jsons/mortality_server.json")
-    ecg_train_data, ecg_train_iter, _ = load_dataset(args, "/data/xiaochen/FedMFM/preprocessed_jsons/ecg_server.json")
+    RSNA_train_data, RSNA_train_iter, _ = load_dataset(args, server_rsna_data_path)
+    covid_train_data, covid_train_iter, _ = load_dataset(args, server_covid_data_path)
+    mortality_train_data, mortality_train_iter, _ = load_dataset(args, server_ecg_data_path)
+    ecg_train_data, ecg_train_iter, _ = load_dataset(args, server_clinical_data_path)
 
     # Combine all data loaders
     train_iters = [
@@ -293,58 +306,13 @@ def main(**args):
         ('image', RSNA_train_iter),
         ('covid', covid_train_iter)
     ]
-
-    # Calculate the length and total steps
-    length = (
-        args["epochs"]
-        * sum(len(data) for data in [RSNA_train_data, covid_train_data, mortality_train_data, ecg_train_data])
-        # * sum(len(data) for data in [RSNA_train_data])
-        // args["world_size"]
-        // dschf.config["train_micro_batch_size_per_gpu"]
-    )
-    total_steps = args["epochs"] * sum(len(data) for data in [RSNA_train_data, covid_train_data, mortality_train_data, ecg_train_data]) // dschf.config["train_batch_size"]
-    args["total_steps"] = total_steps
-
-    # Load the model
-    agent = load_model(args)
-    
-
-    
-#    for param in agent.model.parameters():
-#        param.requires_grad = False
-#     agent.model.llama_model.base_model.model.model.tok_embeddings.weight.requires_grad = False 
-
-
-
-    # Barrier for distributed training
-    torch.distributed.barrier()
-
-    # Save training arguments
-    with open(os.path.join(args["log_path"], "training_args.yaml"), "w") as fw:
-        yaml.dump(args, fw)
-
-    # Initialize progress bar
-    pbar = tqdm(total=length)  # maximum total number
-    current_step = 0
-
-    client_image_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_client.json"
-    client_covid_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/covid_client.json"
-    client_ecg_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/ecg_client.json"
-    client_clinical_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/mortality_client.json"
-
-    test_image_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_test.json"
-    test_covid_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
-    test_ecg_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/ecg_test.json"
-    test_clinical_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/mortality_test.json"
-
+  
     modalities = ['image', 'covid', 'ecg', 'clinicals']
-    # modalities = ['clinicals']
-    #modalities = ['clinicals']
     loaders = {}
     for modality in modalities:
         if modality == 'image':
-            image_paths, image_labels = parse_data(client_image_data_path, 'image')
-            test_image_paths, test_image_labels = parse_data(test_image_data_path, 'image')
+            image_paths, image_labels = parse_data(client_rsna_data_path, 'image')
+            test_image_paths, test_image_labels = parse_data(test_rsna_data_path, 'image')
             loaders['train_image'] = DataLoader(ImageDataset(image_paths, image_labels, AutoFeatureExtractor.from_pretrained('facebook/deit-tiny-distilled-patch16-224')), batch_size=32, shuffle=True)
             loaders['test_image'] = DataLoader(ImageDataset(test_image_paths, test_image_labels, AutoFeatureExtractor.from_pretrained('facebook/deit-tiny-distilled-patch16-224')), batch_size=32, shuffle=False)
         elif modality == 'covid':
@@ -363,7 +331,42 @@ def main(**args):
             loaders['train_clinicals'] = DataLoader(ClinicalDataset(clinical_data, clinical_labels), batch_size=32, shuffle=True)
             loaders['test_clinicals'] = DataLoader(ClinicalDataset(test_clinical_data, test_clinical_labels), batch_size=32, shuffle=False)
 
-    device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+    
+    
+    
+    # Calculate the length and total steps
+    length = (
+        args["epochs"]
+        * sum(len(data) for data in [RSNA_train_data, covid_train_data, mortality_train_data, ecg_train_data])
+        # * sum(len(data) for data in [RSNA_train_data])
+        // args["world_size"]
+        // dschf.config["train_micro_batch_size_per_gpu"]
+    )
+    total_steps = args["epochs"] * sum(len(data) for data in [RSNA_train_data, covid_train_data, mortality_train_data, ecg_train_data]) // dschf.config["train_batch_size"]
+    args["total_steps"] = total_steps
+
+    # Load the model
+    agent = load_model(args)
+    
+
+
+
+
+    # Barrier for distributed training
+    torch.distributed.barrier()
+
+    # Save training arguments
+    with open(os.path.join(args["log_path"], "training_args.yaml"), "w") as fw:
+        yaml.dump(args, fw)
+
+    # Initialize progress bar
+    pbar = tqdm(total=length)  # maximum total number
+    current_step = 0
+
+
+    # Specify the modalities you would like to cover    
+
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     
     
     
@@ -456,31 +459,7 @@ def main(**args):
               torch.save(local_model, save_path + '/' + "local.pt")
 
 
-#    if int(args["num_clients"]) != 0:
-#        save_path = args["save_path"] + '/' + str(args["num_clients"])
-#        torch.save(local_model, save_path + '/' + "local.pt")
-#        new_state_dict_fp32 = deepcopy(agent.model.visual_encoder.state_dict())
-#        new_state_dict_fp16 = {key: value.half() for key, value in new_state_dict_fp32.items()}
-#        local_model.visual_encoder.load_state_dict(new_state_dict_fp16)
-#        new_state_dict_fp32 = deepcopy(agent.model.signal_module.state_dict())
-#        new_state_dict_fp16 = {key: value.half() for key, value in new_state_dict_fp32.items()}
-#        local_model.signal_module.load_state_dict(new_state_dict_fp16)
-#        new_state_dict_fp32 = deepcopy(agent.model.clinical_module.state_dict())
-#        new_state_dict_fp16 = {key: value.half() for key, value in new_state_dict_fp32.items()}
-#        local_model.clinical_module.load_state_dict(new_state_dict_fp16)
-#        local_model = federated_training(
-#            image_loader=loaders.get('train_image'),
-#            covid_loader=loaders.get('train_covid'),
-#            ecg_loader=loaders.get('train_ecg'),
-#            clinical_loader=loaders.get('train_clinicals'),
-#            use_server_data=False,
-#            server_model=local_model,
-#            epochs=1,
-#            use_amp=True,
-#            num_clients=5,
-#            federate_learning=True,
-#            device=device
-#        )
+
     save_path = args["save_path"] + '/' + str(args["num_clients"])
     if int(args["num_clients"]) != 0:
         torch.save(local_model, save_path + '/' + "local.pt")

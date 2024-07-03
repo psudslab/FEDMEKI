@@ -489,8 +489,17 @@ class FedProxClient:
         self.model.cpu()
         return running_loss / len(loader)
         
-def federated_training(image_loader=None, covid_loader=None, ecg_loader=None, clinical_loader=None, server_model=None, classifier=None, num_clients=5, epochs=1, use_server_data=False, federate_learning=True, use_amp=False, device = None):
+        
+
+def federated_training(image_loader=None, covid_loader=None, ecg_loader=None, clinical_loader=None, server_model=None, classifier=None, num_clients=5, epochs=1, use_server_data=False, federate_learning=True, use_amp=False, device = None, fl_method = 'FedAvg'):
     # Setup
+    # Set your path to corresponding json files
+    server_rsna_data_path = path_to_server_rsna_data  
+    server_covid_data_path = path_to_server_covid_data  
+    server_ecg_data_path = path_to_server_ecg_data  
+    server_clinical_data_path = path_to_server_clinical_data  
+    
+    
     normal_batch_size = 64
     clients = []
     if not device:
@@ -513,70 +522,97 @@ def federated_training(image_loader=None, covid_loader=None, ecg_loader=None, cl
 
         for i in range(num_clients):
             model = deepcopy(global_model)
-            clients.append(FedAvgClient(
-            #  clients.append(FedProxClient(
-                model,
-                DataLoader(client_image_datasets[i], batch_size=normal_batch_size, shuffle=True) if image_loader else None,
-                DataLoader(client_covid_datasets[i], batch_size=normal_batch_size, shuffle=True) if covid_loader else None,
-                DataLoader(client_ecg_datasets[i], batch_size=normal_batch_size, shuffle=True) if ecg_loader else None,
-                DataLoader(client_clinical_datasets[i], batch_size=normal_batch_size, shuffle=True) if clinical_loader else None,
-                criterion,
-                device,
-                use_amp=use_amp
-            ))
+            if fl_method == 'FedAvg':
+                clients.append(FedAvgClient(
+                    model,
+                    DataLoader(client_image_datasets[i], batch_size=normal_batch_size, shuffle=True) if image_loader else None,
+                    DataLoader(client_covid_datasets[i], batch_size=normal_batch_size, shuffle=True) if covid_loader else None,
+                    DataLoader(client_ecg_datasets[i], batch_size=normal_batch_size, shuffle=True) if ecg_loader else None,
+                    DataLoader(client_clinical_datasets[i], batch_size=normal_batch_size, shuffle=True) if clinical_loader else None,
+                    criterion,
+                    device,
+                    use_amp=use_amp
+                ))
+          elif fl_method == 'FedProx':
+              clients.append(FedProxClient(
+                    model,
+                    DataLoader(client_image_datasets[i], batch_size=normal_batch_size, shuffle=True) if image_loader else None,
+                    DataLoader(client_covid_datasets[i], batch_size=normal_batch_size, shuffle=True) if covid_loader else None,
+                    DataLoader(client_ecg_datasets[i], batch_size=normal_batch_size, shuffle=True) if ecg_loader else None,
+                    DataLoader(client_clinical_datasets[i], batch_size=normal_batch_size, shuffle=True) if clinical_loader else None,
+                    criterion,
+                    device,
+                    use_amp=use_amp
+                ))
     
     if use_server_data:
         server_image_loader, server_covid_loader, server_ecg_loader, server_clinical_loader = None, None, None, None
         if image_loader:
-            server_image_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_server.json"
-            server_image_paths, server_image_labels = parse_data(server_image_data_path, 'image')
+            server_image_paths, server_image_labels = parse_data(server_rsna_data_path, 'image')
             server_image_dataset = ImageDataset(server_image_paths, server_image_labels, feature_extractor)
             server_image_loader = DataLoader(server_image_dataset, batch_size=normal_batch_size, shuffle=True)
         if covid_loader:
-            server_covid_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/covid_server.json"
             server_covid_paths, server_covid_labels = parse_data(server_covid_data_path, 'covid')
             server_covid_dataset = ImageDataset(server_covid_paths, server_covid_labels, feature_extractor)
             server_covid_loader = DataLoader(server_covid_dataset, batch_size=normal_batch_size, shuffle=True)
         if ecg_loader:
-            server_ecg_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/ecg_server.json"
             server_ecg_paths, server_ecg_labels = parse_data(server_ecg_data_path, 'ecg')
             server_ecg_dataset = ECGDataset(server_ecg_paths, server_ecg_labels)
             server_ecg_loader = DataLoader(server_ecg_dataset, batch_size=normal_batch_size, shuffle=True)
         if clinical_loader:
-            server_clinical_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/mortality_server.json"
             server_clinical_paths, server_clinical_labels = parse_data(server_clinical_data_path, 'clinicals')
             server_clinical_dataset = ClinicalDataset(server_clinical_paths, server_clinical_labels)
             server_clinical_loader = DataLoader(server_clinical_dataset, batch_size=normal_batch_size, shuffle=True)
 
         server_optimizer = optim.Adam(global_model.parameters(), lr=0.0001)
         server_scaler = torch.cuda.amp.GradScaler() if use_amp else None
-        server = FedAvgClient(
-        # server = FedProxClient(
-            global_model,
-            server_image_loader if server_image_loader else None,
-            server_covid_loader if server_covid_loader else None,
-            server_ecg_loader if server_ecg_loader else None,
-            server_clinical_loader if server_clinical_loader else None,
-            criterion,
-            device,
-            use_amp=use_amp
-        )
-        
+        if fl_method == 'FedAvg':
+            server = FedAvgClient(
+                global_model,
+                server_image_loader if server_image_loader else None,
+                server_covid_loader if server_covid_loader else None,
+                server_ecg_loader if server_ecg_loader else None,
+                server_clinical_loader if server_clinical_loader else None,
+                criterion,
+                device,
+                use_amp=use_amp
+            )
+        elif if fl_method == 'FedProx':
+            server = FedProxClient(
+                    global_model,
+                    server_image_loader if server_image_loader else None,
+                    server_covid_loader if server_covid_loader else None,
+                    server_ecg_loader if server_ecg_loader else None,
+                    server_clinical_loader if server_clinical_loader else None,
+                    criterion,
+                    device,
+                    use_amp=use_amp
+                )
         if server_model:
             server.model.load_state_dict(server_model.float().state_dict())
     else:
-        server = FedAvgClient(
-        # server = FedProxClient(
-            global_model,
-            None,
-            None,
-            None,
-            None,
-            criterion,
-            device,
-            use_amp=use_amp
-        )
-    print("use prox")
+        if fl_method == 'FedAvg':
+            server = FedAvgClient(
+                global_model,
+                None,
+                None,
+                None,
+                None,
+                criterion,
+                device,
+                use_amp=use_amp
+            )
+        else:
+            server = FedProxClient(
+                global_model,
+                None,
+                None,
+                None,
+                None,
+                criterion,
+                device,
+                use_amp=use_amp
+            )
     if federate_learning:
         for epoch in range(epochs):
             print(f"Epoch {epoch+1}")
@@ -624,18 +660,28 @@ def federated_training(image_loader=None, covid_loader=None, ecg_loader=None, cl
             raise ValueError("If federate_learning is False, use_server_data must be True to perform fine-tuning on server data.")
 
 if __name__ == '__main__':
-    # Load client data
-    client_image_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_client.json"
-    client_covid_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/covid_client.json"
-    client_ecg_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/ecg_client.json"
-    client_clinical_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/mortality_client.json"
 
+    # Set your path to corresponding json files
+    # Load client data
+    client_rsna_data_path = path_to_client_rsna_data
+    client_covid_data_path = path_to_client_covid_data
+    client_ecg_data_path = path_to_client_ecg_data
+    client_clinical_data_path = path_to_client_clinical_data
+
+    # Load test data
+    test_rsna_data_path = path_to_test_rsna_data
+    test_covid_data_path = path_to_test_covid_data
+    test_ecg_data_path = path_to_test_ecg_data
+    test_clinical_data_path = path_to_test_clinical_data
+
+    
     # Specify the modalities to be used
-    modalities = ['covid']
+    modalities = ['image', 'covid', 'ecg', 'clinicals']
+    
     device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
     # Initialize dictionaries to hold the paths and labels
     client_data_paths = {
-        'image': client_image_data_path,
+        'image': client_rsna_data_path,
         'covid': client_covid_data_path,
         'ecg': client_ecg_data_path,
         'clinicals': client_clinical_data_path
@@ -677,13 +723,9 @@ if __name__ == '__main__':
     )
 
     # Test data paths
-    test_image_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/RSNA_test.json"
-    test_covid_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/covid_test.json"
-    test_ecg_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/ecg_test.json"
-    test_clinical_data_path = "/data/xiaochen/FedMFM/preprocessed_jsons/mortality_test.json"
-
+    
     test_data_paths = {
-        'image': test_image_data_path,
+        'image': test_rsna_data_path,
         'covid': test_covid_data_path,
         'ecg': test_ecg_data_path,
         'clinicals': test_clinical_data_path
@@ -714,7 +756,7 @@ if __name__ == '__main__':
 
 
     if test_data_loaders['image']:
-        print("Evaluating Image Model:")
+        print("Evaluating Lung Opacity Image Model:")
         global_model.set_task('lung_opacity')  # Set the task as needed
         evaluate_image_model(global_model, test_data_loaders['image'], device)
 

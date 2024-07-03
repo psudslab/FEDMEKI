@@ -72,15 +72,18 @@ def split_few_shot_test(data, num_samples=1000):
     return few_shot_test_data
 
 # Load the data from the JSON file
-data_path = "/data/xiaochen/MEDVQA/Slake/Slake1.0/test.json"
+data_path = path_to_your_slake_test_json
+# data_path = "/data/xiaochen/MEDVQA/Slake/Slake1.0/test.json"
 data = load_data(data_path)
 
 # Transform the data and create the few-shot test set
-image_base_path = "/data/xiaochen/MEDVQA/Slake/Slake1.0/imgs/"
+data_path = path_to_your_slake_test_json
+# image_base_path = "/data/xiaochen/MEDVQA/Slake/Slake1.0/imgs/"
 few_shot_test_data = split_few_shot_test(data, num_samples=1000)
 
 # Save the transformed few-shot test data
-few_shot_test_json_path = '/data/xiaochen/FedMFM/preprocessed_jsons/slake_few_shot_test.json'
+few_shot_test_json_path = path_to_your_save_json
+# few_shot_test_json_path = '/data/xiaochen/FedMFM/preprocessed_jsons/slake_few_shot_test.json'
 transform_slake_format(few_shot_test_data, few_shot_test_json_path, image_base_path)
 
 print(f"{len(few_shot_test_data)} samples split from test data and saved to {few_shot_test_json_path}")

@@ -45,7 +45,7 @@ class TestOctavius(TestBase):
     def move_to_device(self):
         if torch.cuda.is_available():
             self.dtype = torch.float16
-            self.device = 'cuda:1'
+            self.device = 'cuda:0'
         else:
             self.dtype = torch.float32
             self.device = 'cpu'

@@ -31,7 +31,7 @@ lora_r: 8 # 32
 lora_alpha: 32
 lora_dropout: 0.1
 lora_target_modules: ['wqkv', 'wo', 'w1', 'w2', 'w3', 'output']
-moe_lora_num_experts: 8 
+moe_lora_num_experts: 12 
 moe_gate_mode: top2_gate
 
 
@@ -52,9 +52,9 @@ loop_3d: 0
 
 # deepspeed arguments
 deepspeed:
-  train_batch_size: 128  # Total effective batch size
+  train_batch_size: 16  # Total effective batch size
   train_micro_batch_size_per_gpu: 4  # Micro-batch size per GPU
-  gradient_accumulation_steps: 32  # Gradient accumulation steps
+  gradient_accumulation_steps: 4    # Gradient accumulation steps
   gradient_clipping: 1
   steps_per_print: 1
 

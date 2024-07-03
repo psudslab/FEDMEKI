@@ -36,8 +36,8 @@ class CIFAR10Dataset(Dataset):
 
 class FedKIDataset(Dataset):
     task_name = 'lung opacity classification'
-    # dataset_name = 'RSNA'
-    dataset_name = 'MedQA'
+    dataset_name = 'RSNA'
+    # dataset_name = 'MedQA'
     def __init__(self, base_data_path, ppl=False, split='', **kwargs):
         self.base_data_path = base_data_path
         super().__init__()

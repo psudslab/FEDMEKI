@@ -25,32 +25,12 @@ def make_prompt_start(
     task_type: List[str],
     template=conversations.default_conversation
 ) -> List[str]:
-    # print(vision_type)
     PROMPT_START = [
         f'{template.sep} {template.roles[0]}: {VISION_TAGS["sov"][vision_type_i]}'
         for vision_type_i in vision_type
     ]
 
-    # if use_system:
-    #     if task_type == "normal":
-    #         return [
-    #             f"{template.system}\n\n" + prompt_start_i 
-    #             for prompt_start_i in PROMPT_START
-    #         ]
-    #     else:
-    #         if template.sys_temp is None:
-    #             return [
-    #                 f"{conversations.conversation_dict[task]}\n\n" + PROMPT_START[i]
-    #                 for i, task in enumerate(task_type)
-    #             ]
-    #         else:
-    #             return [
-    #                 template.sys_temp.format(system_message=conversations.conversation_dict[task]) + PROMPT_START[i]
-    #                 for i, task in enumerate(task_type)
-    #             ]
 
-    # else:
-    #     return PROMPT_START
     return PROMPT_START
 
 
@@ -165,9 +145,9 @@ class Octavius(LAMMPEFTModel):
         assert self.gate_mode in ['top2_gate']
         self.num_experts = self.args['moe_lora_num_experts']
         
-#        self.gating_network = Top2Gating(
-#           self.llama_model.config.hidden_size, self.num_experts
-#       )
+        #self.gating_network = Top2Gating(
+        #   self.llama_model.config.hidden_size, self.num_experts
+       #)
         self.gating_network = CrossAttentionBasedGating(
             self.llama_model.config.hidden_size, self.num_experts, 8
         )
@@ -175,7 +155,7 @@ class Octavius(LAMMPEFTModel):
         self.device = torch.cuda.current_device()
         
         # self.llama_model.base_model.model.model.tok_embeddings.weight.requires_grad = True 
-        self.device = "cuda:1"
+        # self.device = "cuda:1"
 
     def build_projection_layer(self):
         pass
@@ -570,11 +550,12 @@ class Octavius(LAMMPEFTModel):
         input_texts += inputs['input_texts']
 
         
-        self.moe_set_Xattn_gate(
-            task_types,
-            modalities,
-            self.device,
-        )
+#        self.moe_set_Xattn_gate(
+#            task_types,
+#            modalities,
+#            self.device,
+#        )
+        self.moe_set_Xattn_gate(modalities, task_types, self.device)
         #self.moe_set_gate(
         #     modalities,
         #     self.device,
@@ -668,30 +649,7 @@ class Octavius(LAMMPEFTModel):
             return output  # B x 3 x 224 x 224
             # return torch.rand((2,3,224,224)).to(device)
        
-    # def extract_multimodal_feature(self, inputs):
-    #     if 'images' in inputs and inputs["images"]:  # image objects input in testing
-    #         self.vision_type = "image"
-    #         images = self.transform_vision_data(inputs['images'], self.device)
-    #         image_embeds = self.encode_image(images)
-    #         return image_embeds 
-        
-    #     if 'image_paths' in inputs and inputs["image_paths"]:
-    #         self.vision_type = "image"
-    #         image_paths = inputs['image_paths']
-    #         images = self.load_and_transform_image_data_clip(
-    #             image_paths, self.device
-    #         ).to(self.llama_model.dtype)  # bsz x 3 x 224 x 224
-    #         image_embeds = self.encode_image(images)
-    #         return image_embeds
 
-    #     features = []
-    #     self.vision_type = "pcl"
-    #     pcl_embeds = self.encode_pcl(inputs)
-    #     features.append(pcl_embeds)
-    #     feature_embeds = (
-    #         torch.cat(features).sum(dim=0).unsqueeze(0)
-    #     )  # sum all modality features together
-    #     return feature_embeds
 
     def extract_multimodal_feature(self, inputs):
 
@@ -815,51 +773,22 @@ class Octavius(LAMMPEFTModel):
         """
         
 
-        self.moe_set_Xattn_gate(task, modalities, self.device)
-#        self.moe_set_gate(
-#             modalities,
-#             self.device,
-#         )
-        input_embeds, input_masks, prompt_embeds = self.prepare_generation_embedding(inputs)
-#        print(inputs)
-#        print(input_embeds.shape)
-#        print(input_masks.shape)
-#        print(prompt_embeds.shape)
-
-        # print(inputs)
-        # tokenized = self.llama_tokenizer(inputs["prompt"], return_tensors="pt", add_special_tokens=False, padding = True).to(self.device)
-        # input_ids = tokenized.input_ids
-        # attention_mask = tokenized.attention_mask
-        # outputs = self.llama_model(
-        #     input_ids=input_ids,
-        #     attention_mask=attention_mask,
-        #     return_dict=True,
-        #     labels=None,
+       #  self.moe_set_Xattn_gate(task, modalities, self.device)
+        self.moe_set_Xattn_gate(modalities, task, self.device)
+        #self.moe_set_gate(
+       #      modalities,
+       #      self.device,
         # )
-        
+        input_embeds, input_masks, prompt_embeds = self.prepare_generation_embedding(inputs)
+
         stopping_criteria = StoppingCriteriaList(
             [LAMMStoppingCriteria([[2277, 29937], [835], [1, 2]], input_embeds)]
         )
-        
-        # embedding_layer = self.llama_model.model.model.get_input_embeddings()
-        # if task:
-        #     task = embedding_layer(task)
-        # if modalities:
-        #     modalities = embedding_layer(modalities)
-            
 
-        
-        # self.moe_set_Xattn_gate(
-        #     task_types,
-        #     modalities,
-        #     inputs_embeds.device,
-        # )  
 
         outputs = self.llama_model.generate(
             inputs_embeds=input_embeds,
             attention_mask=input_masks,
-            # input_ids=input_ids,
-            # attention_mask=attention_mask,
             max_new_tokens=inputs["max_tgt_len"],
             top_p=inputs["top_p"],
             temperature=inputs["temperature"],

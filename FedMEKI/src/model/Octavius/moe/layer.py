@@ -334,7 +334,7 @@ class MoeLinear(nn.Linear, MoeLoraLayer):
                     out = torch.einsum('bned,be->bned', out, soft_gate)
                 
                 out = out.sum(dim=2)
-                result#  += out
+                result += out
     
             else:
                 result = F.linear(x, transpose(self.weight, self.fan_in_fan_out), bias=self.bias)
