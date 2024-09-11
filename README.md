@@ -103,9 +103,21 @@ We show the selected results as below. More details can be found in the paper.
 - If you would like to contribute to this repository, please contact [Jiaqi Wang](mailto:jqwang@psu.edu) or [Xiaochen Wang](mailto:xcwang@psu.edu).
 - This implementation is partially borrowed from Octavius (https://github.com/OpenGVLab/LAMM/tree/main/src/model/Octavius). We would like to extend our appreciation to the authors of this paper: <em><strong>Octavius: Mitigating Task Interference in MLLMs via LoRA-MoE</strong></em>
 
+## Citation
+If you find any sources provided in this repo or our paper are useful, please cite our paper using this BibTex:
+
+```bibtex
+@article{wang2024fedmeki,
+  title={FEDMEKI: A Benchmark for Scaling Medical Foundation Models via Federated Knowledge Injection},
+  author={Wang, Jiaqi and Wang, Xiaochen and Lyu, Lingjuan and Chen, Jinghui and Ma, Fenglong},
+  journal={arXiv preprint arXiv:2408.09227},
+  year={2024}
+}
+```
+
 ## Acknowledgements
 FEDMEKI is partially supported by the National Science Foundation under Grant No. 2238275, 2333790, 2348541, and the National Institutes of Health under Grant No. R01AG077016.
 
-Last updated: June 2024.
+Last updated: September 2024.
 
 
